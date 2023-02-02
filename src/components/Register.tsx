@@ -7,14 +7,53 @@ import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import Button from "@mui/material/Button";
+import FlatButton from "@mui/material/Button";
+import { useNavigate } from "react-router-dom";
 
 export default function Register() {
+
+  //Két jelszó kezelése
   const [showPassword1, setShowPassword1] = React.useState(false);
   const handleClickShowPassword = () => setShowPassword1((show) => !show);
 
   const [showPassword2, setShowPassword2] = React.useState(false);
   const handleClickShowPasswordAgain = () => setShowPassword2((show) => !show);
+
+
+  
+  // Adatok
+    const [, setResponse] = React.useState("");
+    const [last_name, setLastName] = React.useState("");
+    const [first_name, setFirstName] = React.useState("");
+    const [email, setEmail] = React.useState("");
+    const [password, setPassword] = React.useState("");
+
+    // Gomb megnyomása után POST és redirect
+    let navigate = useNavigate(); 
+    const handleClick = async () => {
+      try{
+        const res = await fetch("http://localhost:8080/user/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            first_name: first_name,
+            last_name: last_name,
+            email: email,
+            password: password,
+          }),
+        });
+
+        const json = await res.json();
+        setResponse(json.message)
+      } catch (error){
+        setResponse("Error: {error.message}");
+      }
+
+      let path = './Menu'; 
+      navigate(path);
+    };
 
   return (
     <Box
@@ -49,7 +88,7 @@ export default function Register() {
         mt: 10,
       }}
     >
-      <form>
+      <form onSubmit={handleClick}>
         <h1>Regisztráció</h1>
 
         {/* Vezetéknév */}
@@ -64,6 +103,8 @@ export default function Register() {
             Vezetéknév
           </InputLabel>
           <Input
+            value={last_name}
+            onChange={(e) => setLastName(e.target.value)}
             aria-describedby="standard-weight-helper-text"
             inputProps={{
               "aria-label": "Vezetéknév",
@@ -83,6 +124,8 @@ export default function Register() {
             Keresztnév
           </InputLabel>
           <Input
+            value={first_name}
+            onChange={(e) => setFirstName(e.target.value)}
             aria-describedby="standard-weight-helper-text"
             inputProps={{
               "aria-label": "Keresztnév",
@@ -102,6 +145,8 @@ export default function Register() {
             Email cím
           </InputLabel>
           <Input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             aria-describedby="standard-weight-helper-text"
             inputProps={{
               "aria-label": "Emailcím",
@@ -119,6 +164,8 @@ export default function Register() {
         >
           <InputLabel htmlFor="standard-adornment-password">Jelszó</InputLabel>
           <Input
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             type={showPassword1 ? "text" : "password"}
             endAdornment={
               <InputAdornment position="end">
@@ -158,7 +205,8 @@ export default function Register() {
             }
           />
         </FormControl>
-        <Button
+        <FlatButton
+          type="submit"
           variant="contained"
           sx={{ mt: 5, mb: 5 }}
           style={{
@@ -168,7 +216,7 @@ export default function Register() {
           }}
         >
           Regisztrálás
-        </Button>
+        </FlatButton>
         <p>
           Van már fiókod? <a href="./login">Bejelentkezés</a>
         </p>
