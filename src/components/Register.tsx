@@ -10,8 +10,14 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import FlatButton from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 
-export default function Register() {
+interface User {
+  first_name: string;
+  last_name: string;
+  email: string;
+  password: string;
+}
 
+export default function Register() {
   //Két jelszó kezelése
   const [showPassword1, setShowPassword1] = React.useState(false);
   const handleClickShowPassword = () => setShowPassword1((show) => !show);
@@ -19,41 +25,77 @@ export default function Register() {
   const [showPassword2, setShowPassword2] = React.useState(false);
   const handleClickShowPasswordAgain = () => setShowPassword2((show) => !show);
 
-
-  
   // Adatok
-    const [, setResponse] = React.useState("");
-    const [last_name, setLastName] = React.useState("");
-    const [first_name, setFirstName] = React.useState("");
-    const [email, setEmail] = React.useState("");
-    const [password, setPassword] = React.useState("");
+  const [, setResponse] = React.useState("");
+  const [last_name, setLastName] = React.useState("");
+  const [first_name, setFirstName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [password2, setPassword2] = React.useState("");
 
-    // Gomb megnyomása után POST és redirect
-    let navigate = useNavigate(); 
-    const handleClick = async () => {
-      try{
+  //Regex validation patterns
+  const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+  const emailRegex =
+    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+  const nameRegex = /^\p{L}+$/iu;
+
+  // Regex validation error messages
+  const [firstNameError, setFirstNameError] = React.useState("");
+  const [lastNameError, setLastNameError] = React.useState("");
+  const [emailError, setEmailError] = React.useState("");
+  const [passwordError, setPasswordError] = React.useState("");
+  const [password2Error, setPassword2Error] = React.useState("");
+
+  // Gomb megnyomása után POST és redirect
+  let navigate = useNavigate();
+
+  const handleClick = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    //Reset the error messages
+
+    setFirstNameError("");
+    setLastNameError("");
+    setEmailError("");
+    setPasswordError("");
+
+    // Validate inputs
+    if (!nameRegex.test(last_name)) {
+      setLastNameError(
+        "Vezetéknév legalább 2 betű és csak betűket tartalmazhat"
+      );
+    } else if (!nameRegex.test(first_name)) {
+      setFirstNameError(
+        "Keresztnév legalább 2 betű és csak betűket tartalmazhat"
+      );
+    } else if (!emailRegex.test(email)) {
+      setEmailError("nem megfelelő e-mail formátum");
+    } else if (!passwordRegex.test(password)) {
+      setPasswordError(
+        "A jelszó legalább 8 karakteres és tartalmaznia kell számot is"
+      );
+    } else if (password != password2) {
+      setPassword2Error("A két jelszó nem egyezik!");
+    } else {
+      // POST the user data
+      const data: User = { first_name, last_name, email, password };
+      try {
         const res = await fetch("http://localhost:8080/user/register", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({
-            first_name: first_name,
-            last_name: last_name,
-            email: email,
-            password: password,
-          }),
+          body: JSON.stringify(data),
         });
 
         const json = await res.json();
-        setResponse(json.message)
-      } catch (error){
+        setResponse(json.message);
+      } catch (error) {
         setResponse("Error: {error.message}");
       }
-
-      let path = './Menu'; 
-      navigate(path);
-    };
+      navigate("/");
+    }
+  };
 
   return (
     <Box
@@ -93,15 +135,8 @@ export default function Register() {
 
         {/* Vezetéknév */}
 
-        <FormControl
-          required
-          fullWidth
-          variant="standard"
-          sx={{ m: 1, width: "40ch" }}
-        >
-          <InputLabel htmlFor="standard-adornment-password">
-            Vezetéknév
-          </InputLabel>
+        <FormControl fullWidth variant="standard" sx={{ m: 1, width: "40ch" }}>
+          <InputLabel>Vezetéknév</InputLabel>
           <Input
             value={last_name}
             onChange={(e) => setLastName(e.target.value)}
@@ -110,19 +145,17 @@ export default function Register() {
               "aria-label": "Vezetéknév",
             }}
           />
+          {lastNameError && (
+            <Box color="error.main">
+              <Box id="last-name-error-text">{lastNameError}</Box>
+            </Box>
+          )}
         </FormControl>
 
         {/* Keresztnév */}
 
-        <FormControl
-          required
-          fullWidth
-          variant="standard"
-          sx={{ m: 1, width: "40ch" }}
-        >
-          <InputLabel htmlFor="standard-adornment-password">
-            Keresztnév
-          </InputLabel>
+        <FormControl fullWidth variant="standard" sx={{ m: 1, width: "40ch" }}>
+          <InputLabel>Keresztnév</InputLabel>
           <Input
             value={first_name}
             onChange={(e) => setFirstName(e.target.value)}
@@ -131,19 +164,17 @@ export default function Register() {
               "aria-label": "Keresztnév",
             }}
           />
+          {firstNameError && (
+            <Box color="error.main">
+              <Box id="first-name-error-text">{firstNameError}</Box>
+            </Box>
+          )}
         </FormControl>
 
         {/* Email cím */}
 
-        <FormControl
-          required
-          fullWidth
-          variant="standard"
-          sx={{ m: 1, width: "40ch" }}
-        >
-          <InputLabel htmlFor="standard-adornment-password">
-            Email cím
-          </InputLabel>
+        <FormControl fullWidth variant="standard" sx={{ m: 1, width: "40ch" }}>
+          <InputLabel>Email cím</InputLabel>
           <Input
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -152,16 +183,16 @@ export default function Register() {
               "aria-label": "Emailcím",
             }}
           />
+          {emailError && (
+            <Box color="error.main">
+              <Box id="email-error-text">{emailError}</Box>
+            </Box>
+          )}
         </FormControl>
 
         {/* Jelszó */}
 
-        <FormControl
-          required
-          fullWidth
-          sx={{ m: 1, width: "40ch" }}
-          variant="standard"
-        >
+        <FormControl fullWidth sx={{ m: 1, width: "40ch" }} variant="standard">
           <InputLabel htmlFor="standard-adornment-password">Jelszó</InputLabel>
           <Input
             value={password}
@@ -178,20 +209,20 @@ export default function Register() {
               </InputAdornment>
             }
           />
+          {passwordError && (
+            <Box color="error.main">
+              <Box id="password-error-text">{passwordError}</Box>
+            </Box>
+          )}
         </FormControl>
 
         {/* Jelszó mégegyszer */}
 
-        <FormControl
-          required
-          fullWidth
-          sx={{ m: 1, width: "40ch" }}
-          variant="standard"
-        >
-          <InputLabel htmlFor="standard-adornment-password">
-            Jelszó újra
-          </InputLabel>
+        <FormControl fullWidth sx={{ m: 1, width: "40ch" }} variant="standard">
+          <InputLabel htmlFor="standard-adornment-password">Jelszó újra</InputLabel>
           <Input
+            value={password2}
+            onChange={(e) => setPassword2(e.target.value)}
             type={showPassword2 ? "text" : "password"}
             endAdornment={
               <InputAdornment position="end">
@@ -204,7 +235,13 @@ export default function Register() {
               </InputAdornment>
             }
           />
+          {password2Error && (
+            <Box color="error.main">
+              <Box id="password2-error-text">{password2Error}</Box>
+            </Box>
+          )}
         </FormControl>
+
         <FlatButton
           type="submit"
           variant="contained"
@@ -223,4 +260,4 @@ export default function Register() {
       </form>
     </Box>
   );
-};
+}
