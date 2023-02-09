@@ -16,6 +16,8 @@ interface User {
 }
 
 export default function Login() {
+  const [loginError, setLoginError] = React.useState("");
+
   const [showPassword, setShowPassword] = React.useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -27,8 +29,10 @@ export default function Login() {
   let navigate = useNavigate();
 
   const handleClick = async (event: React.FormEvent<HTMLFormElement>) => {
-    const data: User = { email, password };
     event.preventDefault();
+    const data: User = { email, password };
+
+    setLoginError("");
     try {
       const res = await fetch("http://localhost:8080/user/login", {
         method: "POST",
@@ -37,12 +41,14 @@ export default function Login() {
         },
         body: JSON.stringify(data),
       });
-
-      const json = await res.json();
-      const token = json["jwttoken"];
-      localStorage.setItem("token", token);
-      console.log(json);
-      navigate("/welcomepage");
+      if (res.ok) {
+        const json = await res.json();
+        const token = json["jwttoken"];
+        localStorage.setItem("token", token);
+        navigate("/welcomepage");
+      }else{
+        setLoginError("Felhasználónév és jelszó páros nem megfelelő!");
+      }
     } catch (error) {
       console.log(error);
     }
@@ -131,7 +137,11 @@ export default function Login() {
             }
           />
         </FormControl>
-
+        {loginError && (
+          <Box color="error.main">
+            <Box id="login-error-text">{loginError}</Box>
+          </Box>
+        )}
         <FlatButton
           type="submit"
           variant="contained"
