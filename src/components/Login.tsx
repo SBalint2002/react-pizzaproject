@@ -9,7 +9,6 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import FlatButton from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
-import UserProfile from "./UserProfile";
 
 interface User {
   email: string;
@@ -40,9 +39,9 @@ export default function Login() {
       });
 
       const json = await res.json();
-      UserProfile.setToken(json["jwttoken"]);
+      const token = json["jwttoken"];
+      localStorage.setItem("token", token);
       console.log(json);
-      console.log(UserProfile.getToken());
       navigate("/welcomepage");
     } catch (error) {
       console.log(error);
