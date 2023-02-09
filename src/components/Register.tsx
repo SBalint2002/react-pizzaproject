@@ -9,7 +9,6 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import FlatButton from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
-import "./LogReg.css";
 
 interface User {
   first_name: string;
@@ -27,7 +26,6 @@ export default function Register() {
   const handleClickShowPasswordAgain = () => setShowPassword2((show) => !show);
 
   // Adatok
-  const [, setResponse] = React.useState("");
   const [last_name, setLastName] = React.useState("");
   const [first_name, setFirstName] = React.useState("");
   const [email, setEmail] = React.useState("");
@@ -90,9 +88,9 @@ export default function Register() {
         });
 
         const json = await res.json();
-        setResponse(json.message);
+        console.log(json.message);
       } catch (error) {
-        setResponse("Error: {error.message}");
+        console.log("Sikertelen regisztráció")
       }
       navigate("/");
     }
