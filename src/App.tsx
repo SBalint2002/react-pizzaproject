@@ -5,6 +5,7 @@ import Registerform from "./components/Register";
 import Loginform from "./components/Login";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Homepage from "./components/Homepage";
+import Welcomepage from "./components/Welcomepage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
     <Appbar/>
     <Routes>
       <Route path="/" element={<Homepage/>}/>
+      <Route path="/welcomepage" element={<Welcomepage/>}/>
       <Route path="/login" element={<Loginform />} />
       <Route path="/register" element={<Registerform />} />
     </Routes>

@@ -9,19 +9,18 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import FlatButton from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
+import UserProfile from "./UserProfile";
 
 interface User {
   email: string;
   password: string;
 }
 
-
 export default function Login() {
   const [showPassword, setShowPassword] = React.useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   // Adatok
-  const [, setResponse] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
@@ -31,48 +30,44 @@ export default function Login() {
   const handleClick = async (event: React.FormEvent<HTMLFormElement>) => {
     const data: User = { email, password };
     event.preventDefault();
-      try {
-        const res = await fetch("http://localhost:8080/user/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        });
+    try {
+      const res = await fetch("http://localhost:8080/user/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-        const json = await res.json();
-        setResponse(json.message);
-        console.log("bejut")
-
-        //TODO: GLOBÁLIS VÁLTOZÓBA USER ADATOK
-
-        navigate("/");
-      } catch (error) {
-        setResponse("Error: {error.message}");
-        console.log(error)
-      }
+      const json = await res.json();
+      UserProfile.setToken(json["jwttoken"]);
+      console.log(json);
+      console.log(UserProfile.getToken());
+      navigate("/welcomepage");
+    } catch (error) {
+      console.log(error);
+    }
   };
-
 
   return (
     <Box
       sx={{
         flexWrap: "wrap",
         flexDirection: "column",
-        width: '30%',
-        '@media (max-width: 1200px)': {
-          width: '40%',
+        width: "30%",
+        "@media (max-width: 1200px)": {
+          width: "40%",
         },
-        '@media (max-width: 1000px)': {
-          width: '50%',
+        "@media (max-width: 1000px)": {
+          width: "50%",
         },
-        '@media (max-width: 800px)': {
-          width: '60%',
+        "@media (max-width: 800px)": {
+          width: "60%",
         },
-        '@media (max-width: 600px)': {
-          width: '75%',
+        "@media (max-width: 600px)": {
+          width: "75%",
         },
-        Minwidth: '30%', 
+        Minwidth: "30%",
         alignItems: "center",
         border: "1px solid",
         borderColor: (theme) =>
@@ -146,7 +141,9 @@ export default function Login() {
         >
           Bejelentkezés
         </FlatButton>
-        <p>Még nem regisztráltál? <a href="./register">Regisztrálás</a></p>
+        <p>
+          Még nem regisztráltál? <a href="./register">Regisztrálás</a>
+        </p>
       </form>
     </Box>
   );
