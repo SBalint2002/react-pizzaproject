@@ -79,7 +79,7 @@ export default function Register() {
       // POST the user data
       const data: User = { first_name, last_name, email, password };
       try {
-        const res = await fetch("http://localhost:8080/user/register", {
+       fetch("http://localhost:8080/user/register", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -87,8 +87,6 @@ export default function Register() {
           body: JSON.stringify(data),
         });
 
-        const json = await res.json();
-        console.log(json.message);
       } catch (error) {
         console.log("Sikertelen regisztráció")
       }
@@ -254,7 +252,7 @@ export default function Register() {
           Regisztrálás
         </FlatButton>
         <p>
-          Van már fiókod? <a href="./login">Bejelentkezés</a>
+          Van már fiókod? <a href="./Login">Bejelentkezés</a>
         </p>
       </form>
     </Box>

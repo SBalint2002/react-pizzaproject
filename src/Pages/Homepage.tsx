@@ -4,8 +4,8 @@ export default function Homepage() {
     <div>
       <br />
         <h1>Üdv az oldalon!</h1>
-        <a href="./login">Bejelentkezés</a><br/>
-        <a href="./register">Regisztráció</a>
+        <a href="./Login">Bejelentkezés</a><br/>
+        <a href="./Register">Regisztráció</a>
     </div>
   );
 }

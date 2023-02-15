@@ -1,11 +1,11 @@
 import "./App.css";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import Appbar from "./components/Appbar";
-import Registerform from "./components/Register";
-import Loginform from "./components/Login";
+import Registerform from "./Pages/Register";
+import Loginform from "./Pages/Login";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Homepage from "./components/Homepage";
-import Welcomepage from "./components/Welcomepage";
+import Homepage from "./Pages/Homepage";
+import Welcomepage from "./Pages/Welcomepage";
 
 function App() {
   return (
