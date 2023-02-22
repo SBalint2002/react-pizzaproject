@@ -1,4 +1,5 @@
 import * as React from "react";
+import { authFetch } from "../Util";
 
 export default function Welcomepage() {
   const [id, setId] = React.useState(0);
@@ -10,37 +11,31 @@ export default function Welcomepage() {
   React.useEffect(() => {
     const fetchData = async () => {
       try {
-        const token = localStorage.getItem("token");
-        const res = await fetch("http://localhost:8080/user/data", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization":"Bearer " + token,
-          },
+        const res = await authFetch('http://localhost:8080/user/data', {
+          method: 'GET'
         });
+
+        //Amikor visszakapok egy dzsészönt
+        /* const json = await res.json();
+        json.maikaja; */
 
         if (res.ok) {
           const json = await res.json();
 
           const id = json.id;
           setId(id);
-          localStorage.setItem("id", id);
 
           const last_name = json.last_name;
           setLastName(last_name);
-          localStorage.setItem("last_name", last_name);
 
           const first_name = json.first_name;
           setFirstName(first_name);
-          localStorage.setItem("first_name", first_name);
 
           const email = json.email;
           setEmail(email);
-          localStorage.setItem("email", email);
 
           const admin = json.admin;
           setAdmin(admin);
-          localStorage.setItem("admin", admin);
           if(admin){
             setAdmin("true")
           }else{
@@ -60,13 +55,13 @@ export default function Welcomepage() {
   });
 
   return (
-    <>
-      <h1>Helló {lastName}!</h1>
-      <p>Id: {id}</p>
-      <p>First name: {firstName}</p>
-      <p>Last name: {lastName}</p>
-      <p>Email: {email}</p>
-      <p>Admin: {admin}</p>
-    </>
+      <>
+        <h1>Helló {lastName}!</h1>
+        <p>Id: {id}</p>
+        <p>First name: {firstName}</p>
+        <p>Last name: {lastName}</p>
+        <p>Email: {email}</p>
+        <p>Admin: {admin}</p>
+      </>
   );
 }

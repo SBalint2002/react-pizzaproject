@@ -1,0 +1,19 @@
+.carousel-item {
+    height: 25rem;
+
+}
+.carousel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.5);
+
+}
+
+@media only screen and (max-width: 991px) {
+    .carousel-item {
+        height: 19rem;
+    }
+}

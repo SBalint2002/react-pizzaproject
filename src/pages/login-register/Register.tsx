@@ -9,6 +9,9 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import FlatButton from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
+import PersonIcon from '@mui/icons-material/Person';
+import EmailIcon from '@mui/icons-material/Email';
+import LockIcon from '@mui/icons-material/Lock';
 
 interface User {
   first_name: string;
@@ -77,20 +80,27 @@ export default function Register() {
       setPassword2Error("A két jelszó nem egyezik!");
     } else {
       // POST the user data
-      const data: User = { first_name, last_name, email, password };
-      try {
-       fetch("http://localhost:8080/user/register", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        });
-
-      } catch (error) {
-        console.log("Sikertelen regisztráció")
-      }
-      navigate("/");
+        const data: User = { first_name, last_name, email, password };
+        try {
+            const res = await fetch("http://localhost:8080/user/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            });
+            if (res.ok) {
+                const json = await res.json();
+                const accesstoken = json["jwttoken"];
+                const refreshtoken = json["refreshToken"];
+                console.log(refreshtoken);
+                localStorage.setItem("Accesstoken", accesstoken);
+                localStorage.setItem("Refreshtoken", refreshtoken);
+                navigate("/welcomepage");
+            }
+        } catch (error) {
+            console.log(error);
+        }
     }
   };
 
@@ -133,7 +143,8 @@ export default function Register() {
         {/* Vezetéknév */}
 
         <FormControl fullWidth variant="standard" sx={{ m: 1, width: "40ch" }}>
-          <InputLabel>Vezetéknév</InputLabel>
+
+          <InputLabel><PersonIcon/> Vezetéknév</InputLabel>
           <Input
             value={last_name}
             onChange={(e) => setLastName(e.target.value)}
@@ -152,7 +163,7 @@ export default function Register() {
         {/* Keresztnév */}
 
         <FormControl fullWidth variant="standard" sx={{ m: 1, width: "40ch" }}>
-          <InputLabel>Keresztnév</InputLabel>
+          <InputLabel><PersonIcon/> Keresztnév</InputLabel>
           <Input
             value={first_name}
             onChange={(e) => setFirstName(e.target.value)}
@@ -171,7 +182,7 @@ export default function Register() {
         {/* Email cím */}
 
         <FormControl fullWidth variant="standard" sx={{ m: 1, width: "40ch" }}>
-          <InputLabel>Email cím</InputLabel>
+          <InputLabel> <EmailIcon/> Email cím</InputLabel>
           <Input
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -190,7 +201,7 @@ export default function Register() {
         {/* Jelszó */}
 
         <FormControl fullWidth sx={{ m: 1, width: "40ch" }} variant="standard">
-          <InputLabel htmlFor="standard-adornment-password">Jelszó</InputLabel>
+          <InputLabel htmlFor="standard-adornment-password"> <LockIcon/> Jelszó</InputLabel>
           <Input
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -216,7 +227,7 @@ export default function Register() {
         {/* Jelszó mégegyszer */}
 
         <FormControl fullWidth sx={{ m: 1, width: "40ch" }} variant="standard">
-          <InputLabel htmlFor="standard-adornment-password">Jelszó újra</InputLabel>
+          <InputLabel htmlFor="standard-adornment-password"><LockIcon/> Jelszó újra</InputLabel>
           <Input
             value={password2}
             onChange={(e) => setPassword2(e.target.value)}
