@@ -38,11 +38,11 @@ export async function authFetch(url: string, info?: RequestInit): Promise<Respon
 
     if (res.status == 451) {
         // invalid access token
-        const access = await refreshToken();
-        if (!access){
-            window.location.href = '/login';
-            throw new Error('Refresh token invalid');
-        }
+        // const access = await refreshToken();
+        // if (!access){
+        //     window.location.href = '/login';
+        //     throw new Error('Refresh token invalid');
+        // }
             
         
         localStorage.setItem('Accesstoken', access);

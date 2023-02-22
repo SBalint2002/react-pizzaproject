@@ -1,9 +1,15 @@
 #eltol{
-    padding-left: 68%;
+    padding-left: 65%;
 }
 
 #basic-navbar-nav{
     color:white;
+}
+
+@media only screen and (max-width: 1191px) {
+    #eltol{
+        padding-left: 60%;
+    }
 }
 
 @media only screen and (max-width: 991px) {

@@ -56,7 +56,8 @@ export default function Welcomepage() {
 
   return (
       <>
-        <h1>Helló {lastName}!</h1>
+        <div style={{marginTop:"40px"}}></div>
+        <h1>Helló {lastName} {firstName}!</h1>
         <p>Id: {id}</p>
         <p>First name: {firstName}</p>
         <p>Last name: {lastName}</p>

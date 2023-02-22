@@ -6,9 +6,15 @@ import {Link} from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import PersonButton from "./ProfileButton";
 export default function Appbar() {
     const [expanded, setExpanded] = useState(false);
     const closeMenu = () => setExpanded(false);
+
+    const LogOut=()=>{
+        localStorage.setItem("Accesstoken", "");
+        localStorage.setItem("Refreshtoken", "");
+    }
 
     return (
         <>
@@ -42,12 +48,13 @@ export default function Appbar() {
                                 </Link>
                             </Nav.Link>
                             <Nav.Link onClick={closeMenu}>
-                                <Link style={{ textDecoration: 'none', color: 'white' }} to="/login">
-                                    Bejelentkezés
+                                <Link onClick={LogOut} style={{ textDecoration: 'none', color: 'white' }} to="/">
+                                    Kijelentkezés
                                 </Link>
                             </Nav.Link>
                         </Nav>
                         <div id="eltol"> <Nav.Item ><ShoppingCartButton/></Nav.Item> </div>
+                        <div> <Nav.Item ><PersonButton/></Nav.Item> </div>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
