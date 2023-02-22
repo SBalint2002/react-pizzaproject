@@ -28,8 +28,8 @@ function ImgSlider() {
     return (
 
         <Carousel style={{marginTop: "40px"}} >
-            {url.map(x=>
-                <Carousel.Item interval={3000}>
+            {url.map((x,i)=>
+                <Carousel.Item key={i} interval={3000}>
                     <div>
                     <img
                         className="fixed d-block w-100"
