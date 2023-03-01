@@ -8,6 +8,7 @@ import Homepage from "./pages/Homepage";
 import Welcomepage from "./pages/Welcomepage";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from "./components/footer/Footer";
+import MenuPage from "./pages/MenuPage";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
                         <Route path="/welcomepage" element={<Welcomepage/>}/>
                         <Route path="/login" element={<Loginform/>}/>
                         <Route path="/register" element={<Registerform/>}/>
+                        <Route path="/menu" element={<MenuPage/>}/>
                     </Routes>
                 </div>
                 <Footer/>

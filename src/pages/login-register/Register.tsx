@@ -8,7 +8,7 @@ import FormControl from "@mui/material/FormControl";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import FlatButton from "@mui/material/Button";
-import { useNavigate } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import PersonIcon from '@mui/icons-material/Person';
 import EmailIcon from '@mui/icons-material/Email';
 import LockIcon from '@mui/icons-material/Lock';
@@ -263,7 +263,7 @@ export default function Register() {
           Regisztrálás
         </FlatButton>
         <p>
-          Van már fiókod? <a href="./Login">Bejelentkezés</a>
+          Van már fiókod? <Link to="./Login">Bejelentkezés</Link>
         </p>
       </form>
     </Box>
