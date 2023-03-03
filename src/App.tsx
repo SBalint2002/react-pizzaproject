@@ -9,23 +9,27 @@ import Welcomepage from "./pages/Welcomepage";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from "./components/footer/Footer";
 import MenuPage from "./pages/MenuPage";
+import {UserProvider, UserContext} from "./components/userContext/UserContextProvider";
+import React from "react";
 
 
 function App() {
     return (
-        <Router>
-                <div className="App">
-                    <Appbar/>
-                    <Routes>
-                        <Route path="/" element={<Homepage/>}/>
-                        <Route path="/welcomepage" element={<Welcomepage/>}/>
-                        <Route path="/login" element={<Loginform/>}/>
-                        <Route path="/register" element={<Registerform/>}/>
-                        <Route path="/menu" element={<MenuPage/>}/>
-                    </Routes>
-                </div>
-                <Footer/>
-        </Router>
+            <Router>
+                    <UserProvider>
+                    <div className="App">
+                        <Appbar />
+                        <Routes>
+                            <Route path="/" element={<Homepage />} />
+                            <Route path="/welcomepage" element={<Welcomepage />} />
+                            <Route path="/login" element={<Loginform />} />
+                            <Route path="/register" element={<Registerform />} />
+                            <Route path="/menu" element={<MenuPage />} />
+                        </Routes>
+                    </div>
+                    </UserProvider>
+                <Footer />
+            </Router>
     );
 }
 

@@ -8,7 +8,8 @@ interface ItemCardWriterProps{
 export default function ItemCardsWriter({list} : ItemCardWriterProps ){
 
     return(
-      list.map(item=><ItemCard price={item.price} image={item.image} name={item.name} description={item.description}></ItemCard>)
+      list.map(item=>
+          <ItemCard price={item.price} image={item.image} name={item.name} description={item.description}/>)
     )
 
 }

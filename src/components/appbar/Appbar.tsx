@@ -1,6 +1,6 @@
 import "./Appbar.css";
 import "../../App.css";
-import React, { useEffect, useState } from "react";
+import React, {useContext, useState} from "react";
 import ShoppingCartButton from "./CartButton";
 import { Link } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
@@ -8,27 +8,16 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import PersonButton from "./ProfileButton";
 import LinkTo from "./LinkTo";
+import {useUser} from "../userContext/UserContextProvider";
 
 export default function Appbar() {
     const [expanded, setExpanded] = useState(false);
-    const [loggedIn, setLoggedIn] = useState(false);
+    const { user, logOut } = useUser();
+
+    const handleLogout = () => {
+        logOut();
+    };
     const closeMenu = () => setExpanded(false);
-
-    useEffect(() => {
-        if (localStorage.getItem('Accesstoken')) {
-            setLoggedIn(true);
-        } else {
-            setLoggedIn(false);
-        }
-
-        console.log(localStorage.getItem('Accesstoken'));
-    }, []);
-
-    const LogOut = () => {
-        localStorage.setItem("Accesstoken", "");
-        localStorage.setItem("Refreshtoken", "");
-    }
-
     return (
         <>
             <Navbar
@@ -52,11 +41,11 @@ export default function Appbar() {
                         <Nav>
                             <LinkTo to="/menu" text="Menü" closeMenu={closeMenu} />
                             <LinkTo to="/" text="Kezdőlap" closeMenu={closeMenu} />
-                            <LinkTo to="/" text="Kijelentkezés" onClick={LogOut} closeMenu={closeMenu} />
+                            <LinkTo to="/" text="Kijelentkezés" onClick={handleLogout} closeMenu={closeMenu} />
                         </Nav>
 
                         <div id="eltol">
-                            {loggedIn ?
+                            {user ?
                                 <Nav.Item><PersonButton /></Nav.Item> :
                                 <div style={{ width: '30px' }}></div>
                             }
