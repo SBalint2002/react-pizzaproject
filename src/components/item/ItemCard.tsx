@@ -4,13 +4,14 @@ import pizza from '../../img/pizza.jpg';
 import Button from "@mui/material/Button";
 
 export type ProductProps = {
-    image: string;
+    id: number;
+    picture: string;
     name: string;
     description: string;
     price: number;
 };
 
-const ProductCard = ({ image, name, description, price }: ProductProps) => {
+const ProductCard = ({id, picture, name, description, price }: ProductProps) => {
     const handleBuy = () => {
 
     };
@@ -18,7 +19,7 @@ const ProductCard = ({ image, name, description, price }: ProductProps) => {
     return (
         <div className="card">
 
-            <img src={image} alt={name} />
+            <img src={picture} alt={name} />
 
             <div>
                 <h2>{name}</h2>

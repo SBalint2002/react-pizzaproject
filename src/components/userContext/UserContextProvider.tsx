@@ -25,14 +25,9 @@ export const UserProvider: React.FC<PropsWithChildren<{}>> = ({ children }) => {
 
     const logOut = () => {
         setUser(null);
+        localStorage.setItem("Accesstoken", "")
+        localStorage.setItem("Refreshtoken", "")
     };
-
-    useEffect(() => {
-        fetch('/api/user') //TODO: 'Elérés'
-            .then((response) => response.json())
-            .then((data) => setUser(data.user))
-            .catch((error) => console.error(error));
-    }, []);
 
     return <UserContext.Provider value={{ user, logIn, logOut }}>{children}</UserContext.Provider>;
 };

@@ -1,6 +1,6 @@
 import "./Appbar.css";
 import "../../App.css";
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import ShoppingCartButton from "./CartButton";
 import { Link } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
@@ -9,6 +9,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import PersonButton from "./ProfileButton";
 import LinkTo from "./LinkTo";
 import {useUser} from "../userContext/UserContextProvider";
+import {authFetch} from "../../Util";
 
 export default function Appbar() {
     const [expanded, setExpanded] = useState(false);
@@ -16,7 +17,30 @@ export default function Appbar() {
 
     const handleLogout = () => {
         logOut();
-    };
+};
+
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await authFetch('http://localhost:8080/user/data', {
+                    method: 'GET'
+                });
+
+                if (res.ok) {
+
+                } else {
+                    console.log("Invalid token")
+                }
+            } catch (error) {
+                console.log("Sikertelen lekérés")
+                console.log(error);
+            }
+        };
+
+        fetchData();
+    });
+
     const closeMenu = () => setExpanded(false);
     return (
         <>
