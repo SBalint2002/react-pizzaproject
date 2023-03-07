@@ -19,28 +19,6 @@ export default function Appbar() {
         logOut();
 };
 
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const res = await authFetch('http://localhost:8080/user/data', {
-                    method: 'GET'
-                });
-
-                if (res.ok) {
-
-                } else {
-                    console.log("Invalid token")
-                }
-            } catch (error) {
-                console.log("Sikertelen lekérés")
-                console.log(error);
-            }
-        };
-
-        fetchData();
-    });
-
     const closeMenu = () => setExpanded(false);
     return (
         <>
@@ -63,19 +41,16 @@ export default function Appbar() {
                     />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav>
-                            <LinkTo to="/menu" text="Menü" closeMenu={closeMenu} />
+                            <LinkTo to="/menu" text="Rendelés" closeMenu={closeMenu} />
                             <LinkTo to="/" text="Kezdőlap" closeMenu={closeMenu} />
                             <LinkTo to="/" text="Kijelentkezés" onClick={handleLogout} closeMenu={closeMenu} />
                         </Nav>
 
-                        <div id="eltol">
-                            {user ?
-                                <Nav.Item><PersonButton /></Nav.Item> :
+                        <div id="eltol" >
+                                <Nav.Item onClick={closeMenu}><PersonButton  /></Nav.Item>
                                 <div style={{ width: '30px' }}></div>
-                            }
                         </div>
-
-                        <div><Nav.Item><ShoppingCartButton /></Nav.Item> </div>
+                        <div><Nav.Item onClick={closeMenu}><ShoppingCartButton /></Nav.Item> </div>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

@@ -206,16 +206,6 @@ export default function Register() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             type={showPassword1 ? "text" : "password"}
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowPassword}
-                >
-                  {showPassword1 ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            }
           />
           {passwordError && (
             <Box color="error.main">
@@ -232,16 +222,6 @@ export default function Register() {
             value={password2}
             onChange={(e) => setPassword2(e.target.value)}
             type={showPassword2 ? "text" : "password"}
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowPasswordAgain}
-                >
-                  {showPassword2 ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            }
           />
           {password2Error && (
             <Box color="error.main">

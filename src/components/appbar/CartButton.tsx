@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import Button from "@mui/material/Button";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
-const ShoppingCartButton=()=>{
-    return(
-        <Button style={{color: "inhereted"}}><ShoppingCartIcon style={{color:'white'}}/></Button>
+const ShoppingCartButton = () => {
+    return (
+        <Button style={{color: "inhereted"}}><ShoppingCartIcon style={{color: 'white'}}/></Button>
     )
 }
 
