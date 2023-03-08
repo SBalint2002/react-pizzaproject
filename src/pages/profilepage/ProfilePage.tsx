@@ -2,12 +2,19 @@ import * as React from "react";
 import { authFetch } from "../../Util";
 import "./ProfilePage.css";
 import { useEffect, useState } from "react";
+import {useUser} from "../../components/userContext/UserContextProvider";
 
 export default function ProfilePage() {
     const [id, setId] = useState(0);
     const [lastName, setLastName] = useState("");
     const [firstName, setFirstName] = useState("");
     const [email, setEmail] = useState("");
+    const [message,setMessage] = useState("")
+    const { user, logOut } = useUser();
+
+    const handleLogout = () => {
+        logOut();
+    };
 
     const emailRegex =
         /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
@@ -54,6 +61,7 @@ export default function ProfilePage() {
             });
 
             if (res.ok) {
+                setMessage("Adatok sikeresen módosítva!")
                 console.log("User updated successfully!");
             } else {
                 console.log("Failed to update user");
@@ -101,9 +109,11 @@ export default function ProfilePage() {
                             </td>
                         </tr>
                         </tbody>
-                    </table>
+                    </table> <br/>
+                    {message}
                     <hr />
-                    <button type="submit">Módosítás</button>
+                    <button type="submit">Módosítás</button> <br/>
+                    <button onClick={handleLogout}>Kijelentkezés</button>
                 </form>
             </div>
         </div>

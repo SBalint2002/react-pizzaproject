@@ -1,6 +1,5 @@
 import React from "react";
 import './ItemCard.css'
-import pizza from '../../img/pizza.jpg';
 import Button from "@mui/material/Button";
 
 export type ProductProps = {

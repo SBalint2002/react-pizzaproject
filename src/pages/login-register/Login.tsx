@@ -52,7 +52,7 @@ export default function Login() {
 
               localStorage.setItem("Accesstoken", accesstoken);
               localStorage.setItem("Refreshtoken", refreshtoken);
-              navigate("/welcomepage");
+              navigate("/");
           }else{
               setLoginError("Felhasználónév és jelszó páros nem megfelelő!");
           }
