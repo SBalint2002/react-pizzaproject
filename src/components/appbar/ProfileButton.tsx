@@ -13,7 +13,7 @@ const PersonButton = () => {
                 method: "GET",
             });
             if (res.ok) {
-                navigate("/welcomepage");
+                navigate("/profile");
             } else {
                 navigate("/login");
             }

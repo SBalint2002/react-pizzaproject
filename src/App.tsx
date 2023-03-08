@@ -5,7 +5,7 @@ import Registerform from "./pages/login-register/Register";
 import Loginform from "./pages/login-register/Login";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Homepage from "./pages/Homepage";
-import Welcomepage from "./pages/Welcomepage";
+import ProfilePage from "./pages/profilepage/ProfilePage";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from "./components/footer/Footer";
 import MenuPage from "./pages/MenuPage";
@@ -21,7 +21,7 @@ function App() {
                         <Appbar />
                         <Routes>
                             <Route path="/" element={<Homepage />} />
-                            <Route path="/welcomepage" element={<Welcomepage />} />
+                            <Route path="/profile" element={<ProfilePage />} />
                             <Route path="/login" element={<Loginform />} />
                             <Route path="/register" element={<Registerform />} />
                             <Route path="/menu" element={<MenuPage />} />
