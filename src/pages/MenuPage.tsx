@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ItemCardsWriter, { ItemCardsWriterProps } from "../components/item/ItemCardWriter";
 import Container from "react-bootstrap/Container";
-import { ProductProps } from "../components/item/ItemCard";
+import { ProductProps } from "../components/userContext/UserContextProvider";
 
 export default function MenuPage() {
     const [pizzas, setPizzas] = useState<ProductProps[]>([]);

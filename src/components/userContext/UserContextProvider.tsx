@@ -1,8 +1,15 @@
-import React, { createContext, PropsWithChildren, useContext, useEffect, useState } from 'react';
+import React, { createContext, PropsWithChildren, useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ProductProps } from '../item/ItemCard';
 
-interface OrderProduct extends ProductProps{
+export interface ProductProps {
+    id: number;
+    picture: string;
+    name: string;
+    description: string;
+    price: number;
+}
+
+export interface OrderProduct extends ProductProps {
     count: number;
 }
 
@@ -36,9 +43,14 @@ export const UserProvider: React.FC<PropsWithChildren<{}>> = ({ children }) => {
         localStorage.setItem('Refreshtoken', '');
     };
 
-    return (
-        <UserContext.Provider value={{ user, logOut, orderList, setOrderList }}>
-            {children}
-        </UserContext.Provider>
-    );
+    const contextValue: UserContextType = {
+        user,
+        logOut,
+        orderList,
+        setOrderList,
+    };
+
+    return <UserContext.Provider value={contextValue}>
+        {children}
+    </UserContext.Provider>;
 };

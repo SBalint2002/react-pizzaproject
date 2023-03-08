@@ -1,5 +1,6 @@
 import React from "react";
-import ItemCard, { ProductProps } from "./ItemCard";
+import ItemCard from "./ItemCard";
+import {ProductProps} from "../userContext/UserContextProvider";
 
 export interface ItemCardsWriterProps {
     list: ProductProps[];
