@@ -1,0 +1,18 @@
+img{
+max-width: 100%;
+}
+
+table:nth-child(1) td {
+    width: 20%;
+}
+
+table {
+    border-collapse:separate;
+    border-spacing: 0 2em;
+}
+
+.tr{
+    box-shadow: 3px 3px 5px 6px #ccc;
+    margin: 20px;
+}
+

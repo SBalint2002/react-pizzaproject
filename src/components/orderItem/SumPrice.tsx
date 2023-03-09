@@ -1,5 +1,6 @@
 import React from "react";
 import { OrderProduct } from "../userContext/UserContextProvider";
+import "./OrderItem.css";
 
 type SumProps = {
     orderList: OrderProduct[];

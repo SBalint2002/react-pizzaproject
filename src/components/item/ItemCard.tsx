@@ -2,6 +2,8 @@ import React, {useEffect} from "react";
 import "./ItemCard.css";
 import Button from "@mui/material/Button";
 import {useUser, OrderProduct, ProductProps} from "../userContext/UserContextProvider";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ProductCard = ({id, picture, name, description, price}: ProductProps) => {
     const {hasNewOrder,setHasNewOrder,orderList, setOrderList} = useUser();
@@ -18,6 +20,16 @@ const ProductCard = ({id, picture, name, description, price}: ProductProps) => {
                 count: 1,
             },
         ]);
+
+        toast.success('Sikeresen hozzáadva a kosárhoz!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
 
         // if (orderList.length>0){
         //     setInterval(()=>{

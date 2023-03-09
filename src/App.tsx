@@ -12,6 +12,10 @@ import MenuPage from "./pages/MenuPage";
 import {UserProvider, UserContext} from "./components/userContext/UserContextProvider";
 import React from "react";
 import Orderpage from "./pages/orderpage/Orderpage";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 
 function App() {
@@ -28,6 +32,18 @@ function App() {
                             <Route path="/menu" element={<MenuPage />} />
                             <Route path="/order" element={<Orderpage />} />
                         </Routes>
+                        <ToastContainer
+                            style={{marginTop: "40px"}}
+                            position="top-right"
+                            autoClose={3000}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss
+                            draggable
+                            pauseOnHover
+                        />
                     </div>
                     </UserProvider>
                 <Footer />

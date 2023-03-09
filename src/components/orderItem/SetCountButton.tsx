@@ -2,6 +2,9 @@ import React from "react";
 import {useUser} from "../userContext/UserContextProvider";
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import Button from "@mui/material/Button";
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
+import "./OrderItem.css";
 
 export function SetCountButton(props: { value: number, id: number }) {
     const {orderList, setOrderList} = useUser();
@@ -40,13 +43,13 @@ export function SetCountButton(props: { value: number, id: number }) {
 
     return (
         <table>
-            <tr>
+            <tr >
                 <td>
-                    <Button onClick={Minus}>-</Button>
+                    <Button onClick={Minus}><RemoveIcon/></Button>
                 </td>
                 <td><label>{props.value }</label></td>
                 <td>
-                    <Button onClick={Plus}>+</Button>
+                    <Button onClick={Plus}><AddIcon/></Button>
                 </td>
                 <td>
                     <Button onClick={Remove}><DeleteOutlineOutlinedIcon/></Button>
