@@ -11,6 +11,7 @@ import Footer from "./components/footer/Footer";
 import MenuPage from "./pages/MenuPage";
 import {UserProvider, UserContext} from "./components/userContext/UserContextProvider";
 import React from "react";
+import Orderpage from "./pages/orderpage/Orderpage";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
                             <Route path="/login" element={<Loginform />} />
                             <Route path="/register" element={<Registerform />} />
                             <Route path="/menu" element={<MenuPage />} />
+                            <Route path="/order" element={<Orderpage />} />
                         </Routes>
                     </div>
                     </UserProvider>

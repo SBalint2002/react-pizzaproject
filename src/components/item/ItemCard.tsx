@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import {useUser, OrderProduct, ProductProps} from "../userContext/UserContextProvider";
 
 const ProductCard = ({id, picture, name, description, price}: ProductProps) => {
-    const {orderList, setOrderList} = useUser();
+    const {hasNewOrder,setHasNewOrder,orderList, setOrderList} = useUser();
 
     const handleBuy: React.MouseEventHandler<HTMLButtonElement> = (event) => {
         setOrderList([
@@ -18,7 +18,12 @@ const ProductCard = ({id, picture, name, description, price}: ProductProps) => {
                 count: 1,
             },
         ]);
-        console.log(orderList);
+
+        // if (orderList.length>0){
+        //     setInterval(()=>{
+        //         setHasNewOrder(!hasNewOrder);
+        //     },1500)
+        // }
     };
 
     return (

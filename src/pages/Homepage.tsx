@@ -5,7 +5,6 @@ export default function Homepage() {
 
   return (
     <div>
-
       <ImgSlider/>
     </div>
   );

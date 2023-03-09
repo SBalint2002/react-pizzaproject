@@ -18,14 +18,20 @@ interface UserContextType {
     logOut: () => void;
     orderList: OrderProduct[];
     setOrderList: (items: OrderProduct[]) => void;
+    hasNewOrder: boolean;
+    setHasNewOrder: (value: boolean) => void;
 }
 
-export const UserContext = createContext<UserContextType>({
+const defaultContext: UserContextType = {
     user: null,
     logOut: () => {},
     orderList: [],
     setOrderList: () => {},
-});
+    hasNewOrder: false,
+    setHasNewOrder: () => {},
+};
+
+export const UserContext = createContext<UserContextType>(defaultContext);
 
 export function useUser() {
     return useContext(UserContext);
@@ -35,6 +41,7 @@ export const UserProvider: React.FC<PropsWithChildren<{}>> = ({ children }) => {
     const [user, setUser] = useState<string | null>(null);
     const navigate = useNavigate();
     const [orderList, setOrderList] = useState<OrderProduct[]>([]);
+    const [hasNewOrder, setHasNewOrder] = useState<boolean>(false);
 
     const logOut = () => {
         setUser(null);
@@ -48,9 +55,9 @@ export const UserProvider: React.FC<PropsWithChildren<{}>> = ({ children }) => {
         logOut,
         orderList,
         setOrderList,
+        hasNewOrder,
+        setHasNewOrder,
     };
 
-    return <UserContext.Provider value={contextValue}>
-        {children}
-    </UserContext.Provider>;
+    return <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>;
 };
