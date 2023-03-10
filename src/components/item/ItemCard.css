@@ -1,0 +1,23 @@
+.card {
+    width: 300px;
+    display: inline-block;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.card h2 {
+    margin-top: 0;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 8px;
+    padding-bottom: 0;
+}

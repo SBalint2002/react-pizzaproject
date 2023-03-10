@@ -1,0 +1,10 @@
+.content {
+    border: 2px solid black;
+    width: 30%;
+    margin: auto;
+    padding: 10px;
+    display: block;
+}
+table{
+    width: 100%;
+}

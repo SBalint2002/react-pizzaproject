@@ -8,7 +8,9 @@ import FormControl from "@mui/material/FormControl";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import FlatButton from "@mui/material/Button";
-import { useNavigate } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import EmailIcon from '@mui/icons-material/Email';
+import LockIcon from '@mui/icons-material/Lock';
 
 interface User {
   email: string;
@@ -32,26 +34,31 @@ export default function Login() {
     event.preventDefault();
     const data: User = { email, password };
 
-    setLoginError("");
-    try {
-      const res = await fetch("http://localhost:8080/user/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-      if (res.ok) {
-        const json = await res.json();
-        const token = json["jwttoken"];
-        localStorage.setItem("token", token);
-        navigate("/welcomepage");
-      }else{
-        setLoginError("Felhasználónév és jelszó páros nem megfelelő!");
+      setLoginError("");
+      try {
+          const res = await fetch("http://localhost:8080/user/login", {
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json",
+              },
+              body: JSON.stringify(data),
+          });
+          if (res.ok) {
+              const json = await res.json();
+              const accesstoken = json["jwttoken"];
+              const refreshtoken = json["refreshToken"];
+
+              console.log(json);
+
+              localStorage.setItem("Accesstoken", accesstoken);
+              localStorage.setItem("Refreshtoken", refreshtoken);
+              navigate("/");
+          }else{
+              setLoginError("Felhasználónév és jelszó páros nem megfelelő!");
+          }
+      } catch (error) {
+          console.log(error);
       }
-    } catch (error) {
-      console.log(error);
-    }
   };
 
   return (
@@ -99,7 +106,7 @@ export default function Login() {
           sx={{ m: 1, width: "40ch" }}
         >
           <InputLabel htmlFor="standard-adornment-password">
-            Email cím
+            <EmailIcon/> Email cím
           </InputLabel>
           <Input
             aria-describedby="standard-weight-helper-text"
@@ -119,22 +126,12 @@ export default function Login() {
           sx={{ m: 1, width: "40ch" }}
           variant="standard"
         >
-          <InputLabel htmlFor="standard-adornment-password">Jelszó</InputLabel>
+          <InputLabel htmlFor="standard-adornment-password"> <LockIcon/> Jelszó</InputLabel>
           <Input
             id="standard-adornment-password"
             type={showPassword ? "text" : "password"}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowPassword}
-                >
-                  {showPassword ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            }
           />
         </FormControl>
         {loginError && (
@@ -151,7 +148,7 @@ export default function Login() {
           Bejelentkezés
         </FlatButton>
         <p>
-          Még nem regisztráltál? <a href="./register">Regisztrálás</a>
+          Még nem regisztráltál? <Link to="./Register">Regisztrálás</Link>
         </p>
       </form>
     </Box>
