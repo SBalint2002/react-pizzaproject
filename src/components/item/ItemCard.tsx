@@ -1,41 +1,32 @@
 import React, {useEffect} from "react";
 import "./ItemCard.css";
 import Button from "@mui/material/Button";
-import {useUser, OrderProduct, ProductProps} from "../userContext/UserContextProvider";
+import {useProduct, ProductProps} from "../Contexts/ProductContextProvider";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const ProductCard = ({id, picture, name, description, price}: ProductProps) => {
-    const {hasNewOrder,setHasNewOrder,orderList, setOrderList} = useUser();
+    const {orderList, setOrderList} = useProduct();
 
     const handleBuy: React.MouseEventHandler<HTMLButtonElement> = (event) => {
-        setOrderList([
-            ...orderList,
-            {
-                id,
-                picture,
-                name,
-                description,
-                price,
-                count: 1,
-            },
-        ]);
 
-        toast.success('Sikeresen hozzáadva a kosárhoz!', {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-        });
+        if (orderList.some((obj)=>obj.id===id)){
+            toast.error('Az elem már megtalálható a kosaradban!')
+        }else{
+            setOrderList([
+                ...orderList,
+                {
+                    id,
+                    picture,
+                    name,
+                    description,
+                    price,
+                    count: 1,
+                },
+            ]);
 
-        // if (orderList.length>0){
-        //     setInterval(()=>{
-        //         setHasNewOrder(!hasNewOrder);
-        //     },1500)
-        // }
+            toast.success('Sikeresen hozzáadva a kosárhoz!');
+        }
     };
 
     return (

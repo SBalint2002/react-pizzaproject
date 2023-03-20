@@ -1,5 +1,5 @@
 import React from "react";
-import {useUser} from "../userContext/UserContextProvider";
+import {useProduct} from "../Contexts/ProductContextProvider";
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import Button from "@mui/material/Button";
 import AddIcon from '@mui/icons-material/Add';
@@ -7,7 +7,7 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import "./OrderItem.css";
 
 export function SetCountButton(props: { value: number, id: number }) {
-    const {orderList, setOrderList} = useUser();
+    const {orderList, setOrderList} = useProduct();
     const index = orderList.findIndex(item => item.id === props.id);
 
     function Plus() {

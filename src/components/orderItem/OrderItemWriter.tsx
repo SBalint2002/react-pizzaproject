@@ -1,16 +1,12 @@
 import React from "react";
-import {OrderProduct, useUser} from "../userContext/UserContextProvider";
+import { useProduct} from "../Contexts/ProductContextProvider";
 import {SetCountButton} from "./SetCountButton";
 import Sum from "./SumPrice";
 import "./OrderItem.css";
 import Container from "react-bootstrap/Container";
-
 const OrderItemWriter = () => {
-    const {orderList} = useUser();
+    const {orderList} = useProduct();
 
-    const handleBuy=()=>{
-
-    }
 
     return (
         <Container>
@@ -25,8 +21,6 @@ const OrderItemWriter = () => {
             </tr>
             )}
         </table>
-            <Sum orderList={orderList}/>
-            <button onClick={handleBuy}>Rendelés</button>
         </Container>
     );
 };

@@ -1,6 +1,6 @@
 import "./Appbar.css";
 import "../../App.css";
-import React, {useContext, useEffect, useState} from "react";
+import React, { useState} from "react";
 import ShoppingCartButton from "./CartButton";
 import { Link } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
@@ -8,16 +8,9 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import PersonButton from "./ProfileButton";
 import LinkTo from "./LinkTo";
-import {useUser} from "../userContext/UserContextProvider";
-import {authFetch} from "../../Util";
 
 export default function Appbar() {
     const [expanded, setExpanded] = useState(false);
-    const { user, logOut } = useUser();
-
-    const handleLogout = () => {
-        logOut();
-};
 
     const closeMenu = () => setExpanded(false);
     return (
@@ -43,7 +36,6 @@ export default function Appbar() {
                         <Nav>
                             <LinkTo to="/menu" text="Rendelés" closeMenu={closeMenu} />
                             <LinkTo to="/" text="Kezdőlap" closeMenu={closeMenu} />
-                            <LinkTo to="/" text="Kijelentkezés" onClick={handleLogout} closeMenu={closeMenu} />
                         </Nav>
 
                         <div id="eltol" >
