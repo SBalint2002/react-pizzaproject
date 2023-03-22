@@ -14,7 +14,7 @@ export default function MenuPage() {
                     const pizzas: ProductProps[] = await response.json();
                     setPizzas(pizzas);
                 } else {
-                    console.log("Error fetching pizzas");
+                    console.log("Error fetching products");
                 }
             } catch (error) {
                 console.log(error);

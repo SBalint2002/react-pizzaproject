@@ -4,6 +4,8 @@ import {Collapse, CollapsePanelProps} from "antd";
 import Sum from "../../components/orderItem/SumPrice";
 import {useProduct} from "../../components/Contexts/ProductContextProvider";
 import {Button} from "@mui/material";
+import DataForm from "../../components/orderDataForm/OrderDataForm";
+import "./OrderPage.css"
 
 const {Panel} = Collapse;
 
@@ -11,9 +13,6 @@ export default function Orderpage() {
     const {orderList} = useProduct();
     const [activePanel, setActivePanel] = useState("1");
 
-    interface MyCollapsePanelProps extends CollapsePanelProps {
-        onClick?: () => void;
-    }
 
     const handleSwitchClick = (key: string) => {
         setActivePanel(key);
@@ -33,12 +32,13 @@ export default function Orderpage() {
                 </Panel>
                 <Panel header="Rendelési adatok" key="2">
 
-                    <p>Rendelési adatok panel</p>
+                    <DataForm/>
 
+                    <Button style={{color: "green"}} onClick={()=>handleSwitchClick("3")}>Tovább</Button>
                 </Panel>
                 <Panel header="Összesítő" key="3">
 
-                    <p>Összesítő panel</p>
+
 
                 </Panel>
             </Collapse>

@@ -24,7 +24,7 @@ export default function Appbar() {
             >
                 <Container>
                     <Navbar.Brand>
-                        <Link style={{ textDecoration: 'none', color: 'white' }} to="/">
+                        <Link style={   { textDecoration: 'none', color: 'white' }} to="/">
                             Pizza Váltó
                         </Link>
                     </Navbar.Brand>
