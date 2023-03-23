@@ -147,7 +147,7 @@ export default function Login() {
           Bejelentkezés
         </FlatButton>
         <p>
-          Még nem regisztráltál? <Link to="./Register">Regisztrálás</Link>
+          Még nem regisztráltál? <Link to="/Register">Regisztrálás</Link>
         </p>
       </form>
     </Box>

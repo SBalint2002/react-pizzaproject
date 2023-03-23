@@ -1,6 +1,4 @@
 import React, { createContext, PropsWithChildren, useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import {toast} from "react-toastify";
 
 export interface ProductProps {
     id: number;
@@ -8,6 +6,7 @@ export interface ProductProps {
     name: string;
     description: string;
     price: number;
+    available: boolean;
 }
 
 export interface OrderProduct extends ProductProps {

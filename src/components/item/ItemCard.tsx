@@ -5,7 +5,7 @@ import {useProduct, ProductProps} from "../Contexts/ProductContextProvider";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const ProductCard = ({id, picture, name, description, price}: ProductProps) => {
+const ProductCard = ({id, picture, name, description, price, available}: ProductProps) => {
     const {orderList, setOrderList} = useProduct();
 
     const handleBuy: React.MouseEventHandler<HTMLButtonElement> = (event) => {
@@ -22,6 +22,7 @@ const ProductCard = ({id, picture, name, description, price}: ProductProps) => {
                     description,
                     price,
                     count: 1,
+                    available,
                 },
             ]);
 

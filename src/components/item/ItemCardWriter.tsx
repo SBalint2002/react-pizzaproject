@@ -17,6 +17,7 @@ export default function ItemCardsWriter({ list }: ItemCardsWriterProps ) {
                     picture={item.picture}
                     name={item.name}
                     description={item.description}
+                    available={item.available}
                 />
             ))}
         </div>

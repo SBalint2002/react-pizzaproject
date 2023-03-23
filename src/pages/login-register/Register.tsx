@@ -96,7 +96,7 @@ export default function Register() {
                 console.log(refreshtoken);
                 localStorage.setItem("Accesstoken", accesstoken);
                 localStorage.setItem("Refreshtoken", refreshtoken);
-                navigate("/welcomepage");
+                navigate("/login");
             }
         } catch (error) {
             console.log(error);
