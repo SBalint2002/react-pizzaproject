@@ -2,15 +2,17 @@ import * as React from "react";
 import { authFetch } from "../../Util";
 import "./ProfilePage.css";
 import { useEffect, useState } from "react";
-import {useUser} from "../../components/userContext/UserContextProvider";
+import {useProduct} from "../../components/Contexts/ProductContextProvider";
+import {toast} from "react-toastify";
+import {useUser} from "../../components/Contexts/UserContextProvider";
 
 export default function ProfilePage() {
     const [id, setId] = useState(0);
     const [lastName, setLastName] = useState("");
     const [firstName, setFirstName] = useState("");
     const [email, setEmail] = useState("");
-    const [message,setMessage] = useState("")
-    const { user, logOut } = useUser();
+    const { logOut } = useUser();
+    const [dataChanged, setDataChanged] = useState(false);
 
     const handleLogout = () => {
         logOut();
@@ -18,7 +20,7 @@ export default function ProfilePage() {
 
     const emailRegex =
         /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-    const nameRegex = /^[A-Za-zÁÉÍÓÖŐÚÜŰáéíóöőúüű]{2,}$/;
+    const nameRegex = /^[A-Za-zÁÉÍÓÖŐÚÜŰáéíóöőúüű ]{2,}$/;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -47,6 +49,20 @@ export default function ProfilePage() {
 
     const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        if (!nameRegex.test(firstName)) {
+            toast.error("Hibás keresztnév formátum");
+            return;
+        }
+        if (!nameRegex.test(lastName)) {
+            toast.error("Hibás vezetéknév formátum");
+            return;
+        }
+        if (!emailRegex.test(email)) {
+            toast.error("Hibás email formátum");
+            return;
+        }
+
         try {
             const res = await authFetch(`http://localhost:8080/user/${id}`, {
                 method: "PUT",
@@ -61,12 +77,12 @@ export default function ProfilePage() {
             });
 
             if (res.ok) {
-                setMessage("Adatok sikeresen módosítva!")
-                console.log("User updated successfully!");
+                toast.success("Adatok sikeresen módosítva!");
             } else {
-                console.log("Failed to update user");
+                toast.error("Hiba!");
             }
         } catch (error) {
+            toast.error("Hiba!");
             console.log(error);
         }
     };
@@ -109,10 +125,9 @@ export default function ProfilePage() {
                             </td>
                         </tr>
                         </tbody>
-                    </table> <br/>
-                    {message}
+                    </table>
                     <hr />
-                    <button type="submit">Módosítás</button> <br/>
+                    <button type="submit">Módosítás</button> <br/> <br/>
                     <button onClick={handleLogout}>Kijelentkezés</button>
                 </form>
             </div>

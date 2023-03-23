@@ -1,6 +1,5 @@
 export async function refreshToken(): Promise<string | null> { // returns new access token
     const refresh = localStorage.getItem('Refreshtoken');
-
     const res = await fetch('http://localhost:8080/user/refresh', {
         method: 'POST',
         headers: {
@@ -13,17 +12,16 @@ export async function refreshToken(): Promise<string | null> { // returns new ac
 
     if (res.ok) {
         const body = await res.json();
-        return body.jwttoken;
+        return body.accessToken;
     }
     return null;
 }
 
 export async function authFetch(url: string, info?: RequestInit): Promise<Response> {
     const access = localStorage.getItem('Accesstoken');
-
     if (!access) {
         // Access token is missing, redirect to login page
-        //window.location.href = '/login';
+        window.location.href = '/login';
         throw new Error('Access token missing');
     }
 

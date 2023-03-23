@@ -1,6 +1,6 @@
 import React from "react";
 import ItemCard from "./ItemCard";
-import {ProductProps} from "../userContext/UserContextProvider";
+import {ProductProps} from "../Contexts/ProductContextProvider";
 
 export interface ItemCardsWriterProps {
     list: ProductProps[];
@@ -17,6 +17,7 @@ export default function ItemCardsWriter({ list }: ItemCardsWriterProps ) {
                     picture={item.picture}
                     name={item.name}
                     description={item.description}
+                    available={item.available}
                 />
             ))}
         </div>

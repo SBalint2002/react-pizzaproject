@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import ItemCardsWriter, { ItemCardsWriterProps } from "../components/item/ItemCardWriter";
+import ItemCardsWriter, { ItemCardsWriterProps } from "../../components/item/ItemCardWriter";
 import Container from "react-bootstrap/Container";
-import { ProductProps } from "../components/userContext/UserContextProvider";
+import { ProductProps } from "../../components/Contexts/ProductContextProvider";
 
 export default function MenuPage() {
     const [pizzas, setPizzas] = useState<ProductProps[]>([]);
@@ -14,7 +14,7 @@ export default function MenuPage() {
                     const pizzas: ProductProps[] = await response.json();
                     setPizzas(pizzas);
                 } else {
-                    console.log("Error fetching pizzas");
+                    console.log("Error fetching products");
                 }
             } catch (error) {
                 console.log(error);

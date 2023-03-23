@@ -16,7 +16,7 @@ interface LinkToProps {
 
 export default function LinkTo({ to, text, onClick, closeMenu }: LinkToProps) {
     return (
-        <Nav.Item style={{margin:'5px'}} onClick={() => {
+        <Nav.Item style={{margin:'7px'}} onClick={() => {
             if (onClick) {
                 onClick();
             }

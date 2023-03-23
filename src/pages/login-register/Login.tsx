@@ -11,6 +11,7 @@ import FlatButton from "@mui/material/Button";
 import {Link, useNavigate} from "react-router-dom";
 import EmailIcon from '@mui/icons-material/Email';
 import LockIcon from '@mui/icons-material/Lock';
+import {toast} from "react-toastify";
 
 interface User {
   email: string;
@@ -45,16 +46,14 @@ export default function Login() {
           });
           if (res.ok) {
               const json = await res.json();
-              const accesstoken = json["jwttoken"];
+              const accesstoken = json["accessToken"];
               const refreshtoken = json["refreshToken"];
-
-              console.log(json);
 
               localStorage.setItem("Accesstoken", accesstoken);
               localStorage.setItem("Refreshtoken", refreshtoken);
               navigate("/");
           }else{
-              setLoginError("Felhasználónév és jelszó páros nem megfelelő!");
+              toast.error("Felhasználónév és jelszó páros nem megfelelő!");
           }
       } catch (error) {
           console.log(error);
@@ -148,7 +147,7 @@ export default function Login() {
           Bejelentkezés
         </FlatButton>
         <p>
-          Még nem regisztráltál? <Link to="./Register">Regisztrálás</Link>
+          Még nem regisztráltál? <Link to="/Register">Regisztrálás</Link>
         </p>
       </form>
     </Box>
