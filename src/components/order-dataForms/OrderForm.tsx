@@ -17,8 +17,6 @@ const OrderForm = ()=>{
 
     const OrderFetch= async  ()=>{
 
-        console.log(orderList);
-
         const pizzaIdsConverter = () => {
             let pizzaIds = [];
 
@@ -30,7 +28,6 @@ const OrderForm = ()=>{
                     }
                 }
             }
-            console.log(pizzaIds);
             return pizzaIds;
         };
 

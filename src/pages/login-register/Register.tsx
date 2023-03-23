@@ -91,7 +91,7 @@ export default function Register() {
             });
             if (res.ok) {
                 const json = await res.json();
-                const accesstoken = json["jwttoken"];
+                const accesstoken = json["accessToken"];
                 const refreshtoken = json["refreshToken"];
                 console.log(refreshtoken);
                 localStorage.setItem("Accesstoken", accesstoken);

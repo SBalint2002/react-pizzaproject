@@ -46,7 +46,7 @@ export default function Login() {
           });
           if (res.ok) {
               const json = await res.json();
-              const accesstoken = json["jwttoken"];
+              const accesstoken = json["accessToken"];
               const refreshtoken = json["refreshToken"];
 
               localStorage.setItem("Accesstoken", accesstoken);
