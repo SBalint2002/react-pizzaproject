@@ -2,7 +2,6 @@ import * as React from "react";
 import { authFetch } from "../../Util";
 import "./ProfilePage.css";
 import { useEffect, useState } from "react";
-import {useProduct} from "../../components/Contexts/ProductContextProvider";
 import {toast} from "react-toastify";
 import {useUser} from "../../components/Contexts/UserContextProvider";
 
@@ -12,7 +11,6 @@ export default function ProfilePage() {
     const [firstName, setFirstName] = useState("");
     const [email, setEmail] = useState("");
     const { logOut } = useUser();
-    const [dataChanged, setDataChanged] = useState(false);
 
     const handleLogout = () => {
         logOut();

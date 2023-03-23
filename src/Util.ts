@@ -34,7 +34,7 @@ export async function authFetch(url: string, info?: RequestInit): Promise<Respon
         }
     });
 
-    if (res.status == 451) {
+    if (res.status === 451) {
         // invalid access token
         const access = await refreshToken();
         if (!access) {

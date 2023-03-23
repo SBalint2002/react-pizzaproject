@@ -1,12 +1,8 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import IconButton from "@mui/material/IconButton";
 import Input from "@mui/material/Input";
 import InputLabel from "@mui/material/InputLabel";
-import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import FlatButton from "@mui/material/Button";
 import {Link, useNavigate} from "react-router-dom";
 import PersonIcon from '@mui/icons-material/Person';
@@ -22,11 +18,9 @@ interface User {
 
 export default function Register() {
   //Két jelszó kezelése
-  const [showPassword1, setShowPassword1] = React.useState(false);
-  const handleClickShowPassword = () => setShowPassword1((show) => !show);
+  const showPassword1 = React.useState(false);
 
-  const [showPassword2, setShowPassword2] = React.useState(false);
-  const handleClickShowPasswordAgain = () => setShowPassword2((show) => !show);
+  const showPassword2 = React.useState(false);
 
   // Adatok
   const [last_name, setLastName] = React.useState("");

@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import "./ItemCard.css";
 import Button from "@mui/material/Button";
 import {useProduct, ProductProps} from "../Contexts/ProductContextProvider";
@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const ProductCard = ({id, picture, name, description, price, available}: ProductProps) => {
     const {orderList, setOrderList} = useProduct();
 
-    const handleBuy: React.MouseEventHandler<HTMLButtonElement> = (event) => {
+    const handleBuy: React.MouseEventHandler<HTMLButtonElement> = () => {
 
         if (orderList.some((obj)=>obj.id===id)){
             toast.error('Az elem már megtalálható a kosaradban!')

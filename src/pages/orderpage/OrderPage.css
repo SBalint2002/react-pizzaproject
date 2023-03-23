@@ -1,3 +1,11 @@
-div input{
-    margin: 5px;
+div input {
+  margin: 5px;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: calc(100vh - 300px);
+  padding-bottom: 100px;
 }

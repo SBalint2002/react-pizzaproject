@@ -1,17 +1,13 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import IconButton from "@mui/material/IconButton";
 import Input from "@mui/material/Input";
 import InputLabel from "@mui/material/InputLabel";
-import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import FlatButton from "@mui/material/Button";
-import {Link, useNavigate} from "react-router-dom";
-import EmailIcon from '@mui/icons-material/Email';
-import LockIcon from '@mui/icons-material/Lock';
-import {toast} from "react-toastify";
+import { Link, useNavigate } from "react-router-dom";
+import EmailIcon from "@mui/icons-material/Email";
+import LockIcon from "@mui/icons-material/Lock";
+import { toast } from "react-toastify";
 
 interface User {
   email: string;
@@ -21,8 +17,7 @@ interface User {
 export default function Login() {
   const [loginError, setLoginError] = React.useState("");
 
-  const [showPassword, setShowPassword] = React.useState(false);
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
+  const [showPassword] = React.useState(false);
 
   // Adatok
   const [email, setEmail] = React.useState("");
@@ -35,29 +30,29 @@ export default function Login() {
     event.preventDefault();
     const data: User = { email, password };
 
-      setLoginError("");
-      try {
-          const res = await fetch("http://localhost:8080/user/login", {
-              method: "POST",
-              headers: {
-                  "Content-Type": "application/json",
-              },
-              body: JSON.stringify(data),
-          });
-          if (res.ok) {
-              const json = await res.json();
-              const accesstoken = json["accessToken"];
-              const refreshtoken = json["refreshToken"];
+    setLoginError("");
+    try {
+      const res = await fetch("http://localhost:8080/user/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      if (res.ok) {
+        const json = await res.json();
+        const accesstoken = json["accessToken"];
+        const refreshtoken = json["refreshToken"];
 
-              localStorage.setItem("Accesstoken", accesstoken);
-              localStorage.setItem("Refreshtoken", refreshtoken);
-              navigate("/");
-          }else{
-              toast.error("Felhasználónév és jelszó páros nem megfelelő!");
-          }
-      } catch (error) {
-          console.log(error);
+        localStorage.setItem("Accesstoken", accesstoken);
+        localStorage.setItem("Refreshtoken", refreshtoken);
+        navigate("/");
+      } else {
+        toast.error("Felhasználónév és jelszó páros nem megfelelő!");
       }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -105,7 +100,7 @@ export default function Login() {
           sx={{ m: 1, width: "40ch" }}
         >
           <InputLabel htmlFor="standard-adornment-password">
-            <EmailIcon/> Email cím
+            <EmailIcon /> Email cím
           </InputLabel>
           <Input
             aria-describedby="standard-weight-helper-text"
@@ -125,7 +120,10 @@ export default function Login() {
           sx={{ m: 1, width: "40ch" }}
           variant="standard"
         >
-          <InputLabel htmlFor="standard-adornment-password"> <LockIcon/> Jelszó</InputLabel>
+          <InputLabel htmlFor="standard-adornment-password">
+            {" "}
+            <LockIcon /> Jelszó
+          </InputLabel>
           <Input
             id="standard-adornment-password"
             type={showPassword ? "text" : "password"}

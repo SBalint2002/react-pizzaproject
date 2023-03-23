@@ -1,7 +1,5 @@
-import React from "react";
 import { useProduct} from "../Contexts/ProductContextProvider";
 import {SetCountButton} from "./SetCountButton";
-import Sum from "./SumPrice";
 import "./OrderItem.css";
 import Container from "react-bootstrap/Container";
 const OrderItemWriter = () => {

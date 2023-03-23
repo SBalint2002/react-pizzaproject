@@ -1,4 +1,3 @@
-import React from "react";
 import {useProduct} from "../Contexts/ProductContextProvider";
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import Button from "@mui/material/Button";
