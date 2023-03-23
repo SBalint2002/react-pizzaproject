@@ -1,13 +1,13 @@
 .footer {
-    background-color: #414141;
+    background-color: #000;
     width: 100%;
     text-align: left;
     font-family: sans-serif;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 20px;
     padding: 50px;
     text-align: center;
-    margin-top: 50px;
+    margin-top:0;
 }
 
 .footer .footer-left,

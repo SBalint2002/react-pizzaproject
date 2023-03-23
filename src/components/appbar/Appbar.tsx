@@ -19,7 +19,7 @@ export default function Appbar() {
         fixed="top"
         expanded={expanded}
         expand="lg"
-        style={{ backgroundColor: "#f6430c" }}
+        style={{ backgroundColor: "#000" }}
         variant="dark"
       >
         <Container>
@@ -52,7 +52,7 @@ export default function Appbar() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <div style={{ height: "80px" }}></div>
+      <div style={{ height: "56px" }}></div>
     </>
   );
 }
