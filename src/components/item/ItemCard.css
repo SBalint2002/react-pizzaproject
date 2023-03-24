@@ -3,6 +3,7 @@
     display: inline-block;
     margin-right: 20px;
     margin-bottom: 20px;
+    max-height: 500px;
 }
 
 .card img {

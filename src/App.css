@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: rgba(199, 200, 201, 0.68);
 }
 
 body::-webkit-scrollbar{
