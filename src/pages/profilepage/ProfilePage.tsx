@@ -23,7 +23,7 @@ export default function ProfilePage() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await authFetch("http://localhost:8080/user/data", {
+                const res = await authFetch("/user/data", {
                     method: "GET",
                 });
 
@@ -62,7 +62,7 @@ export default function ProfilePage() {
         }
 
         try {
-            const res = await authFetch(`http://localhost:8080/user/${id}`, {
+            const res = await authFetch(`/user/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

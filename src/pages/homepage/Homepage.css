@@ -6,10 +6,8 @@
     padding-bottom: 50px;
     width: 100%;
     height: 90vh;
-    display: flex;
     justify-content: center;
     align-items: flex-start;
-    flex-direction: column;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -105,7 +103,6 @@
     }
 
     /*animation*/
-
     .headerContainer {
         --border-size: 3px;
         --border-angle: 0turn;
@@ -119,7 +116,7 @@
                 #121619 50%,
                 #121619
         ),
-        conic-gradient(from var(--border-angle), transparent 20%, #08f, #f03);
+        conic-gradient(from var(--border-angle), transparent 20%, #04d007, #04b907);
         background-size: calc(100% - (var(--border-size) * 2))
         calc(100% - (var(--border-size) * 2)),
         cover;

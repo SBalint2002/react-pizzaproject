@@ -25,7 +25,7 @@ const OrderForm = () => {
     };
 
     try {
-      const res = await authFetch("http://localhost:8080/order/add-order", {
+      const res = await authFetch("/order/add-order", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

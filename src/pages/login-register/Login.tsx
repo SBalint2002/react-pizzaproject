@@ -32,7 +32,7 @@ export default function Login() {
 
     setLoginError("");
     try {
-      const res = await fetch("http://localhost:8080/user/login", {
+      const res = await fetch("/user/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

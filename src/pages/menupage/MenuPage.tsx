@@ -3,6 +3,7 @@ import ItemCardsWriter from "../../components/item/ItemCardWriter";
 import Container from "react-bootstrap/Container";
 import { ProductProps } from "../../components/Contexts/ProductContextProvider";
 import Footer from "../../components/footer/Footer";
+import BannerImage from '../menupage/menubackground.jpg';
 
 export default function MenuPage() {
   const [pizzas, setPizzas] = useState<ProductProps[]>([]);
@@ -10,7 +11,7 @@ export default function MenuPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:8080/pizza/get-all");
+        const response = await fetch("/pizza/get-all");
         if (response.ok) {
           const pizzas: ProductProps[] = await response.json();
           setPizzas(pizzas);
@@ -25,11 +26,11 @@ export default function MenuPage() {
   }, []);
 
   return (
-    <>
+    <div className="body" style={{backgroundImage: `url(${BannerImage})`}}>
       <Container className="main-content">
         <ItemCardsWriter list={pizzas} />
       </Container>
       <Footer/>
-    </>
+    </div>
   );
 }

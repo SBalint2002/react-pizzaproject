@@ -5,3 +5,13 @@
     min-height: calc(100vh - 300px);
     padding-bottom: 100px;
 }
+
+.body{
+    width: 100%;
+    height: 90vh;
+    justify-content: center;
+    align-items: flex-start;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

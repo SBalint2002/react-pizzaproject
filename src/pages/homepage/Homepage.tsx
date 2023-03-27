@@ -9,7 +9,7 @@ export default function Homepage() {
       <div className="headerContainer" >
        <h1>Pizza Váltó</h1>
           <p>BEST PIZZA IN THE CITY</p>
-          <Link to="menu"><button>Rendelj most!</button>
+          <Link to="menu"><button className="Button">Rendelj most!</button>
           </Link>
       </div>
     </div>
