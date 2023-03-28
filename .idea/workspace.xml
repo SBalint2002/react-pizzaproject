@@ -4,16 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="609a43a9-f3e9-4c4c-81ae-ede89fa3b8ca" name="Changes" comment="CORS policy problem solved; &quot;proxy&quot;:&quot;http://localhost:8080&quot;">
+    <list default="true" id="609a43a9-f3e9-4c4c-81ae-ede89fa3b8ca" name="Changes" comment="Menupage, card fixes">
+      <change afterPath="$PROJECT_DIR$/src/pages/login-register/loginpagebackground.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/pages/menupage/menubackground2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/item/ItemCard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/item/ItemCard.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/item/ItemCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/item/ItemCard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/homepage/Homepage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/homepage/Homepage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/login-register/LogReg.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login-register/LogReg.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/login-register/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login-register/Login.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/login-register/Register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login-register/Register.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/menupage/MenuPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/menupage/MenuPage.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/menupage/MenuPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/menupage/MenuPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/orderpage/OrderPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/orderpage/OrderPage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/orderpage/Orderpage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/orderpage/Orderpage.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,11 +65,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\oktatas\Desktop\Project\PizzaProject-React\src\pages\login-register" />
       <recent name="C:\Users\oktatas\Desktop\Project\PizzaProject-React\src\pages\menupage" />
       <recent name="C:\Users\oktatas\Desktop\Project\PizzaProject-React\src\pages\homepage" />
       <recent name="C:\Users\oktatas\Desktop\Project\PizzaProject-React\public" />
       <recent name="C:\Users\oktatas\Desktop\Project\PizzaProject-React\src\pages\profilepage" />
-      <recent name="C:\Users\oktatas\Desktop\Project\PizzaProject-React\src\img" />
     </key>
     <key name="es6.move.members.recent.items">
       <recent name="C:\Users\oktatas\Desktop\Project\PizzaProject-React\src\components\orderItem\SetCountButton.tsx" />
@@ -107,7 +113,8 @@
       <workItem from="1679561577678" duration="7592000" />
       <workItem from="1679642044103" duration="16385000" />
       <workItem from="1679670575241" duration="894000" />
-      <workItem from="1679898320406" duration="10722000" />
+      <workItem from="1679898320406" duration="17331000" />
+      <workItem from="1679985408934" duration="10775000" />
     </task>
     <task id="LOCAL-00001" summary="Base">
       <created>1676448445905</created>
@@ -270,7 +277,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679902557779</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Menupage, card fixes">
+      <created>1679917880343</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1679917880343</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -311,6 +325,7 @@
     <MESSAGE value="Footer fixed, Navbar rework" />
     <MESSAGE value="HomePage .headerContainer border animation" />
     <MESSAGE value="CORS policy problem solved; &quot;proxy&quot;:&quot;http://localhost:8080&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="CORS policy problem solved; &quot;proxy&quot;:&quot;http://localhost:8080&quot;" />
+    <MESSAGE value="Menupage, card fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Menupage, card fixes" />
   </component>
 </project>

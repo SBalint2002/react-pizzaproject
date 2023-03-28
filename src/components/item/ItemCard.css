@@ -1,9 +1,9 @@
 .card {
     width: 300px;
     display: inline-block;
-    margin-right: 20px;
-    margin-bottom: 20px;
+    margin: 10px;
     max-height: 500px;
+
 }
 
 .card img {
@@ -21,4 +21,9 @@
     align-items: baseline;
     padding: 8px;
     padding-bottom: 0;
+}
+
+.desc{
+    min-height: 120px;
+    padding: 4px;
 }

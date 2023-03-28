@@ -104,7 +104,7 @@
 
     /*animation*/
     .headerContainer {
-        --border-size: 3px;
+        --border-size: 4px;
         --border-angle: 0turn;
         width: 55vmin;
         height: 45vmin;

@@ -7,7 +7,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Homepage from "./pages/homepage/Homepage";
 import ProfilePage from "./pages/profilepage/ProfilePage";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Footer from "./components/footer/Footer";
 import MenuPage from "./pages/menupage/MenuPage";
 import { ProductProvider } from "./components/Contexts/ProductContextProvider";
 import Orderpage from "./pages/orderpage/Orderpage";
@@ -31,7 +30,7 @@ function App() {
               <Route path="/order" element={<Orderpage />} />
             </Routes>
             <ToastContainer
-              style={{ marginTop: "40px" }}
+              style={{ marginTop: "50px" }}
               position="top-right"
               autoClose={2000}
               hideProgressBar

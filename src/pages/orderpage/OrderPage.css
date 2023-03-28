@@ -9,3 +9,25 @@ div input {
   min-height: calc(100vh - 300px);
   padding-bottom: 100px;
 }
+
+.emptyContainer{
+  margin-top: 100px;
+}
+
+.emptyContainer h1{
+  font-size: 55px;
+  font-style: italic;
+  color: #8b807e;
+  font-family: 'Impact',sans-serif;
+}
+.emptyContainer Button{
+  font-size: medium;
+  background-color: #121619;
+  color: white;
+
+}
+.emptyContainer Button:hover{
+  background-color: #07090a;
+  cursor: pointer;
+  transition: 0.3s ease-in;
+}
