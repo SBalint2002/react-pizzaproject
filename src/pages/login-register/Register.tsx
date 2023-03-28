@@ -107,11 +107,13 @@ export default function Register() {
                             width: "40%",
                         },
                         "@media (max-width: 1000px)": {
-                            width: "50%",
                             margin: "auto",
                             mt:6
                         },
-                        "@media (max-width: 800px)": {
+                        "@media (max-width: 991px)": {
+                            width: "53%",
+                        },
+                        "@media (max-width: 767px)": {
                             width: "60%",
                         },
                         "@media (max-width: 600px)": {

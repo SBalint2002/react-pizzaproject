@@ -29,13 +29,6 @@ body {
     z-index: 100;
 }
 
-.logcontainer{
-    margin-top: 8%;
-}
-
-.regcontainer{
-}
-
 .box{
     color:white;
     background-color: rgba(0, 0, 0, 0.6);
