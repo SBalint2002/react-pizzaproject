@@ -17,7 +17,6 @@ interface User {
 }
 
 export default function Login() {
-    const [loginError, setLoginError] = React.useState("");
     // Adatok
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
@@ -29,7 +28,6 @@ export default function Login() {
         event.preventDefault();
         const data: User = {email, password};
 
-        setLoginError("");
         try {
             const res = await fetch("/user/login", {
                 method: "POST",
@@ -131,11 +129,6 @@ export default function Login() {
                                 onChange={(e) => setPassword(e.target.value)}
                             />
                         </FormControl>
-                        {loginError && (
-                            <Box color="error.main">
-                                <Box id="login-error-text">{loginError}</Box>
-                            </Box>
-                        )}
                         <FlatButton
                             type="submit"
                             variant="contained"

@@ -10,6 +10,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import LockIcon from '@mui/icons-material/Lock';
 import Container from "react-bootstrap/Container";
 import "./LogReg.css";
+import {toast} from "react-toastify";
 
 interface User {
     first_name: string;
@@ -32,43 +33,23 @@ export default function Register() {
         /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
     const nameRegex = /^[A-Za-zÁÉÍÓÖŐÚÜŰáéíóöőúüű]{2,}$/;
 
-    // Regex validation error messages
-    const [firstNameError, setFirstNameError] = React.useState("");
-    const [lastNameError, setLastNameError] = React.useState("");
-    const [emailError, setEmailError] = React.useState("");
-    const [passwordError, setPasswordError] = React.useState("");
-    const [password2Error, setPassword2Error] = React.useState("");
-
     // Gomb megnyomása után POST és redirect
     let navigate = useNavigate();
 
     const handleClick = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
-        //Reset the error messages
-
-        setFirstNameError("");
-        setLastNameError("");
-        setEmailError("");
-        setPasswordError("");
-
         // Validate inputs
         if (!nameRegex.test(last_name)) {
-            setLastNameError(
-                "Vezetéknév legalább 2 betű és csak betűket tartalmazhat"
-            );
+            toast.error("Vezetéknév legalább 2 betű és csak betűket tartalmazhat")
         } else if (!nameRegex.test(first_name)) {
-            setFirstNameError(
-                "Keresztnév legalább 2 betű és csak betűket tartalmazhat"
-            );
+            toast.error("Keresztnév legalább 2 betű és csak betűket tartalmazhat")
         } else if (!emailRegex.test(email)) {
-            setEmailError("nem megfelelő e-mail formátum");
+            toast.error("Nem megfelelő e-mail formátum")
         } else if (!passwordRegex.test(password)) {
-            setPasswordError(
-                "A jelszó legalább 8 karakteres és tartalmaznia kell számot is"
-            );
+            toast.error("A jelszó legalább 8 karakteres és tartalmaznia kell számot is")
         } else if (password !== password2) {
-            setPassword2Error("A két jelszó nem egyezik!");
+            toast.error("A két jelszó nem egyezik!")
         } else {
             // POST the user data
             const data: User = {first_name, last_name, email, password};
@@ -99,35 +80,35 @@ export default function Register() {
         <div className="regBody">
             <Container className="regcontainer">
                 <Box className="box"
-                    sx={{
-                        flexWrap: "wrap",
-                        flexDirection: "column",
-                        width: "35%",
-                        "@media (max-width: 1200px)": {
-                            width: "40%",
-                        },
-                        "@media (max-width: 1000px)": {
-                            margin: "auto",
-                            mt:6
-                        },
-                        "@media (max-width: 991px)": {
-                            width: "53%",
-                        },
-                        "@media (max-width: 767px)": {
-                            width: "60%",
-                        },
-                        "@media (max-width: 600px)": {
-                            width: "75%",
-                        },
-                        minwidth: "30%",
-                        alignItems: "center",
-                        borderRadius: 2,
-                        minHeight: "70vh",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignContent: "space-around",
-                        mt:6,
-                    }}
+                     sx={{
+                         flexWrap: "wrap",
+                         flexDirection: "column",
+                         width: "35%",
+                         "@media (max-width: 1200px)": {
+                             width: "40%",
+                         },
+                         "@media (max-width: 1000px)": {
+                             margin: "auto",
+                             mt: 6
+                         },
+                         "@media (max-width: 991px)": {
+                             width: "53%",
+                         },
+                         "@media (max-width: 767px)": {
+                             width: "60%",
+                         },
+                         "@media (max-width: 600px)": {
+                             width: "75%",
+                         },
+                         minwidth: "30%",
+                         alignItems: "center",
+                         borderRadius: 2,
+                         minHeight: "70vh",
+                         display: "flex",
+                         justifyContent: "center",
+                         alignContent: "space-around",
+                         mt: 6,
+                     }}
                 >
                     <form onSubmit={handleClick}>
                         <h1>Regisztráció</h1>
@@ -145,11 +126,6 @@ export default function Register() {
                                     "aria-label": "Vezetéknév",
                                 }}
                             />
-                            {lastNameError && (
-                                <Box color="error.main">
-                                    <Box id="last-name-error-text">{lastNameError}</Box>
-                                </Box>
-                            )}
                         </FormControl>
 
                         {/* Keresztnév */}
@@ -164,11 +140,6 @@ export default function Register() {
                                     "aria-label": "Keresztnév",
                                 }}
                             />
-                            {firstNameError && (
-                                <Box color="error.main">
-                                    <Box id="first-name-error-text">{firstNameError}</Box>
-                                </Box>
-                            )}
                         </FormControl>
 
                         {/* Email cím */}
@@ -183,43 +154,30 @@ export default function Register() {
                                     "aria-label": "Emailcím",
                                 }}
                             />
-                            {emailError && (
-                                <Box color="error.main">
-                                    <Box id="email-error-text">{emailError}</Box>
-                                </Box>
-                            )}
                         </FormControl>
 
                         {/* Jelszó */}
 
                         <FormControl fullWidth sx={{m: 1, width: "80%"}} variant="standard">
-                            <InputLabel style={{color: "white"}} htmlFor="standard-adornment-password"> <LockIcon/> Jelszó</InputLabel>
+                            <InputLabel style={{color: "white"}} htmlFor="standard-adornment-password">
+                                <LockIcon/> Jelszó</InputLabel>
                             <Input
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 type={"password"}
                             />
-                            {passwordError && (
-                                <Box color="error.main">
-                                    <Box id="password-error-text">{passwordError}</Box>
-                                </Box>
-                            )}
                         </FormControl>
 
                         {/* Jelszó mégegyszer */}
 
                         <FormControl fullWidth sx={{m: 1, width: "80%"}} variant="standard">
-                            <InputLabel style={{color: "white"}} htmlFor="standard-adornment-password"><LockIcon/> Jelszó újra</InputLabel>
+                            <InputLabel style={{color: "white"}}
+                                        htmlFor="standard-adornment-password"><LockIcon/> Jelszó újra</InputLabel>
                             <Input
                                 value={password2}
                                 onChange={(e) => setPassword2(e.target.value)}
                                 type={"password"}
                             />
-                            {password2Error && (
-                                <Box color="error.main">
-                                    <Box id="password2-error-text">{password2Error}</Box>
-                                </Box>
-                            )}
                         </FormControl>
 
                         <FlatButton
