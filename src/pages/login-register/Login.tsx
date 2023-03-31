@@ -29,7 +29,7 @@ export default function Login() {
         const data: User = {email, password};
 
         try {
-            const res = await fetch("/user/login", {
+            const res = await fetch("/auth/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

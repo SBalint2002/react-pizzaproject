@@ -54,7 +54,7 @@ export default function Register() {
             // POST the user data
             const data: User = {first_name, last_name, email, password};
             try {
-                const res = await fetch("/user/register", {
+                const res = await fetch("/auth/register", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

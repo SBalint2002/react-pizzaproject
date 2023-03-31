@@ -120,7 +120,7 @@ export default function ProfilePage() {
                          minwidth: "30%",
                          alignItems: "center",
                          borderRadius: 2,
-                         minHeight: "70vh",
+                         minHeight: "40vh",
                          display: "flex",
                          justifyContent: "center",
                          alignContent: "space-around",

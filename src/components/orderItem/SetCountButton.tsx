@@ -11,7 +11,7 @@ export function SetCountButton(props: { value: number, id: number }) {
 
     function Plus() {
         if (index !== -1) {
-            const updatedItem = { ...orderList[index], count: props.value + 1 };
+            const updatedItem = {...orderList[index], count: props.value + 1};
             const updatedList = [...orderList];
             updatedList.splice(index, 1, updatedItem);
             setOrderList(updatedList);
@@ -22,7 +22,7 @@ export function SetCountButton(props: { value: number, id: number }) {
     const Minus = () => {
         if (props.value > 1) {
             if (index !== -1) {
-                const updatedItem = { ...orderList[index], count: props.value - 1 };
+                const updatedItem = {...orderList[index], count: props.value - 1};
                 const updatedList = [...orderList];
                 updatedList.splice(index, 1, updatedItem);
                 setOrderList(updatedList);
@@ -31,22 +31,24 @@ export function SetCountButton(props: { value: number, id: number }) {
     }
 
     const Remove = () => {
-            if (index !== -1) {
-                const updatedList = [...orderList];
-                updatedList.splice(index, 1);
-                setOrderList(updatedList);
-            }
+        if (index !== -1) {
+            const updatedList = [...orderList];
+            updatedList.splice(index, 1);
+            setOrderList(updatedList);
+        }
     }
-
 
 
     return (
         <table>
-            <tr >
+            <tbody>
+            <tr>
                 <td>
                     <Button onClick={Minus}><RemoveIcon/></Button>
                 </td>
-                <td><label>{props.value }</label></td>
+                <td>
+                    <label>{props.value}</label>
+                </td>
                 <td>
                     <Button onClick={Plus}><AddIcon/></Button>
                 </td>
@@ -54,6 +56,7 @@ export function SetCountButton(props: { value: number, id: number }) {
                     <Button onClick={Remove}><DeleteOutlineOutlinedIcon/></Button>
                 </td>
             </tr>
+            </tbody>
         </table>
     );
 

@@ -1,0 +1,8 @@
+.listItem{
+    justify-content: space-between;
+}
+
+.orderFormBody{
+    width: 100%;
+    min-width: 280px;
+}

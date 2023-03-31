@@ -3,10 +3,13 @@ import Button from "@mui/material/Button";
 import { authFetch } from "../../Util";
 import { toast } from "react-toastify";
 import { useProduct } from "../Contexts/ProductContextProvider";
+import {useNavigate} from "react-router-dom";
+import SumPrice from "../orderItem/SumPrice";
+import "./OrderForm.css";
 
 const OrderForm = () => {
   const { zipCode, city, street, phoneNumber } = useUser();
-
+  const navigate = useNavigate();
   const { orderList } = useProduct();
 
   const OrderFetch = async () => {
@@ -43,13 +46,31 @@ const OrderForm = () => {
         toast.error("Hiba!");
       }
     } catch (error) {
-      toast.error("Hiba!");
+      toast.warning("Rendelés előtt jelentkezz be!!");
       console.log(error);
+      navigate('/login');
     }
   };
 
   return (
-    <div>
+    <div className="orderFormBody">
+      <h1>Összesítő</h1>
+      <div>
+        <p>Termékeid:</p> <br/>
+        <table className="orderFormTable">
+          <tbody>
+          {orderList.map(item => (
+              <tr className="listItem" key={item.id}>
+                <td style={{textAlign:"left", width:"40%"}}>{item.name}</td>
+                <td style={{textAlign:"center", width:"20%"}}>{item.count} db</td>
+                <td style={{textAlign:"right", width:"40%"}}> {item.price*item.count}Ft</td>
+              </tr>
+          ))}
+          </tbody>
+        </table>
+        <hr/>
+        <p>Összesen: </p> <SumPrice orderList={orderList}/>
+      </div>
       <Button onClick={OrderFetch}>Rendelés</Button>
     </div>
   );

@@ -4,10 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="609a43a9-f3e9-4c4c-81ae-ede89fa3b8ca" name="Changes" comment="Registerpage media queries fixed">
+    <list default="true" id="609a43a9-f3e9-4c4c-81ae-ede89fa3b8ca" name="Changes" comment="ProfilePage rework; RegisterPage, Loginpage regex fix">
+      <change afterPath="$PROJECT_DIR$/src/components/order-dataForms/OrderForm.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Util.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Util.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/item/ItemCard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/item/ItemCard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/order-dataForms/OrderForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-dataForms/OrderForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/orderItem/OrderItem.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/orderItem/OrderItem.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/orderItem/OrderItemWriter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/orderItem/OrderItemWriter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/orderItem/SetCountButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/orderItem/SetCountButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/login-register/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login-register/Login.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/login-register/Register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login-register/Register.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/profilepage/ProfilePage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profilepage/ProfilePage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/orderpage/OrderPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/orderpage/OrderPage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/orderpage/Orderpage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/orderpage/Orderpage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/profilepage/ProfilePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profilepage/ProfilePage.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -104,7 +113,9 @@
       <workItem from="1679670575241" duration="894000" />
       <workItem from="1679898320406" duration="17331000" />
       <workItem from="1679985408934" duration="12449000" />
-      <workItem from="1680071940181" duration="2935000" />
+      <workItem from="1680071940181" duration="8715000" />
+      <workItem from="1680156894278" duration="13305000" />
+      <workItem from="1680244558935" duration="10344000" />
     </task>
     <task id="LOCAL-00001" summary="Base">
       <created>1676448445905</created>
@@ -288,7 +299,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680003990888</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="ProfilePage rework; RegisterPage, Loginpage regex fix">
+      <created>1680075388343</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1680075388343</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,7 +324,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Alap navbar, imgSlider," />
     <MESSAGE value="imgSlider key" />
     <MESSAGE value="navBar frissítés, profileButton hozzáadás" />
     <MESSAGE value="login" />
@@ -331,6 +348,7 @@
     <MESSAGE value="Menupage, card fixes" />
     <MESSAGE value="Loginpage, Registerpage rework" />
     <MESSAGE value="Registerpage media queries fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Registerpage media queries fixed" />
+    <MESSAGE value="ProfilePage rework; RegisterPage, Loginpage regex fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="ProfilePage rework; RegisterPage, Loginpage regex fix" />
   </component>
 </project>
