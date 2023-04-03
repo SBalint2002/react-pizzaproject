@@ -1,14 +1,16 @@
 import { useUser } from "../Contexts/UserContextProvider";
-import Button from "@mui/material/Button";
 import { authFetch } from "../../Util";
 import { toast } from "react-toastify";
 import { useProduct } from "../Contexts/ProductContextProvider";
 import {useNavigate} from "react-router-dom";
 import SumPrice from "../orderItem/SumPrice";
 import "./OrderForm.css";
+import DataForm from "./DataForm";
+import FlatButton from "@mui/material/Button";
+import * as React from "react";
 
 const OrderForm = () => {
-  const { zipCode, city, street, phoneNumber } = useUser();
+  const { zipCode, address, phoneNumber } = useUser();
   const navigate = useNavigate();
   const { orderList } = useProduct();
 
@@ -34,7 +36,7 @@ const OrderForm = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          location: zipCode + "; " + city + "; " + street,
+          location: zipCode + "; " + address,
           pizzaIds: pizzaIdsConverter(),
           phoneNumber: phoneNumber,
         }),
@@ -54,9 +56,11 @@ const OrderForm = () => {
 
   return (
     <div className="orderFormBody">
-      <h1>Összesítő</h1>
       <div>
-        <p>Termékeid:</p> <br/>
+        <DataForm/>
+      </div>
+      <h2>Összesítő</h2>
+      <div>
         <table className="orderFormTable">
           <tbody>
           {orderList.map(item => (
@@ -69,9 +73,16 @@ const OrderForm = () => {
           </tbody>
         </table>
         <hr/>
-        <p>Összesen: </p> <SumPrice orderList={orderList}/>
+        <div style={{ display: "flex", flexDirection: "row", justifyContent:"space-between"}}>Összesen:<SumPrice orderList={orderList}/></div>
       </div>
-      <Button onClick={OrderFetch}>Rendelés</Button>
+      <FlatButton
+          onClick={OrderFetch}
+          variant="contained"
+          sx={{mb: 2}}
+          style={{color: "white", backgroundColor: "#dc6b29", width: "55%"}}
+      >
+        Rendelés
+      </FlatButton>
     </div>
   );
 };

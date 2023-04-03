@@ -44,16 +44,16 @@ export function SetCountButton(props: { value: number, id: number }) {
             <tbody>
             <tr>
                 <td>
-                    <Button onClick={Minus}><RemoveIcon/></Button>
+                    <Button onClick={Minus}><RemoveIcon style={{ color: 'black' }}/></Button>
                 </td>
                 <td>
-                    <label>{props.value}</label>
+                    <label><b>{props.value}</b></label>
                 </td>
                 <td>
-                    <Button onClick={Plus}><AddIcon/></Button>
+                    <Button onClick={Plus}><AddIcon style={{ color: 'black' }}/></Button>
                 </td>
                 <td>
-                    <Button onClick={Remove}><DeleteOutlineOutlinedIcon/></Button>
+                    <Button onClick={Remove}><DeleteOutlineOutlinedIcon style={{ color: 'black' }}/></Button>
                 </td>
             </tr>
             </tbody>

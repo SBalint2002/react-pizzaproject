@@ -106,17 +106,17 @@
     .headerContainer {
         --border-size: 4px;
         --border-angle: 0turn;
-        width: 55vmin;
-        height: 45vmin;
-        min-height: 260px;
-        min-width: 310px;
+        width: 52vmin;
+        height: 43vmin;
+        min-height: 270px;
+        min-width: 340px;
         background-image: conic-gradient(
                 from var(--border-angle),
                 #121619,
                 #121619 50%,
                 #121619
         ),
-        conic-gradient(from var(--border-angle), transparent 20%, #04d007, #04b907);
+        conic-gradient(from var(--border-angle), transparent 20%, #fa9818, #de5805);
         background-size: calc(100% - (var(--border-size) * 2))
         calc(100% - (var(--border-size) * 2)),
         cover;

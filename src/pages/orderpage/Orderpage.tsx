@@ -21,7 +21,7 @@ export default function Orderpage() {
 
         return(
             <div className="orderBody">
-                <Container>
+                <Container className="orderContainer">
                     <Row>
                         <div className="left">
                             <h1>Kosár</h1>
@@ -29,8 +29,7 @@ export default function Orderpage() {
                         </div>
 
                         <div className="right">
-                            <div style={{position:"sticky"}}><OrderForm/></div>
-
+                            <div><OrderForm/></div>
                         </div>
                     </Row>
                 </Container>

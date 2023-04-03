@@ -28,9 +28,23 @@
   transition: 0.3s ease-in;
 }
 
+.orderBody{
+  background: url('../orderpage/orderPagebackgroung.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.orderContainer{
+  background-color: rgba(255, 255, 255, 0.85);
+  padding-top: 20px;
+}
+
 .left{
   width: 70%;
   margin: 0;
+  padding: 0;
 }
 .right{
   width: 25%;
@@ -38,7 +52,7 @@
   height: fit-content;
   position: fixed;
   left : auto;
-  right: 12%
+  right: 12%;
 }
 
 @media screen and (max-width: 1669px) {
@@ -53,12 +67,6 @@
   }
 }
 
-/*@media screen and (max-width: 1200px) {*/
-/*  .right{*/
-/*    right: 11%;*/
-/*  }*/
-/*}*/
-
 @media screen and (max-width: 991px) {
   .left{
     width: 50%;
@@ -72,6 +80,7 @@
     width: 100%;
   }
   .right{
+    padding-top: 20px;
     right: 15%;
     position: inherit;
     width: 80%;
