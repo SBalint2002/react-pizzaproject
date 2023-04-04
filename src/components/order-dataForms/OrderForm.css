@@ -7,10 +7,7 @@
     padding-right: 30px;
     min-width: 280px;
     overflow: hidden;
-}
-
-.dataInput .css-1x51dt5-MuiInputBase-input-MuiInput-input{
-    color: black!important;
+    color: white;
 }
 
 @media screen and (max-width: 767px){

@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="609a43a9-f3e9-4c4c-81ae-ede89fa3b8ca" name="Changes" comment="Orderpage rework">
-      <change afterPath="$PROJECT_DIR$/src/pages/orderpage/orderPagebackgroung.jpg" afterDir="false" />
+    <list default="true" id="609a43a9-f3e9-4c4c-81ae-ede89fa3b8ca" name="Changes" comment="Orderpage fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Contexts/UserContextProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Contexts/UserContextProvider.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/order-dataForms/DataForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-dataForms/DataForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/order-dataForms/OrderForm.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-dataForms/OrderForm.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/order-dataForms/OrderForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-dataForms/OrderForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/orderItem/OrderItem.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/orderItem/OrderItem.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/orderItem/SetCountButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/orderItem/SetCountButton.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/homepage/Homepage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/homepage/Homepage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/menupage/MenuPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/menupage/MenuPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/orderpage/OrderPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/orderpage/OrderPage.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/orderpage/Orderpage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/orderpage/Orderpage.tsx" afterDir="false" />
     </list>
@@ -114,7 +112,8 @@
       <workItem from="1680071940181" duration="8715000" />
       <workItem from="1680156894278" duration="13305000" />
       <workItem from="1680244558935" duration="10344000" />
-      <workItem from="1680504336613" duration="11804000" />
+      <workItem from="1680504336613" duration="15417000" />
+      <workItem from="1680589471375" duration="8835000" />
     </task>
     <task id="LOCAL-00001" summary="Base">
       <created>1676448445905</created>
@@ -305,7 +304,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680075388343</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Orderpage fix">
+      <created>1680518477114</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1680518477114</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -323,7 +329,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="imgSlider key" />
     <MESSAGE value="navBar frissítés, profileButton hozzáadás" />
     <MESSAGE value="login" />
     <MESSAGE value="ProfileButton" />
@@ -348,6 +353,7 @@
     <MESSAGE value="Loginpage, Registerpage rework" />
     <MESSAGE value="Registerpage media queries fixed" />
     <MESSAGE value="ProfilePage rework; RegisterPage, Loginpage regex fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="ProfilePage rework; RegisterPage, Loginpage regex fix" />
+    <MESSAGE value="Orderpage fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Orderpage fix" />
   </component>
 </project>

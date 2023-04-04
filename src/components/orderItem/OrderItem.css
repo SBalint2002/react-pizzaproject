@@ -28,6 +28,7 @@
 .itemcard {
     background-color: white;
     box-shadow: 5px 15px 20px rgba(0,0,0,0.3);
+    border-radius: 5px;
     margin: 20px;
     align-items: center;
     display: inline-flex;

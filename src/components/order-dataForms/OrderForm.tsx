@@ -8,11 +8,18 @@ import "./OrderForm.css";
 import DataForm from "./DataForm";
 import FlatButton from "@mui/material/Button";
 import * as React from "react";
+import {useState} from "react";
 
 const OrderForm = () => {
   const { zipCode, address, phoneNumber } = useUser();
   const navigate = useNavigate();
   const { orderList } = useProduct();
+
+  const zipRegex = /^[0-9]{4}$/;
+  const addressRegex = /^[a-zA-ZáéíóöőúüűÁÉÍÓÖŐÚÜŰ0-9\s,'-]+$/;
+  const phoneRegex = /^\+[0-9]{2}[0-9]{9,10}$/;
+
+  const [valid, setValid] = useState<boolean>(true);
 
   const OrderFetch = async () => {
     const pizzaIdsConverter = () => {
@@ -29,29 +36,41 @@ const OrderForm = () => {
       return pizzaIds;
     };
 
-    try {
-      const res = await authFetch("/order/add-order", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          location: zipCode + "; " + address,
-          pizzaIds: pizzaIdsConverter(),
-          phoneNumber: phoneNumber,
-        }),
-      });
+    if (!zipRegex.test(zipCode)) {
+      toast.error("Hibás irányítószám");
+    } else if (!addressRegex.test(address)) {
+      toast.error("Hibás rendelési cím");
+    } else if (!phoneRegex.test(phoneNumber)) {
+      toast.error("Hibás telefonszám");
+    } else if (!zipCode || !address || !phoneNumber) {
+      toast.error("Minden mező kitöltése kötelező");
+    } else {
 
-      if (res.ok) {
-        toast.success("Sikeres rendelés!");
-      } else {
-        toast.error("Hiba!");
+      try {
+        const res = await authFetch("/order/add-order", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            location: zipCode + "; " + address,
+            pizzaIds: pizzaIdsConverter(),
+            phoneNumber: phoneNumber,
+          }),
+        });
+
+        if (res.ok) {
+          toast.success("Sikeres rendelés!");
+        } else {
+          toast.error("Hiba!");
+        }
+      } catch (error) {
+        toast.warning("Rendelés előtt jelentkezz be!");
+        navigate('/login');
       }
-    } catch (error) {
-      toast.warning("Rendelés előtt jelentkezz be!!");
-      console.log(error);
-      navigate('/login');
+
     }
+
   };
 
   return (

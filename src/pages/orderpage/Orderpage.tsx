@@ -24,7 +24,7 @@ export default function Orderpage() {
                 <Container className="orderContainer">
                     <Row>
                         <div className="left">
-                            <h1>Kosár</h1>
+                            <h1 style={{color:"white"}}>Kosár</h1>
                             <OrderItemWriter/>
                         </div>
 

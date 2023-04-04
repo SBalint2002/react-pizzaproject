@@ -17,78 +17,87 @@ const DataForm = () => {
         setPhoneNumber,
     } = useUser();
 
-        return (
-            <div>
-                <Container style={{color: "black"}}>
-                    <Box className=""
-                         sx={{
-                             flexWrap: "wrap",
-                             flexDirection: "column",
-                             width: "100%",
-                             padding: "5px",
-                             minWidth: "30%",
-                             alignItems: "center",
-                             borderRadius: 2,
-                             minHeight: "30vh",
-                             display: "flex",
-                             justifyContent: "center",
-                             alignContent: "space-around",
-                         }}
-                    >
-                        <form>
-                            <h2>Rendelési&nbsp;adatok</h2>
-                            <FormControl
-                                required
-                                variant="standard"
-                                sx={{ width: "100%"}}
-                            >
-                                <InputLabel>
-                                    <LocationCityIcon/> Irányítószám
-                                </InputLabel>
-                                <Input className="dataInput"
-                                    aria-describedby="standard-weight-helper-text"
-                                    onChange={(e) => setZipCode(e.target.value)}
-                                    inputProps={{
-                                        maxLength: 4,
-                                    }}
-                                />
-                            </FormControl>
+    const handleChange = (event :  React.ChangeEvent<HTMLInputElement>) => {
+        const { value } = event.target;
+        if (value.startsWith("+36")) {
+            setPhoneNumber(value);
+        } else {
+            setPhoneNumber("+36" + value);
+        }
+    };
 
-                            <FormControl
-                                required
-                                sx={{width: "100%"}}
-                                variant="standard"
-                            >
-                                <InputLabel htmlFor="standard-adornment-password">
-                                    {" "}
-                                    <HomeIcon/> Város, Utca, Házszám
-                                </InputLabel>
-                                <Input className="dataInput"
-                                    id="standard-adornment-password"
-                                    type={"text"}
-                                    onChange={(e) => setAddress(e.target.value)}
-                                />
-                            </FormControl>
-                            <FormControl
-                                required
-                                sx={{ width: "100%"}}
-                                variant="standard"
-                            >
-                                <InputLabel htmlFor="standard-adornment-password">
-                                    {" "}
-                                    <LocalPhoneIcon/> Telefonszám
-                                </InputLabel>
-                                <Input className="dataInput"
-                                    id="standard-adornment-password"
-                                    type={"text"}
-                                    placeholder={"(+3620 123 4567)"}
-                                    onChange={(e) => setPhoneNumber(e.target.value)}
-                                />
-                            </FormControl>
-                        </form>
-                    </Box>
-                </Container>
-            </div>)
+    return (
+        <div>
+            <Container style={{color: "white"}}>
+                <Box className=""
+                     sx={{
+                         flexWrap: "wrap",
+                         flexDirection: "column",
+                         width: "100%",
+                         padding: "5px",
+                         minWidth: "30%",
+                         alignItems: "center",
+                         borderRadius: 2,
+                         minHeight: "30vh",
+                         display: "flex",
+                         justifyContent: "center",
+                         alignContent: "space-around",
+                     }}
+                >
+                    <form>
+                        <h2>Rendelési&nbsp;adatok</h2>
+                        <FormControl
+                            required
+                            variant="standard"
+                            sx={{width: "100%"}}
+                        >
+                            <InputLabel style={{color: "white"}}>
+                                <LocationCityIcon/> Irányítószám
+                            </InputLabel>
+                            <Input className="dataInput"
+                                   aria-describedby="standard-weight-helper-text"
+                                   onChange={(e) => setZipCode(e.target.value)}
+                                   inputProps={{
+                                       maxLength: 4,
+                                   }}
+                            />
+                        </FormControl>
+
+                        <FormControl
+                            required
+                            sx={{width: "100%"}}
+                            variant="standard"
+                        >
+                            <InputLabel style={{color: "white"}}>
+                                {" "}
+                                <HomeIcon/> Város, Utca, Házszám
+                            </InputLabel>
+                            <Input className="dataInput"
+                                   id="standard-adornment-password"
+                                   type={"text"}
+                                   onChange={(e) => setAddress(e.target.value)}
+                            />
+                        </FormControl>
+                        <FormControl
+                            required
+                            sx={{width: "100%"}}
+                            variant="standard"
+                        >
+                            <InputLabel style={{color: "white"}}>
+                                {" "}
+                                <LocalPhoneIcon/> Telefonszám
+                            </InputLabel>
+                            <Input className="dataInput"
+                                   id="standard-adornment-password"
+                                   type={"text"}
+                                   placeholder={"(+36 20 123 4567)"}
+                                   onChange={handleChange}
+                            />
+                        </FormControl>
+                    </form>
+                </Box>
+            </Container>
+        </div>)
 };
 
 export default DataForm;
