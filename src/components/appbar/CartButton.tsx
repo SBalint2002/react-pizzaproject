@@ -14,7 +14,7 @@ const ShoppingCartButton = () => {
   const sum = orderList.reduce((total, item) => total + item.count, 0);
 
   return (
-    <Button onClick={Click} style={{ color: "inhereted" }}>
+    <Button onClick={Click} style={{ color: "#dc6b29" }}>
       <Badge color="error" badgeContent={sum}>
         <ShoppingCartIcon style={{ color: "white" }} />
       </Badge>

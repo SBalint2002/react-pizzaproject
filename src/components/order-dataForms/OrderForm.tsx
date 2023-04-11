@@ -8,7 +8,6 @@ import "./OrderForm.css";
 import DataForm from "./DataForm";
 import FlatButton from "@mui/material/Button";
 import * as React from "react";
-import {useState} from "react";
 
 const OrderForm = () => {
   const { zipCode, address, phoneNumber } = useUser();
@@ -18,8 +17,6 @@ const OrderForm = () => {
   const zipRegex = /^[0-9]{4}$/;
   const addressRegex = /^[a-zA-ZáéíóöőúüűÁÉÍÓÖŐÚÜŰ0-9\s,'-]+$/;
   const phoneRegex = /^\+[0-9]{2}[0-9]{9,10}$/;
-
-  const [valid, setValid] = useState<boolean>(true);
 
   const OrderFetch = async () => {
     const pizzaIdsConverter = () => {

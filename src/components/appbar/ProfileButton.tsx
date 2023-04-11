@@ -24,7 +24,7 @@ const PersonButton = () => {
     };
 
     return (
-        <Button onClick={Click} style={{ color: "inhereted" }}>
+        <Button onClick={Click} style={{ color: "#dc6b29" }}>
             <PersonIcon style={{ color: "white" }} />
         </Button>
     );

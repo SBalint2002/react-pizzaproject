@@ -5,6 +5,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GoogleIcon from '@mui/icons-material/Google';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import logo from './feketelogo.png';
 
 const Footer = () => <footer className="footer">
     <div className="footer-left col-md-4 col-sm-12">
@@ -41,7 +42,7 @@ const Footer = () => <footer className="footer">
     </div>
 
     <div className="footer-right col-md-4 col-sm-12">
-        <h2> Company<span> logo</span></h2>
+        <img style={{width:"120px"}} src={logo} alt="logo"/>
         <p className="menu">
             <Link to="#"> Home</Link> |
             <Link to="#"> About</Link> |

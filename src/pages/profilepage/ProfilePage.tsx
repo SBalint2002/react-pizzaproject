@@ -124,7 +124,7 @@ export default function ProfilePage() {
                          display: "flex",
                          justifyContent: "center",
                          alignContent: "space-around",
-                         mt: 6,
+                         mt: 10,
                      }}
                 >
                     <form onSubmit={handleFormSubmit}>

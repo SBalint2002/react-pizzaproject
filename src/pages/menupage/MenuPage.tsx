@@ -14,7 +14,7 @@ export default function MenuPage() {
         const response = await fetch("/pizza/get-all");
         if (response.ok) {
           const pizzas: ProductProps[] = await response.json();
-          setPizzas(pizzas.filter(x=>x.available== true));
+          setPizzas(pizzas.filter(x=>x.available));
         } else {
           console.log("Error fetching products");
         }

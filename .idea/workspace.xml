@@ -4,16 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="609a43a9-f3e9-4c4c-81ae-ede89fa3b8ca" name="Changes" comment="Orderpage fix">
+    <list default="true" id="609a43a9-f3e9-4c4c-81ae-ede89fa3b8ca" name="Changes" comment="Orderpage regex check, Menupage product check if available">
+      <change afterPath="$PROJECT_DIR$/src/components/footer/feketelogo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/order-dataForms/DataForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-dataForms/DataForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/order-dataForms/OrderForm.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-dataForms/OrderForm.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/appbar/Appbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/appbar/Appbar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/appbar/CartButton.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/appbar/CartButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/appbar/CartButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/appbar/ProfileButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/appbar/ProfileButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/footer/Footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer/Footer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/footer/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer/Footer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/order-dataForms/OrderForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-dataForms/OrderForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/orderItem/OrderItem.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/orderItem/OrderItem.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/homepage/Homepage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/homepage/Homepage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/login-register/LogReg.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login-register/LogReg.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/menupage/MenuPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/menupage/MenuPage.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/menupage/MenuPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/menupage/MenuPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/menupage/menubackground.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/menupage/menubackground.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/menupage/menubackground2.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/orderpage/OrderPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/orderpage/OrderPage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/orderpage/Orderpage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/orderpage/Orderpage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/profilepage/ProfilePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profilepage/ProfilePage.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,11 +66,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\oktatas\Desktop\Project\PizzaProject-React\src\components\footer" />
       <recent name="C:\Users\oktatas\Desktop\Project\PizzaProject-React\src\pages\orderpage" />
       <recent name="C:\Users\oktatas\Desktop\Project\PizzaProject-React\src\pages\login-register" />
       <recent name="C:\Users\oktatas\Desktop\Project\PizzaProject-React\src\pages\menupage" />
       <recent name="C:\Users\oktatas\Desktop\Project\PizzaProject-React\src\pages\homepage" />
-      <recent name="C:\Users\oktatas\Desktop\Project\PizzaProject-React\public" />
     </key>
     <key name="es6.move.members.recent.items">
       <recent name="C:\Users\oktatas\Desktop\Project\PizzaProject-React\src\components\orderItem\SetCountButton.tsx" />
@@ -113,7 +120,11 @@
       <workItem from="1680156894278" duration="13305000" />
       <workItem from="1680244558935" duration="10344000" />
       <workItem from="1680504336613" duration="15417000" />
-      <workItem from="1680589471375" duration="8835000" />
+      <workItem from="1680589471375" duration="9865000" />
+      <workItem from="1680612911152" duration="437000" />
+      <workItem from="1681114746857" duration="1462000" />
+      <workItem from="1681117530675" duration="1670000" />
+      <workItem from="1681194715429" duration="2460000" />
     </task>
     <task id="LOCAL-00001" summary="Base">
       <created>1676448445905</created>
@@ -311,7 +322,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680518477114</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Orderpage regex check, Menupage product check if available">
+      <created>1680606300592</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1680606300592</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -329,7 +347,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="navBar frissítés, profileButton hozzáadás" />
     <MESSAGE value="login" />
     <MESSAGE value="ProfileButton" />
     <MESSAGE value="ItemCard; ItemCardWriter;" />
@@ -354,6 +371,7 @@
     <MESSAGE value="Registerpage media queries fixed" />
     <MESSAGE value="ProfilePage rework; RegisterPage, Loginpage regex fix" />
     <MESSAGE value="Orderpage fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Orderpage fix" />
+    <MESSAGE value="Orderpage regex check, Menupage product check if available" />
+    <option name="LAST_COMMIT_MESSAGE" value="Orderpage regex check, Menupage product check if available" />
   </component>
 </project>

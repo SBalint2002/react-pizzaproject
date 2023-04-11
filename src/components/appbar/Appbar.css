@@ -4,6 +4,10 @@
     margin-left: 20px;
 }
 
+.Link:hover{
+    color: #dc6b29;
+}
+
 .Right {
     display: flex;
     align-items: center;
