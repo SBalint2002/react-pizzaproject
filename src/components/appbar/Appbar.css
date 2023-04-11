@@ -1,19 +1,35 @@
-#eltol{
-    padding-left: 72%;
+.Link{
+    text-decoration: none;
+    color: white;
+    margin-left: 20px;
 }
 
-#basic-navbar-nav{
-    color:white;
+.Link:hover{
+    color: #dc6b29;
 }
 
-@media only screen and (max-width: 1191px) {
-    #eltol{
-        padding-left: 60%;
-    }
+.Right {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
 }
 
 @media only screen and (max-width: 991px) {
-    #eltol{
-        padding-left: 0px;
+    .Link{
+        text-decoration: none;
+        color: white;
+        width: 70px;
+        margin: auto;
+    }
+
+    .Right {
+       margin: auto;
+        display: block;
+        text-align: center;
+    }
+
+    .Center{
+        margin: auto;
+        display: block;
     }
 }

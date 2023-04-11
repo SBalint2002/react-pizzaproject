@@ -5,15 +5,17 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GoogleIcon from '@mui/icons-material/Google';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import logo from './feketelogo.png';
 
 const Footer = () => <footer className="footer">
-    <div className="footer-left col-md-4 col-sm-6">
+    <div className="footer-left col-md-4 col-sm-12">
         <p className="about">
             <span> Rólunk </span> A belváros közepén mesés enteriőr kialakítással nagy
             választékkal várjuk vendégeinket. Minőségi konyhatechnikai felszereléssel
             ellátott olasz étterem, igényes környezet. Ételeinket 100% itáliai alapanyagokból készítjük.
             All You Can Eat & Drink.
         </p>
+
         <div className="icons">
             <Link to="#"><i className="fa fa-facebook"> <FacebookIcon/></i></Link>
             <Link to="#"><i className="fa fa-twitter"> <TwitterIcon/></i></Link>
@@ -22,22 +24,25 @@ const Footer = () => <footer className="footer">
             <Link to="#"><i className="fa fa-instagram"> <InstagramIcon/></i></Link>
         </div>
     </div>
-    <div className="footer-center col-md-4 col-sm-6">
+
+    <div className="footer-center col-md-4 col-sm-12">
         <div>
-            <i className="fa fa-map-marker"></i>
-            <p><span> Soroksári út 32-34</span> Budapest, 1095</p>
+            <span>Elérhetőségek</span>
+
+            <p>Soroksári út 32-34 Budapest, 1095</p>
         </div>
         <div>
             <i className="fa fa-phone"></i>
-            <p> (+36) 1234 567 89</p>
+            <p>(+36) 1234 567 89</p>
         </div>
         <div>
             <i className="fa fa-envelope"></i>
-            <p><Link to="#"> office@pizzavalto.com</Link></p>
+            <p><Link to="#">office@pizzavalto.com</Link></p>
         </div>
     </div>
-    <div className="footer-right col-md-4 col-sm-6">
-        <h2> Company<span> logo</span></h2>
+
+    <div className="footer-right col-md-4 col-sm-12">
+        <img style={{width:"120px"}} src={logo} alt="logo"/>
         <p className="menu">
             <Link to="#"> Home</Link> |
             <Link to="#"> About</Link> |

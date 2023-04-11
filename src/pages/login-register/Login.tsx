@@ -4,150 +4,145 @@ import Input from "@mui/material/Input";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import FlatButton from "@mui/material/Button";
-import { Link, useNavigate } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
-import { toast } from "react-toastify";
+import {toast} from "react-toastify";
+import "./LogReg.css";
+import Container from "react-bootstrap/Container";
 
 interface User {
-  email: string;
-  password: string;
+    email: string;
+    password: string;
 }
 
 export default function Login() {
-  const [loginError, setLoginError] = React.useState("");
+    // Adatok
+    const [email, setEmail] = React.useState("");
+    const [password, setPassword] = React.useState("");
 
-  const [showPassword] = React.useState(false);
+    // Gomb megnyomása után POST és redirect
+    let navigate = useNavigate();
 
-  // Adatok
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
+    const handleClick = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        const data: User = {email, password};
 
-  // Gomb megnyomása után POST és redirect
-  let navigate = useNavigate();
+        try {
+            const res = await fetch("/auth/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            });
+            if (res.ok) {
+                const json = await res.json();
+                const accesstoken = json["accessToken"];
+                const refreshtoken = json["refreshToken"];
 
-  const handleClick = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const data: User = { email, password };
+                localStorage.setItem("Accesstoken", accesstoken);
+                localStorage.setItem("Refreshtoken", refreshtoken);
+                navigate("/");
+            } else {
+                toast.error("Felhasználónév és jelszó páros nem megfelelő!");
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
-    setLoginError("");
-    try {
-      const res = await fetch("http://localhost:8080/user/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-      if (res.ok) {
-        const json = await res.json();
-        const accesstoken = json["accessToken"];
-        const refreshtoken = json["refreshToken"];
+    return (
+        <div className="logBody">
+            <Container className="logregcontainer">
+                <Box className="box"
+                     sx={{
+                         flexWrap: "wrap",
+                         flexDirection: "column",
+                         width: "35%",
+                         "@media (max-width: 1200px)": {
+                             width: "40%",
+                         },
+                         "@media (max-width: 1000px)": {
+                             margin: "auto",
+                             mt: 10,
+                         },
+                         "@media (max-width: 991px)": {
+                             width: "54%",
+                         },
+                         "@media (max-width: 767px)": {
+                             width: "73%",
+                         },
+                         "@media (max-width: 600px)": {
+                             width: "80%",
+                         },
+                         padding: "5px",
+                         minWidth: "30%",
+                         alignItems: "center",
+                         borderRadius: 2,
+                         minHeight: "40vh",
+                         display: "flex",
+                         justifyContent: "center",
+                         alignContent: "space-around",
+                         mt: 10,
+                     }}
+                >
+                    <form onSubmit={handleClick}>
+                        <h1>Bejelentkezés</h1>
 
-        localStorage.setItem("Accesstoken", accesstoken);
-        localStorage.setItem("Refreshtoken", refreshtoken);
-        navigate("/");
-      } else {
-        toast.error("Felhasználónév és jelszó páros nem megfelelő!");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+                        {/* Email cím */}
 
-  return (
-    <Box
-      sx={{
-        flexWrap: "wrap",
-        flexDirection: "column",
-        width: "30%",
-        "@media (max-width: 1200px)": {
-          width: "40%",
-        },
-        "@media (max-width: 1000px)": {
-          width: "50%",
-        },
-        "@media (max-width: 800px)": {
-          width: "60%",
-        },
-        "@media (max-width: 600px)": {
-          width: "75%",
-        },
-        Minwidth: "30%",
-        alignItems: "center",
-        border: "1px solid",
-        borderColor: (theme) =>
-          theme.palette.mode === "dark" ? "black.800" : "black.300",
-        borderRadius: 2,
-        minHeight: "60vh",
-        display: "flex",
-        justifyContent: "center",
-        backgroundColor: "#F8F8FF",
-        margin: "auto",
-        alignContent: "space-around",
-        mt: 10,
-      }}
-    >
-      <form onSubmit={handleClick}>
-        <h1>Bejelentkezés</h1>
+                        <FormControl
+                            required
+                            variant="standard"
+                            sx={{m: 1, width: "80%"}}
+                        >
+                            <InputLabel style={{color: "white"}} htmlFor="standard-adornment-email">
+                                <EmailIcon/> Email cím
+                            </InputLabel>
+                            <Input
+                                aria-describedby="standard-weight-helper-text"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                inputProps={{
+                                    "aria-label": "Emailcím",
+                                    color: "white"
+                                }}
+                            />
+                        </FormControl>
 
-        {/* Email cím */}
+                        {/* Jelszó */}
 
-        <FormControl
-          required
-          fullWidth
-          variant="standard"
-          sx={{ m: 1, width: "40ch" }}
-        >
-          <InputLabel htmlFor="standard-adornment-password">
-            <EmailIcon /> Email cím
-          </InputLabel>
-          <Input
-            aria-describedby="standard-weight-helper-text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            inputProps={{
-              "aria-label": "Emailcím",
-            }}
-          />
-        </FormControl>
-
-        {/* Jelszó */}
-
-        <FormControl
-          required
-          fullWidth
-          sx={{ m: 1, width: "40ch" }}
-          variant="standard"
-        >
-          <InputLabel htmlFor="standard-adornment-password">
-            {" "}
-            <LockIcon /> Jelszó
-          </InputLabel>
-          <Input
-            id="standard-adornment-password"
-            type={showPassword ? "text" : "password"}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </FormControl>
-        {loginError && (
-          <Box color="error.main">
-            <Box id="login-error-text">{loginError}</Box>
-          </Box>
-        )}
-        <FlatButton
-          type="submit"
-          variant="contained"
-          sx={{ mt: 5, mb: 5 }}
-          style={{ color: "white", backgroundColor: "#dc6b29", width: "45ch" }}
-        >
-          Bejelentkezés
-        </FlatButton>
-        <p>
-          Még nem regisztráltál? <Link to="/Register">Regisztrálás</Link>
-        </p>
-      </form>
-    </Box>
-  );
+                        <FormControl
+                            required
+                            sx={{m: 1, width: "80%"}}
+                            variant="standard"
+                        >
+                            <InputLabel style={{color: "white"}} htmlFor="standard-adornment-password">
+                                {" "}
+                                <LockIcon/> Jelszó
+                            </InputLabel>
+                            <Input
+                                id="standard-adornment-password"
+                                type={"password"}
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                        </FormControl>
+                        <FlatButton
+                            type="submit"
+                            variant="contained"
+                            sx={{mt: 5, mb: 5}}
+                            style={{color: "white", backgroundColor: "#dc6b29", width: "80%"}}
+                        >
+                            Bejelentkezés
+                        </FlatButton>
+                        <p>
+                            Még nem regisztráltál? <Link to="/register">Regisztrálás</Link>
+                        </p>
+                    </form>
+                </Box>
+            </Container>
+        </div>
+    );
 }

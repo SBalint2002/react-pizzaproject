@@ -1,0 +1,17 @@
+.listItem{
+    justify-content: space-between;
+}
+
+.orderFormBody{
+    width: 100%;
+    padding-right: 30px;
+    min-width: 280px;
+    overflow: hidden;
+    color: white;
+}
+
+@media screen and (max-width: 767px){
+    .orderFormBody{
+        padding-right: 0px;
+    }
+}

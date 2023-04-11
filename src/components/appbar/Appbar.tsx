@@ -7,8 +7,6 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import PersonButton from "./ProfileButton";
-import LinkTo from "./LinkTo";
-
 export default function Appbar() {
   const [expanded, setExpanded] = useState(false);
 
@@ -19,12 +17,12 @@ export default function Appbar() {
         fixed="top"
         expanded={expanded}
         expand="lg"
-        style={{ backgroundColor: "#f6430c" }}
+        style={{ backgroundColor: "#000" }}
         variant="dark"
       >
         <Container>
           <Navbar.Brand>
-            <Link style={{ textDecoration: "none", color: "white" }} to="/">
+            <Link style={{textDecoration: "none", color: "white" }} to="/">
               Pizza Váltó
             </Link>
           </Navbar.Brand>
@@ -32,27 +30,28 @@ export default function Appbar() {
             aria-controls="basic-navbar-nav"
             onClick={() => setExpanded(!expanded)}
           />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav>
-              <LinkTo to="/menu" text="Rendelés" closeMenu={closeMenu} />
-              <LinkTo to="/" text="Kezdőlap" closeMenu={closeMenu} />
-            </Nav>
+          <Navbar.Collapse className="Collapse" id="basic-navbar-nav">
 
-            <div id="eltol">
+            <div className="Center">
+            <Nav>
+              <Link to="/menu" className="Link" onClick={closeMenu}>Rendelés </Link>
+              <Link to="/" className="Link" onClick={closeMenu}>Kezdőlap</Link>
+            </Nav>
+            </div>
+
+            <div className="Right">
               <Nav.Item onClick={closeMenu}>
                 <PersonButton />
               </Nav.Item>
-              <div style={{ width: "30px" }}></div>
-            </div>
-            <div>
+
               <Nav.Item onClick={closeMenu}>
                 <ShoppingCartButton />
-              </Nav.Item>{" "}
+              </Nav.Item>
             </div>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <div style={{ height: "80px" }}></div>
+      <div style={{ height: "56px" }}></div>
     </>
   );
 }

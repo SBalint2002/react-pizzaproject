@@ -5,10 +5,8 @@ interface UserContextType{
     logOut: () => void;
     zipCode: string;
     setZipCode: (zip: string)=> void,
-    city: string;
-    setCity: (city: string)=> void,
-    street: string;
-    setStreet: (street: string)=> void,
+    address: string;
+    setAddress: (city: string)=> void,
     phoneNumber: string,
     setPhoneNumber:(phone: string)=>void;
 }
@@ -19,11 +17,8 @@ const defaultContext : UserContextType = {
     zipCode: "",
     setZipCode: () => {
     },
-    city: "",
-    setCity: () => {
-    },
-    street: "",
-    setStreet: () => {
+    address: "",
+    setAddress: () => {
     },
     phoneNumber: "",
     setPhoneNumber: () => {
@@ -40,8 +35,7 @@ export const UserProvider: React.FC<PropsWithChildren<{}>> = ({ children }) => {
     const navigate = useNavigate();
 
     const [zipCode, setZipCode] = useState<string>("");
-    const [city, setCity] = useState<string>("");
-    const [street, setStreet] = useState<string>("");
+    const [address, setAddress] = useState<string>("");
     const [phoneNumber, setPhoneNumber] = useState<string>("");
 
     const logOut = () => {
@@ -55,10 +49,8 @@ export const UserProvider: React.FC<PropsWithChildren<{}>> = ({ children }) => {
         logOut,
         zipCode,
         setZipCode,
-        city,
-        setCity,
-        street,
-        setStreet,
+        address,
+        setAddress,
         phoneNumber,
         setPhoneNumber,
     };

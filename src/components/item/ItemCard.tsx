@@ -35,7 +35,9 @@ const ProductCard = ({id, picture, name, description, price, available}: Product
             <img src={picture} alt={name}/>
             <div>
                 <h2>{name}</h2>
+                <div className="desc">
                 <p>{description}</p>
+                </div>
             </div>
             <div className="card-footer">
                 <p style={{fontSize: "16px"}}>Ár: {price} Ft</p>

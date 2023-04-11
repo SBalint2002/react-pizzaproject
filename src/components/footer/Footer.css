@@ -1,13 +1,12 @@
 .footer {
-    background-color: #414141;
+    background-color: #000;
     width: 100%;
-    text-align: left;
     font-family: sans-serif;
     font-weight: bold;
-    font-size: 16px;
-    padding: 50px;
+    font-size: 20px;
+    padding: 50px 30px 30px 30px;
     text-align: center;
-    margin-top: 50px;
+    margin-top:0;
 }
 
 .footer .footer-left,
@@ -26,7 +25,7 @@
 .footer .about {
     line-height: 20px;
     color: #ffffff;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: normal;
     margin: 0;
 }
@@ -34,10 +33,12 @@
 .footer .about span {
     display: block;
     color: #ffffff;
-    font-size: 14px;
+    font-size: 20px;
     font-weight: bold;
     margin-bottom: 20px;
 }
+
+/* footer center*/
 
 .footer .icons {
     margin-top: 25px;
@@ -58,11 +59,15 @@
     margin-bottom: 5px;
 }
 
-
-/* footer center*/
-
 .footer .footer-center {
     width: 30%;
+}
+.footer .footer-center span {
+    display: block;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
 .footer .footer-center i {
@@ -74,7 +79,6 @@
     border-radius: 50%;
     text-align: center;
     line-height: 42px;
-    margin: 10px 15px;
     vertical-align: middle;
 }
 
@@ -106,7 +110,7 @@
 /* footer right*/
 
 .footer .footer-right {
-    width: 35%;
+    width: 36%;
 }
 
 .footer h2 {

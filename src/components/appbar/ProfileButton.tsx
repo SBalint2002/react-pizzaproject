@@ -8,7 +8,7 @@ const PersonButton = () => {
 
     const Click = async () => {
         try {
-            const res = await authFetch("http://localhost:8080/user/data", {
+            const res = await authFetch("/user/data", {
                 method: "GET",
             });
             if (res.ok) {
@@ -24,7 +24,7 @@ const PersonButton = () => {
     };
 
     return (
-        <Button onClick={Click} style={{ color: "inhereted" }}>
+        <Button onClick={Click} style={{ color: "#dc6b29" }}>
             <PersonIcon style={{ color: "white" }} />
         </Button>
     );

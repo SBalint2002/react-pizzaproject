@@ -1,0 +1,43 @@
+body {
+    height: 100%;
+}
+.logBody{
+    background: url('../login-register/loginpagebackground.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    z-index: 100;
+}
+
+.regBody {
+    background: url('./loginpagebackground.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    z-index: 100;
+}
+
+.box{
+    color:white;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.css-v4u5dn-MuiInputBase-root-MuiInput-root {
+    color: white!important;
+}
+
+.css-1x51dt5-MuiInputBase-input-MuiInput-input {
+    color: white!important;
+}
