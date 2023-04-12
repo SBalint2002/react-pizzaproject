@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="609a43a9-f3e9-4c4c-81ae-ede89fa3b8ca" name="Changes" comment="Code fix">
+    <list default="true" id="609a43a9-f3e9-4c4c-81ae-ede89fa3b8ca" name="Changes" comment="If order ok, clear cart, navigate to homepage">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/order-dataForms/OrderForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-dataForms/OrderForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/login-register/Register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login-register/Register.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/profilepage/ProfilePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profilepage/ProfilePage.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +110,7 @@
       <workItem from="1680612911152" duration="437000" />
       <workItem from="1681114746857" duration="1462000" />
       <workItem from="1681117530675" duration="1670000" />
-      <workItem from="1681194715429" duration="5234000" />
+      <workItem from="1681194715429" duration="5973000" />
     </task>
     <task id="LOCAL-00001" summary="Base">
       <created>1676448445905</created>
@@ -323,7 +322,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681201037802</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="If order ok, clear cart, navigate to homepage">
+      <created>1681283290366</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1681283290366</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -341,7 +347,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ProfileButton" />
     <MESSAGE value="ItemCard; ItemCardWriter;" />
     <MESSAGE value="UserContextProvider&#10;Hiányzik : token vizsgálat; login" />
     <MESSAGE value="MenuPage&#10;&#10;&#10;&#10;Termékek lekérése, kiírása" />
@@ -366,6 +371,7 @@
     <MESSAGE value="Orderpage fix" />
     <MESSAGE value="Orderpage regex check, Menupage product check if available" />
     <MESSAGE value="Code fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code fix" />
+    <MESSAGE value="If order ok, clear cart, navigate to homepage" />
+    <option name="LAST_COMMIT_MESSAGE" value="If order ok, clear cart, navigate to homepage" />
   </component>
 </project>
