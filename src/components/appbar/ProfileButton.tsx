@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const PersonButton = () => {
     const navigate = useNavigate();
 
-    const Click = async () => {
+const Click = async () => {
         try {
             const res = await authFetch("/user/data", {
                 method: "GET",
@@ -17,8 +17,6 @@ const PersonButton = () => {
                 navigate("/login");
             }
         } catch (error) {
-            console.log("Sikertelen lekérés");
-            console.log(error);
             navigate("/login");
         }
     };

@@ -13,6 +13,7 @@ import Orderpage from "./pages/orderpage/Orderpage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { UserProvider } from "./components/Contexts/UserContextProvider";
+import MyOrdersPage from "./pages/myorderspage/MyOrdersPage";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
               <Route path="/register" element={<Registerform />} />
               <Route path="/menu" element={<MenuPage />} />
               <Route path="/order" element={<Orderpage />} />
+              <Route path="/myorders" element={<MyOrdersPage />} />
             </Routes>
             <ToastContainer
               style={{ marginTop: "50px" }}

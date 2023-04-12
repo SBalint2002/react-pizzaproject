@@ -118,7 +118,6 @@ export default function ProfilePage() {
                              width: "80%",
                          },
                          padding: "5px",
-                         minwidth: "30%",
                          alignItems: "center",
                          borderRadius: 2,
                          minHeight: "43vh",
