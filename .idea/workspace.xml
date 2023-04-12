@@ -4,23 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="609a43a9-f3e9-4c4c-81ae-ede89fa3b8ca" name="Changes" comment="Orderpage regex check, Menupage product check if available">
-      <change afterPath="$PROJECT_DIR$/src/components/footer/feketelogo.png" afterDir="false" />
+    <list default="true" id="609a43a9-f3e9-4c4c-81ae-ede89fa3b8ca" name="Changes" comment="Code fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/appbar/Appbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/appbar/Appbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/appbar/CartButton.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/appbar/CartButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/appbar/CartButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/appbar/ProfileButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/appbar/ProfileButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/footer/Footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer/Footer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/footer/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer/Footer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/order-dataForms/OrderForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-dataForms/OrderForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/login-register/LogReg.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login-register/LogReg.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/menupage/MenuPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/menupage/MenuPage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/menupage/MenuPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/menupage/MenuPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/menupage/menubackground.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/menupage/menubackground.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/menupage/menubackground2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/orderpage/OrderPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/orderpage/OrderPage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/profilepage/ProfilePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profilepage/ProfilePage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/login-register/Register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login-register/Register.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +111,7 @@
       <workItem from="1680612911152" duration="437000" />
       <workItem from="1681114746857" duration="1462000" />
       <workItem from="1681117530675" duration="1670000" />
-      <workItem from="1681194715429" duration="2460000" />
+      <workItem from="1681194715429" duration="5234000" />
     </task>
     <task id="LOCAL-00001" summary="Base">
       <created>1676448445905</created>
@@ -329,7 +316,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680606300592</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Code fix">
+      <created>1681201037802</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1681201037802</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -347,7 +341,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="login" />
     <MESSAGE value="ProfileButton" />
     <MESSAGE value="ItemCard; ItemCardWriter;" />
     <MESSAGE value="UserContextProvider&#10;Hiányzik : token vizsgálat; login" />
@@ -372,6 +365,7 @@
     <MESSAGE value="ProfilePage rework; RegisterPage, Loginpage regex fix" />
     <MESSAGE value="Orderpage fix" />
     <MESSAGE value="Orderpage regex check, Menupage product check if available" />
-    <option name="LAST_COMMIT_MESSAGE" value="Orderpage regex check, Menupage product check if available" />
+    <MESSAGE value="Code fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code fix" />
   </component>
 </project>

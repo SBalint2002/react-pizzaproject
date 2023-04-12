@@ -12,7 +12,7 @@ import * as React from "react";
 const OrderForm = () => {
   const { zipCode, address, phoneNumber } = useUser();
   const navigate = useNavigate();
-  const { orderList } = useProduct();
+  const { orderList, setOrderList } = useProduct();
 
   const zipRegex = /^[0-9]{4}$/;
   const addressRegex = /^[a-zA-ZáéíóöőúüűÁÉÍÓÖŐÚÜŰ0-9\s,'-]+$/;
@@ -58,6 +58,8 @@ const OrderForm = () => {
 
         if (res.ok) {
           toast.success("Sikeres rendelés!");
+          setOrderList([]);
+          navigate('/');
         } else {
           toast.error("Hiba!");
         }
