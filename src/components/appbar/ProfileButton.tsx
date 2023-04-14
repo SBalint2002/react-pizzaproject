@@ -17,8 +17,6 @@ const PersonButton = () => {
                 navigate("/login");
             }
         } catch (error) {
-            console.log("Sikertelen lekérés");
-            console.log(error);
             navigate("/login");
         }
     };

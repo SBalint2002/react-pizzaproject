@@ -2,15 +2,33 @@ import "./Appbar.css";
 import "../../App.css";
 import { useState } from "react";
 import ShoppingCartButton from "./CartButton";
-import { Link } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import PersonButton from "./ProfileButton";
+import {authFetch} from "../../Util";
+import {toast} from "react-toastify";
 export default function Appbar() {
   const [expanded, setExpanded] = useState(false);
-
+  const navigate = useNavigate();
   const closeMenu = () => setExpanded(false);
+  const OrderOnClick =  async () =>{
+    closeMenu();
+    try {
+      const res = await authFetch("/user/data", {
+        method: "GET",
+      });
+      if (res.ok) {
+        navigate("/myorders");
+      } else {
+        navigate("/login");
+      }
+    } catch (error) {
+      toast.warning("A rendeléseid megnézéséhez bejelentkezés szükséges.")
+      navigate("/login");
+    }
+  }
   return (
     <>
       <Navbar
@@ -34,8 +52,8 @@ export default function Appbar() {
 
             <div className="Center">
             <Nav>
-              <Link to="/menu" className="Link" onClick={closeMenu}>Rendelés </Link>
-              <Link to="/" className="Link" onClick={closeMenu}>Kezdőlap</Link>
+              <Link to="/menu" className="Link" onClick={closeMenu}>  Menü </Link>
+              <Link to="/myorders" className="Link" onClick={OrderOnClick}>Rendeléseim</Link>
             </Nav>
             </div>
 
