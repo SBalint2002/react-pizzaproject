@@ -6,6 +6,7 @@ import OrderForm from "../../components/order-dataForms/OrderForm";
 import {Container, Row} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import {Button} from "@mui/material";
+import logo from "../myorderspage/logoszoveg.jpeg";
 
 export default function Orderpage() {
     const {orderList} = useProduct();
@@ -15,6 +16,10 @@ export default function Orderpage() {
             <Container className="emptyContainer">
                 <h1>A kosarad még üres...</h1>
                 <Link to="/menu" style={{textDecoration: "none"}}><Button>Rendelj most</Button></Link>
+
+                <div>
+                    <img style={{width:"300px"}} src={logo} alt="logo"/>
+                </div>
             </Container>
         )
     } else {

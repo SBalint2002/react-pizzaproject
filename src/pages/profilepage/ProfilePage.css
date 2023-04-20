@@ -9,18 +9,16 @@ table{
     width: 100%;
 }
 
-.profilebody{
-    background: url('../login-register/loginpagebackground.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-
+.profilebody {
     position: fixed;
-    height: 100%;
+    top: 0;
+    left: 0;
     width: 100%;
-    margin: 0;
-    z-index: 100;
+    height: 100%;
+    background: url('./profilePageBackground2.jpg') no-repeat center center fixed;
+    background-size: cover;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
 }
 
 .box{
