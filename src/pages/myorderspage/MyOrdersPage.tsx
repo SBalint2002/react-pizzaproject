@@ -4,6 +4,9 @@ import Container from "react-bootstrap/Container";
 import {authFetch} from "../../Util";
 import {OrderProduct} from "../../components/Contexts/ProductContextProvider";
 import MyOrderCard from "../../components/myordercard/MyOrderCard";
+import {Link} from "react-router-dom";
+import {Button} from "@mui/material";
+import logo from "./logoszoveg.jpeg";
 
 export interface MyOrdersProp {
     location: string;
@@ -44,7 +47,7 @@ const MyOrdersPage = () => {
                         })
                     }
                 });
-                setMyOrdersList(orders);
+                setMyOrdersList(orders.reverse());
             } else {
                 console.log("Invalid token");
             }
@@ -54,18 +57,37 @@ const MyOrdersPage = () => {
         }
     }
 
-    useEffect(() => {
+    useEffect( ()  =>  {
         fetchData();
-    }, [])
-    return (
-        <div>
-            <Container>
-                {myOrdersList.map((order, i) => (
-                    <MyOrderCard key={i} order={order} />
-                ))}
+        setInterval(()=>{
+            fetchData();
+        },6000)
+    }, []);
+
+    if (myOrdersList.length===0){
+        return (
+            <Container className="emptyContainer">
+                <h1>Még nem adtál le rendelést...</h1>
+                <Link to="/menu" style={{textDecoration: "none"}}><Button>Rendelj most</Button></Link>
+
+                <div>
+                    <img style={{width:"300px"}} src={logo} alt="logo"/>
+                </div>
+
             </Container>
-        </div>
-    )
+        )
+    }else{
+        return (
+            <div>
+                <Container>
+                    {myOrdersList.map((order, i) => (
+                        <MyOrderCard key={i} order={order} />
+                    ))}
+                </Container>
+            </div>
+        )
+    }
+
 }
 
 export default MyOrdersPage;

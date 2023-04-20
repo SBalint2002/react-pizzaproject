@@ -12,11 +12,14 @@ import PersonIcon from "@mui/icons-material/Person";
 import Input from "@mui/material/Input";
 import EmailIcon from "@mui/icons-material/Email";
 import FlatButton from "@mui/material/Button";
+import logo from "./keszprofil.png";
 
 export default function ProfilePage() {
     const [id, setId] = useState(0);
     const [lastName, setLastName] = useState("");
     const [firstName, setFirstName] = useState("");
+    const [displayLastName, setDisplayLastName] = useState("");
+    const [displayFirstName, setDisplayFirstName] = useState("");
     const [email, setEmail] = useState("");
     const {logOut} = useUser();
 
@@ -26,36 +29,38 @@ export default function ProfilePage() {
 
     const emailRegex =
         /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-    const nameRegex = /^[A-Za-zÁÉÍÓÖŐÚÜŰáéíóöőúüű ]{2,}$/;
+    const nameRegex = /^[A-Za-zÁÉÍÓÖŐÚÜŰáéíóöőúüű ]{2,50}$/;
+
+    const fetchData = async () => {
+        try {
+            const res = await authFetch("/user/data", {
+                method: "GET",
+            });
+
+            if (res.ok) {
+                const json = await res.json();
+                setId(json.id);
+                setLastName(json.last_name);
+                setFirstName(json.first_name);
+                setDisplayFirstName(json.first_name);
+                setDisplayLastName(json.last_name);
+                setEmail(json.email);
+            } else {
+                console.log("Invalid token");
+            }
+        } catch (error) {
+            console.log("Sikertelen lekérés");
+            console.log(error);
+        }
+    };
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const res = await authFetch("/user/data", {
-                    method: "GET",
-                });
-
-                if (res.ok) {
-                    const json = await res.json();
-                    setId(json.id);
-                    setLastName(json.last_name);
-                    setFirstName(json.first_name);
-                    setEmail(json.email);
-                } else {
-                    console.log("Invalid token");
-                }
-            } catch (error) {
-                console.log("Sikertelen lekérés");
-                console.log(error);
-            }
-        };
-
         fetchData();
     }, []);
 
     const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
+        fetchData();
         if (!nameRegex.test(firstName)) {
             toast.error("Hibás keresztnév formátum");
             return;
@@ -105,8 +110,8 @@ export default function ProfilePage() {
                              width: "40%",
                          },
                          "@media (max-width: 1000px)": {
-                             margin: "auto",
-                             mt: 6
+
+                             mt: 10
                          },
                          "@media (max-width: 991px)": {
                              width: "53%",
@@ -118,9 +123,10 @@ export default function ProfilePage() {
                              width: "80%",
                          },
                          padding: "5px",
+                         margin: "auto",
                          alignItems: "center",
                          borderRadius: 2,
-                         minHeight: "43vh",
+                         minHeight: "45vh",
                          display: "flex",
                          justifyContent: "center",
                          alignContent: "space-around",
@@ -128,11 +134,18 @@ export default function ProfilePage() {
                      }}
                 >
                     <form onSubmit={handleFormSubmit}>
-                        <h1>Profil</h1>
+
+                        <div>
+                            <img style={{width: "50px"}} src={logo} alt="logo"/>
+
+                            <h1>Profil</h1>
+
+                            <h3>{displayLastName} {displayFirstName} </h3>
+                        </div>
 
                         {/* Vezetéknév */}
 
-                        <FormControl fullWidth variant="standard" sx={{m: 1, width: "80%"}}>
+                        <FormControl fullWidth variant="standard" sx={{m: 1, width: "80%", mt: 5}}>
 
                             <InputLabel style={{color: "white"}}><PersonIcon/> Vezetéknév</InputLabel>
                             <Input
@@ -178,8 +191,8 @@ export default function ProfilePage() {
                             variant="contained"
                             sx={{mt: 5}}
                             style={{
-                                color: "white",
-                                backgroundColor: "#dc6b29",
+                                color: "black",
+                                backgroundColor: "#d2cdcd",
                                 width: "80%",
                             }}
                         >
@@ -191,8 +204,8 @@ export default function ProfilePage() {
                             variant="contained"
                             sx={{mt: 2, mb: 3}}
                             style={{
-                                color: "white",
-                                backgroundColor: "#dc6b29",
+                                color: "black",
+                                backgroundColor: "#d2cdcd",
                                 width: "80%",
                             }}
                         >

@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import Card from "react-bootstrap/Card";
-import { MyOrdersProp } from "../../pages/myorderspage/MyOrdersPage";
+import {MyOrdersProp} from "../../pages/myorderspage/MyOrdersPage";
+import "./MyOrderCard.css";
 
 interface OrderCardProps {
     order: MyOrdersProp;
@@ -11,8 +12,8 @@ interface PizzaCount {
     count: number;
 }
 
-const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
-    const { location, orderDate, phoneNumber, price, ready, pizzas } = order;
+const OrderCard: React.FC<OrderCardProps> = ({order}) => {
+    const {location, orderDate, phoneNumber, price, ready, pizzas} = order;
     const [pizzaList, setPizzaList] = useState<PizzaCount[]>([]);
 
     useEffect(() => {
@@ -30,7 +31,7 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
     }, [pizzas]);
 
     return (
-        <Card>
+        <Card className={`${ready ? "orderIsReady" : "orderIsNotReady"}`}>
             <Card.Body>
                 <Card.Title>
                     <div>
@@ -42,11 +43,12 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
                 <Card.Text>Ár: {price} Ft</Card.Text>
                 <Card.Text>Státusz: {ready ? "Elkészült" : "Készítés alatt"}</Card.Text>
                 <Card.Text>Rendelés tartalma:</Card.Text>
-                {pizzaList.map((pizza) => (
+
+                <div className="Pizzak">{pizzaList.map((pizza) => (
                     <p key={pizza.name}>
                         {pizza.name} x{pizza.count}
                     </p>
-                ))}
+                ))}</div>
             </Card.Body>
         </Card>
     );

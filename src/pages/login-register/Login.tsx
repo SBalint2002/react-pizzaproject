@@ -43,6 +43,7 @@ export default function Login() {
 
                 localStorage.setItem("Accesstoken", accesstoken);
                 localStorage.setItem("Refreshtoken", refreshtoken);
+                toast.success("Sikeres bejelentkezés!")
                 navigate("/");
             } else {
                 toast.error("Felhasználónév és jelszó páros nem megfelelő!");
