@@ -1,0 +1,7 @@
+.orderIsReady{
+    background-color: #79d579;
+}
+
+.orderIsNotReady{
+    background-color: rgba(248, 0, 0, 0.46);
+}
