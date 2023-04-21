@@ -4,32 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="609a43a9-f3e9-4c4c-81ae-ede89fa3b8ca" name="Changes" comment="MyOrdersPage Cards design fix">
+    <list default="true" id="609a43a9-f3e9-4c4c-81ae-ede89fa3b8ca" name="Changes" comment="Developer comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Contexts/ProductContextProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Contexts/ProductContextProvider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Contexts/UserContextProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Contexts/UserContextProvider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/appbar/Appbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/appbar/Appbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/appbar/Appbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/appbar/Appbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/appbar/CartButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/appbar/CartButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/appbar/ProfileButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/appbar/ProfileButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/footer/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer/Footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/item/ItemCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/item/ItemCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/item/ItemCardWriter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/item/ItemCardWriter.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/myordercard/MyOrderCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/myordercard/MyOrderCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/order-dataForms/DataForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-dataForms/DataForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/order-dataForms/OrderForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order-dataForms/OrderForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/orderItem/OrderItemWriter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/orderItem/OrderItemWriter.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/orderItem/SetCountButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/orderItem/SetCountButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/orderItem/SumPrice.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/orderItem/SumPrice.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/homepage/Homepage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/homepage/Homepage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/login-register/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login-register/Login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/login-register/Register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login-register/Register.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/menupage/MenuPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/menupage/MenuPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/myorderspage/MyOrdersPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/myorderspage/MyOrdersPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/orderpage/Orderpage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/orderpage/Orderpage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/profilepage/ProfilePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profilepage/ProfilePage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Util.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Util.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +114,7 @@
       <workItem from="1681367075449" duration="10658000" />
       <workItem from="1681456894668" duration="4239000" />
       <workItem from="1682006492610" duration="834000" />
-      <workItem from="1682060853711" duration="13332000" />
+      <workItem from="1682060853711" duration="14810000" />
     </task>
     <task id="LOCAL-00001" summary="Base">
       <created>1676448445905</created>
@@ -377,7 +354,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682064501856</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Developer comments">
+      <created>1682074516200</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1682074516200</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -395,7 +379,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ProfileButton&#10;&#10;&#10;&#10;Ha be van jelentkezve =&gt; /profilepage &#10;Ha nincs =&gt; /login" />
     <MESSAGE value="Profil módosítása" />
     <MESSAGE value="OrderList darabszámmal, globálisan" />
     <MESSAGE value="Elem hozzáadása az orderList-hez; Első valamiért kimarad" />
@@ -420,6 +403,7 @@
     <MESSAGE value="Profilepage media fix" />
     <MESSAGE value="Appbar link changes, MyOrdersPage" />
     <MESSAGE value="MyOrdersPage Cards design fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="MyOrdersPage Cards design fix" />
+    <MESSAGE value="Developer comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Developer comments" />
   </component>
 </project>
