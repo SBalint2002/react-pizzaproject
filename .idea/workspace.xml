@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="609a43a9-f3e9-4c4c-81ae-ede89fa3b8ca" name="Changes" comment="Developer comments">
+    <list default="true" id="609a43a9-f3e9-4c4c-81ae-ede89fa3b8ca" name="Changes" comment="Util.ts commentek">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Util.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Util.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/login-register/Register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login-register/Register.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/profilepage/ProfilePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profilepage/ProfilePage.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +115,7 @@
       <workItem from="1681367075449" duration="10658000" />
       <workItem from="1681456894668" duration="4239000" />
       <workItem from="1682006492610" duration="834000" />
-      <workItem from="1682060853711" duration="14810000" />
+      <workItem from="1682060853711" duration="18859000" />
     </task>
     <task id="LOCAL-00001" summary="Base">
       <created>1676448445905</created>
@@ -361,7 +362,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682074516200</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Util.ts commentek">
+      <created>1682075980626</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1682075980626</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -379,7 +387,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Profil módosítása" />
     <MESSAGE value="OrderList darabszámmal, globálisan" />
     <MESSAGE value="Elem hozzáadása az orderList-hez; Első valamiért kimarad" />
     <MESSAGE value="Elem hozzáadása az orderList-hez probléma nélkül;&#10;OrderPage elemekkel, darabszám módosítása, összérték;" />
@@ -404,6 +411,7 @@
     <MESSAGE value="Appbar link changes, MyOrdersPage" />
     <MESSAGE value="MyOrdersPage Cards design fix" />
     <MESSAGE value="Developer comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Developer comments" />
+    <MESSAGE value="Util.ts commentek" />
+    <option name="LAST_COMMIT_MESSAGE" value="Util.ts commentek" />
   </component>
 </project>

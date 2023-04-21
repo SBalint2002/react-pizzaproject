@@ -62,12 +62,7 @@ export default function Register() {
                     body: JSON.stringify(data),
                 });
                 if (res.ok) {
-                    const json = await res.json();
-                    const accesstoken = json["accessToken"];
-                    const refreshtoken = json["refreshToken"];
-                    console.log(refreshtoken);
-                    localStorage.setItem("Accesstoken", accesstoken);
-                    localStorage.setItem("Refreshtoken", refreshtoken);
+                    toast.success("Sikeres regisztráció!")
                     navigate("/login");
                 }
             } catch (error) {

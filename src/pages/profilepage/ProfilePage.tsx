@@ -64,7 +64,6 @@ export default function ProfilePage() {
 
     const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => { // Felhasználó adatainak módosítása
         e.preventDefault();
-        fetchData();
 
         // Adatok ellenőrzése Regex-ek alapján
         if (!nameRegex.test(firstName)) {
@@ -102,6 +101,8 @@ export default function ProfilePage() {
             toast.error("Hiba!");
             console.log(error);
         }
+
+        fetchData();
     };
 
     return ( // Form megjelenítése
