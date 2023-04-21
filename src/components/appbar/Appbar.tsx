@@ -40,7 +40,7 @@ export default function Appbar() {
       >
         <Container>
           <Navbar.Brand>
-            <Link style={{textDecoration: "none", color: "white" }} to="/">
+            <Link onClick={closeMenu} style={{textDecoration: "none", color: "white" }} to="/">
               Pizza Váltó
             </Link>
           </Navbar.Brand>
@@ -52,7 +52,7 @@ export default function Appbar() {
 
             <div className="Center">
             <Nav>
-              <Link to="/menu" className="Link" onClick={closeMenu}>  Menü </Link>
+              <Link to="/menu" className="Link" onClick={closeMenu}>Menü</Link>
               <Link to="/myorders" className="Link" onClick={OrderOnClick}>Rendeléseim</Link>
             </Nav>
             </div>

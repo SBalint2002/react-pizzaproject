@@ -78,14 +78,21 @@ const MyOrdersPage = () => {
         )
     }else{
         return (
-            <div>
-                <Container>
+            <Container>
+                <div
+                    style={{
+                        display: "flex",
+                        flexWrap: "wrap",
+                        justifyContent: "center",
+                        alignItems: "center"
+                    }}
+                >
                     {myOrdersList.map((order, i) => (
                         <MyOrderCard key={i} order={order} />
                     ))}
-                </Container>
-            </div>
-        )
+                </div>
+            </Container>
+        );
     }
 
 }

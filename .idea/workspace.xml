@@ -5,17 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="609a43a9-f3e9-4c4c-81ae-ede89fa3b8ca" name="Changes" comment="Appbar link changes, MyOrdersPage">
-      <change afterPath="$PROJECT_DIR$/src/components/myordercard/MyOrderCard.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/myorderspage/logoszoveg.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/profilepage/keszprofil.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/profilepage/profilePageBackground2.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/appbar/Appbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/appbar/Appbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/myordercard/MyOrderCard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/myordercard/MyOrderCard.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/myordercard/MyOrderCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/myordercard/MyOrderCard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/myorderspage/MyOrdersPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/myorderspage/MyOrdersPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/orderpage/Orderpage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/orderpage/Orderpage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/profilepage/ProfilePage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profilepage/ProfilePage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/profilepage/ProfilePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profilepage/ProfilePage.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +41,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "js.last.introduce.type": "CONST",
-    "last_opened_file_path": "D:/Norbert/prjectuj/PizzaProject-React",
+    "last_opened_file_path": "D:/Norbert/Projekt/PizzaProject-spring",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -55,7 +49,7 @@
     "node.js.selected.package.standard": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "D:\\Norbert\\Project\\Új mappa\\PizzaProject-React\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "D:\\Norbert\\Projekt\\PizzaProject-React\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -123,6 +117,7 @@
       <workItem from="1681367075449" duration="10658000" />
       <workItem from="1681456894668" duration="4239000" />
       <workItem from="1682006492610" duration="834000" />
+      <workItem from="1682060853711" duration="3552000" />
     </task>
     <task id="LOCAL-00001" summary="Base">
       <created>1676448445905</created>

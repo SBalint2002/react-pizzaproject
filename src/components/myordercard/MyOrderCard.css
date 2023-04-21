@@ -1,7 +1,26 @@
 .orderIsReady{
-    background-color: #79d579;
+    background-color: rgba(121, 213, 121, 0.78);
 }
 
 .orderIsNotReady{
-    background-color: rgba(248, 0, 0, 0.46);
+    background-color: rgba(203, 202, 202, 0.46);
+}
+
+.myOrderCard{
+    width: 325px;
+    border-radius: 5px;
+    margin: 13px;
+    min-height: 475px;
+    padding: 10px;
+    border: 2px solid black;
+    display: block;
+    box-shadow: 5px 15px 20px rgba(0,0,0,0.5);
+}
+
+.myOrderCardHeader>p{
+    margin: 1px;
+    font-weight: bold;
+}
+.myOrderCardPizzas>p{
+    margin: 1px;
 }
