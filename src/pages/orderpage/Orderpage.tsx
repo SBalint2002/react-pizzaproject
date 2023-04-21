@@ -8,10 +8,11 @@ import {Link} from "react-router-dom";
 import {Button} from "@mui/material";
 import logo from "../myorderspage/logoszoveg.jpeg";
 
+// Rendelésre szolgáló oldal
 export default function Orderpage() {
-    const {orderList} = useProduct();
+    const {orderList} = useProduct(); // Kosár tartalmának lekérése a ProductContext-ből
 
-    if (orderList.length === 0) {
+    if (orderList.length === 0) { // Ha a kosárban nem található termék
         return (
             <Container className="emptyContainer">
                 <h1>A kosarad még üres...</h1>
@@ -23,8 +24,7 @@ export default function Orderpage() {
             </Container>
         )
     } else {
-
-        return(
+        return( // Kosárban található termékek megjelenítése
             <div className="orderBody">
                 <Container className="orderContainer">
                     <Row>

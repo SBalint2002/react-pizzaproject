@@ -27,7 +27,7 @@ export default function Register() {
     const [password, setPassword] = React.useState("");
     const [password2, setPassword2] = React.useState("");
 
-    //Regex validation patterns
+    //Regex szabályok
     const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
     const emailRegex =
         /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
@@ -39,7 +39,7 @@ export default function Register() {
     const handleClick = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
-        // Validate inputs
+        // Bevitelimezők ellenőrzése
         if (!nameRegex.test(last_name)) {
             toast.error("Vezetéknév legalább 2 betű és csak betűket tartalmazhat")
         } else if (!nameRegex.test(first_name)) {
@@ -51,7 +51,7 @@ export default function Register() {
         } else if (password !== password2) {
             toast.error("A két jelszó nem egyezik!")
         } else {
-            // POST the user data
+            // Vizsgált adatok küldése
             const data: User = {first_name, last_name, email, password};
             try {
                 const res = await fetch("/auth/register", {

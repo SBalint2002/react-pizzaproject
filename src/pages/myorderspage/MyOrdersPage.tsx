@@ -8,7 +8,8 @@ import {Link} from "react-router-dom";
 import {Button} from "@mui/material";
 import logo from "./logoszoveg.jpeg";
 
-export interface MyOrdersProp {
+// A felhasználó korábbi rendelései lekérésére szolgáló oldal
+export interface MyOrdersProp { // Megjelenítendő adatok
     location: string;
     orderDate: Date;
     phoneNumber: string;
@@ -19,8 +20,8 @@ export interface MyOrdersProp {
 }
 
 const MyOrdersPage = () => {
-    const [myOrdersList, setMyOrdersList] = useState<MyOrdersProp[]>([]);
-    const fetchData= async ()=>{
+    const [myOrdersList, setMyOrdersList] = useState<MyOrdersProp[]>([]); // Rendelések tárolására szolgáló lista
+    const fetchData= async ()=>{ // A felhasználóhoz tartozó rendelések lekérése
         try {
             const res = await authFetch("/order/get-orders",{
                 method: "GET",
@@ -28,7 +29,7 @@ const MyOrdersPage = () => {
 
             if (res.ok){
                 const json = await res.json();
-                const orders = json.map((order: any) => {
+                const orders = json.map((order: any) => { // Szükséges adatok kiválogatása a válaszból
                     return {
                         location: order.location,
                         orderDate: new Date(order.order_date),
@@ -47,7 +48,7 @@ const MyOrdersPage = () => {
                         })
                     }
                 });
-                setMyOrdersList(orders.reverse());
+                setMyOrdersList(orders.reverse()); // Lista megfordítása
             } else {
                 console.log("Invalid token");
             }
@@ -60,11 +61,11 @@ const MyOrdersPage = () => {
     useEffect( ()  =>  {
         fetchData();
         setInterval(()=>{
-            fetchData();
+            fetchData(); // Adatok lekérése percenként, státusz változás miatt
         },6000)
     }, []);
 
-    if (myOrdersList.length===0){
+    if (myOrdersList.length===0){ // Ha a felhasználó nem rendelkezik még rendeléssel
         return (
             <Container className="emptyContainer">
                 <h1>Még nem adtál le rendelést...</h1>
@@ -77,7 +78,7 @@ const MyOrdersPage = () => {
             </Container>
         )
     }else{
-        return (
+        return ( // A felhasználóhoz tartozó rendelések kiiratása
             <Container>
                 <div
                     style={{

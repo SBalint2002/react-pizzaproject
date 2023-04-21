@@ -10,15 +10,17 @@ import LocationCityIcon from '@mui/icons-material/LocationCity';
 import * as React from "react";
 import "./OrderForm.css"
 
-const DataForm = () => {
+// Rendeléshez szükséges adatok bekérésére szolgáló komponens
+
+const DataForm = () => { // UserContextProvider-ből kinyerjük az adatok állapotaihoz tartozó frissítő metódusokat
     const {
         setZipCode,
         setAddress,
         setPhoneNumber,
     } = useUser();
 
-    const handleChange = (event :  React.ChangeEvent<HTMLInputElement>) => {
-        const { value } = event.target;
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => { // Telefonszám változásának eseménykezelője, amely hozzáadja a +36 előtagot, ha az nincs megadva
+        const {value} = event.target;
         if (value.startsWith("+36")) {
             setPhoneNumber(value);
         } else {
@@ -26,7 +28,7 @@ const DataForm = () => {
         }
     };
 
-    return (
+    return ( /* // Komponens felépítése és visszaadása */
         <div>
             <Container style={{color: "white"}}>
                 <Box className=""

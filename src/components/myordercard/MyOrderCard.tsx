@@ -2,6 +2,8 @@ import React, {useEffect, useState} from "react";
 import {MyOrdersProp} from "../../pages/myorderspage/MyOrdersPage";
 import "./MyOrderCard.css";
 
+// A felhasználó korábbi rendeléseit tartalmazó kártyák
+
 interface OrderCardProps {
     order: MyOrdersProp;
 }
@@ -15,7 +17,7 @@ const OrderCard: React.FC<OrderCardProps> = ({order}) => {
     const {location, orderDate, phoneNumber, price, ready, pizzas} = order;
     const [pizzaList, setPizzaList] = useState<PizzaCount[]>([]);
 
-    useEffect(() => {
+    useEffect(() => { // Egyedi pizzák darabszámának kiszámolása a rendelés tartalma alapján
         const pizzaMap = new Map<string, number>();
         pizzas.forEach((pizza) => {
             const name = pizza.name;
@@ -29,8 +31,9 @@ const OrderCard: React.FC<OrderCardProps> = ({order}) => {
         setPizzaList(newPizzaList);
     }, [pizzas]);
 
-    return (
-        <div className={`myOrderCard ${ready ? "orderIsReady" : "orderIsNotReady"}`}>
+    return (  /* Kártyák megjelenítése */
+        <div
+            className={`myOrderCard ${ready ? "orderIsReady" : "orderIsNotReady"}`}> {/* Ha a rendelés státuszától függő design */}
             <div className="myOrderCardHeader">
                 <p>{orderDate.toLocaleString()}</p>
                 <p>{location}</p>

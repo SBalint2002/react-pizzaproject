@@ -14,24 +14,28 @@ import EmailIcon from "@mui/icons-material/Email";
 import FlatButton from "@mui/material/Button";
 import logo from "./keszprofil.png";
 
+// A felhasználó profilja
 export default function ProfilePage() {
+
+    // Adatok tárolására alkalmas hook-ok
     const [id, setId] = useState(0);
     const [lastName, setLastName] = useState("");
     const [firstName, setFirstName] = useState("");
     const [displayLastName, setDisplayLastName] = useState("");
     const [displayFirstName, setDisplayFirstName] = useState("");
     const [email, setEmail] = useState("");
-    const {logOut} = useUser();
+    const {logOut} = useUser(); // Kijelentkezés függvény lekérése a ProductContext-ből
 
-    const handleLogout = () => {
+    const handleLogout = () => { // Kijelentkezés kattintásra
         logOut();
     };
 
+    // Regex szabályok
     const emailRegex =
         /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
     const nameRegex = /^[A-Za-zÁÉÍÓÖŐÚÜŰáéíóöőúüű ]{2,50}$/;
 
-    const fetchData = async () => {
+    const fetchData = async () => { // Felhasználó adatinak lekérése
         try {
             const res = await authFetch("/user/data", {
                 method: "GET",
@@ -58,9 +62,11 @@ export default function ProfilePage() {
         fetchData();
     }, []);
 
-    const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => { // Felhasználó adatainak módosítása
         e.preventDefault();
         fetchData();
+
+        // Adatok ellenőrzése Regex-ek alapján
         if (!nameRegex.test(firstName)) {
             toast.error("Hibás keresztnév formátum");
             return;
@@ -74,7 +80,7 @@ export default function ProfilePage() {
             return;
         }
 
-        try {
+        try { // Módosított adatok elküldése
             const res = await authFetch(`/user/${id}`, {
                 method: "PUT",
                 headers: {
@@ -98,7 +104,7 @@ export default function ProfilePage() {
         }
     };
 
-    return (
+    return ( // Form megjelenítése
         <div className="profilebody">
             <Container>
                 <Box className="box"

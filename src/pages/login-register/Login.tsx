@@ -41,7 +41,7 @@ export default function Login() {
                 const accesstoken = json["accessToken"];
                 const refreshtoken = json["refreshToken"];
 
-                localStorage.setItem("Accesstoken", accesstoken);
+                localStorage.setItem("Accesstoken", accesstoken);  // Backend-től kapott tokenek tárolása
                 localStorage.setItem("Refreshtoken", refreshtoken);
                 toast.success("Sikeres bejelentkezés!")
                 navigate("/");
