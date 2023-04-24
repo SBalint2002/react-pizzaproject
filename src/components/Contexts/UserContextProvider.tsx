@@ -2,7 +2,11 @@ import React, {createContext, PropsWithChildren, useContext, useState} from "rea
 import {useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 
+/**
+ *Felhasználói adatokhoz és műveletekhez biztosít egy kontextust.
+ */
 interface UserContextType { // Definiáljuk a UserContextType típust
+
     logOut: () => void;
     zipCode: string;
     setZipCode: (zip: string) => void,
@@ -13,7 +17,6 @@ interface UserContextType { // Definiáljuk a UserContextType típust
 }
 
 const defaultContext: UserContextType = { // Definiáljuk az alapértelmezett kontextus értékeket
-
     logOut: () => {
     },
     zipCode: "",
@@ -29,10 +32,19 @@ const defaultContext: UserContextType = { // Definiáljuk az alapértelmezett ko
 
 export const UserContext = createContext<UserContextType>(defaultContext); // Létrehozzuk a UserContext-et
 
-export function useUser() { // Definiáljuk a useUser hook-ot
+/**
+ *Felhasználói kontextus eléréséhez használható hook.
+ *@returns {UserContextType} - Egy objektumot ad vissza, ami tartalmazza a felhasználói kontextus adatait és akcióit.
+ */
+export function useUser() {
     return useContext(UserContext);
 }
 
+/**
+ *A felhasználóhoz kapcsolódó adatok és műveletek összefoglalásáért felelős kontextus komponens.
+ *@param {PropsWithChildren<{}>} props - A kontextus átadására szolgáló gyermek komponensek.
+ *@returns {JSX.Element} - A kontextussal ellátott gyermek komponensek.
+ */
 export const UserProvider: React.FC<PropsWithChildren<{}>> = ({children}) => {
     const navigate = useNavigate(); // Komponensek közti nevigáció
 

@@ -5,7 +5,14 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import "./OrderItem.css";
 
-// Kosárban lévő elemek darabszámának beállításara szolgáló komponens
+/**
+ *Komponens a kosárban lévő tételek darabszámának beállítására.
+ *@function
+ *@param {Object} props - A komponenshez átadott props objektum.
+ *@param {number} props.value - Az elem darabszáma.
+ *@param {number} props.id - Az elem azonosítója.
+ *@returns {JSX.Element} A megjelenített komponens.
+ */
 export function SetCountButton(props: { value: number, id: number }) {
     const {orderList, setOrderList} = useProduct(); // Kosár tartalmának lekérése a ProductContext-ből
     const index = orderList.findIndex(item => item.id === props.id); // Az elem indexének meghatározása

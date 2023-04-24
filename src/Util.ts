@@ -1,3 +1,7 @@
+/**
+ *Lekéri az új hozzáférési tokent a frissítő tokent használva, majd frissíti azt a localStorage-ban
+ *@return {Promise<string|null>} - Egy Promise, amely az új hozzáférési tokennel vagy null értékkel feloldódik, ha az sikertelen
+ */
 export async function refreshToken(): Promise<string | null> { // Fetch kérés az '/auth/refresh' végpont felé POST metódussal JSON formátumban
     const refresh = localStorage.getItem('Refreshtoken');
 
@@ -17,6 +21,14 @@ export async function refreshToken(): Promise<string | null> { // Fetch kérés 
     }
     return null; // Ha a fetch kérés sikertelen volt, akkor visszatérünk null értékkel
 }
+
+/**
+ *Az adott URL-hez és kérési beállításokhoz tartozó hitelesített fetch kérést hajt végre
+ *@param {string} url - Az elérni kívánt URL
+ *@param {RequestInit} [info] - Az opciók, amelyeket a fetch kérésben szeretnénk megadni (pl. fejlécek, metódus)
+ *@return {Promise<Response>} - Egy Promise, amely a Response objektummal oldódik fel
+ *@throws {Error} - Ha hiányzik az access token, vagy érvénytelen, vagy ha a refresh token érvénytelen
+ */
 export async function authFetch(url: string, info?: RequestInit): Promise<Response> {
     const access = localStorage.getItem('Accesstoken');
 

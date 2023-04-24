@@ -5,10 +5,16 @@ import {ProductProps} from "../../components/Contexts/ProductContextProvider";
 import Footer from "../../components/footer/Footer";
 import "./MenuPage.css"
 
-// Termékeink megjelenítésére szolgáló oldal
+/**
+ *Egy oldal komponens, ami termékek listáját jeleníti meg.
+ *@return {JSX.Element} A JSX elem, ami megjeleníti az oldalt.
+ */
 export default function MenuPage() {
     const [pizzas, setPizzas] = useState<ProductProps[]>([]); // Lista a termékek tárolásásra
 
+    /**
+     * Lekéri a termékeket a szerverről és frissíti a state-et a termékekkel.
+     */
     useEffect(() => { // Termékek lekérése
         const fetchData = async () => {
             try {

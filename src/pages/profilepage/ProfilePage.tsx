@@ -14,7 +14,12 @@ import EmailIcon from "@mui/icons-material/Email";
 import FlatButton from "@mui/material/Button";
 import logo from "./keszprofil.png";
 
-// A felhasználó profilja
+/**
+ *
+ *Komponens a felhasználói profil információk megjelenítéséhez és szerkesztéséhez
+ *
+ *@return {JSX.Element}
+ */
 export default function ProfilePage() {
 
     // Adatok tárolására alkalmas hook-ok
@@ -26,6 +31,11 @@ export default function ProfilePage() {
     const [email, setEmail] = useState("");
     const {logOut} = useUser(); // Kijelentkezés függvény lekérése a ProductContext-ből
 
+    /**
+     *
+     *Kijelentkezés kezelése
+     *@return {void}
+     */
     const handleLogout = () => { // Kijelentkezés kattintásra
         logOut();
     };
@@ -35,6 +45,10 @@ export default function ProfilePage() {
         /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
     const nameRegex = /^[A-Za-zÁÉÍÓÖŐÚÜŰáéíóöőúüű ]{2,50}$/;
 
+    /**
+     *Adatok lekérése
+     *@return {void}
+     */
     const fetchData = async () => { // Felhasználó adatinak lekérése
         try {
             const res = await authFetch("/user/data", {
@@ -62,7 +76,12 @@ export default function ProfilePage() {
         fetchData();
     }, []);
 
-    const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => { // Felhasználó adatainak módosítása
+    /**
+     *Függvény a felhasználói adatok módosítására szolgáló űrlap elküldésének kezeléséhez
+     *@param {React.FormEvent<HTMLFormElement>} e - Űrlap elküldési esemény
+     *@return {void}
+     */
+    const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         // Adatok ellenőrzése Regex-ek alapján

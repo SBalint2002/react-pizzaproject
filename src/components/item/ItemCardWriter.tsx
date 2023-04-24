@@ -1,8 +1,11 @@
 import ItemCard from "./ItemCard";
 import {ProductProps} from "../Contexts/ProductContextProvider";
 
-// Termékek kiiratására szolgáló komponens
-
+/**
+ *A termékek listáját megjelenítő komponens a szolgáltatott terméklistával
+ *@param {ItemCardsWriterProps} props - Az megjelenítendő termékek listáját tartalmazó objektum
+ *@returns {JSX.Element} Komponens a termékek kártyáinak listázására
+ */
 export interface ItemCardsWriterProps { // Termékek listája
     list: ProductProps[];
 }

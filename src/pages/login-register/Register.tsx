@@ -12,6 +12,11 @@ import Container from "react-bootstrap/Container";
 import "./LogReg.css";
 import {toast} from "react-toastify";
 
+/**
+ *Egy React funkcionális komponens, amely egy regisztrációs űrlapot jelenít meg a felhasználó keresztnevét, vezetéknevét, e-mail címét, jelszavát és jelszó megerősítését tartalmazó beviteli mezőkkel.
+ *Ellenőrzi a felhasználói bemenetet a regex minták szerint, és ha minden beviteli mező érvényes, akkor POST kérést küld a szervernek.
+ *Sikeres regisztráció után átirányítja a felhasználót a bejelentkező oldalra.
+ */
 interface User {
     first_name: string;
     last_name: string;
@@ -19,6 +24,10 @@ interface User {
     password: string;
 }
 
+/**
+ *Visszaad egy JSX elemet, ami egy regisztrációs űrlapot jelenít meg a felhasználó keresztnevét, vezetéknevét, email címét, jelszavát és jelszó megerősítését tartalmazó beviteli mezőkkel.
+ *@returns {JSX.Element}
+ */
 export default function Register() {
     // Adatok
     const [last_name, setLastName] = React.useState("");
@@ -36,6 +45,12 @@ export default function Register() {
     // Gomb megnyomása után POST és redirect
     let navigate = useNavigate();
 
+    /**
+     *Egy függvény, amely kezeli az űrlap beküldését, amikor a felhasználó az elküld gombot megnyomja.
+     *Ellenőrzi a felhasználói bemenetet a regex minták alapján, hibaüzenetet jelenít meg, ha a bemenet érvénytelen, és POST-kérést küld a szervernek, ha minden bemeneti mező érvényes.
+     *Sikeres regisztráció után átirányítja a felhasználót a bejelentkező oldalra.
+     *@param {React.FormEvent<HTMLFormElement>} event - Az űrlap beküldési eseménye.
+     */
     const handleClick = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 

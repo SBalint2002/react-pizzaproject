@@ -2,7 +2,11 @@ import React, {useEffect, useState} from "react";
 import {MyOrdersProp} from "../../pages/myorderspage/MyOrdersPage";
 import "./MyOrderCard.css";
 
-// A felhasználó korábbi rendeléseit tartalmazó kártyák
+/**
+ *A felhasználó korábbi rendeléseit tartalmazó kártyák megjelenítése.
+ *@param {OrderCardProps} props - Az objektum tartalmazza azokat a részleteket, amelyek a megjelenítendő rendeléssel kapcsolatosak.
+ *@returns {JSX.Element} A rendelést tartalmazó kártya komponensét adja vissza.
+ */
 
 interface OrderCardProps {
     order: MyOrdersProp;
@@ -17,7 +21,11 @@ const OrderCard: React.FC<OrderCardProps> = ({order}) => {
     const {location, orderDate, phoneNumber, price, ready, pizzas} = order;
     const [pizzaList, setPizzaList] = useState<PizzaCount[]>([]);
 
-    useEffect(() => { // Egyedi pizzák darabszámának kiszámolása a rendelés tartalma alapján
+    /**
+     * Kiszámolja az egyedi pizzák számát a rendelésben és beállítja a pizza lista állapotát.
+     *@param {MyOrdersProp["pizzas"]} pizzas - A rendelésben található pizzák listája.
+     */
+    useEffect(() => {
         const pizzaMap = new Map<string, number>();
         pizzas.forEach((pizza) => {
             const name = pizza.name;

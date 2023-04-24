@@ -36,5 +36,5 @@ A felhasználó számára a következő funkciók érhetők el:
 - Regisztrálhat és bejelentkezhet az alkalmazásba.
 - Láthatja az étlapot (pizzákat) és hozzáadhatják a kiválasztott pizzákat a kosárhoz.
 - A kosárba helyezett termékeket ellenőrizheti és megrendelheti azokat, megadva a szállítási címet és a telefonszámot.
-- Az előző rendeléseket meg lehet tekinteni az alkalmazásban. A készen álló rendelések zöldek, az új rendelések pirosak.
+- Az előző rendeléseket meg lehet tekinteni az alkalmazásban. A készen álló rendelések zöldek, az új rendelések szürkék.
 - Frissítheti saját adatlapját.

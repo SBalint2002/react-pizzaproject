@@ -8,7 +8,6 @@ import {Link} from "react-router-dom";
 import {Button} from "@mui/material";
 import logo from "./logoszoveg.jpeg";
 
-// A felhasználó korábbi rendelései lekérésére szolgáló oldal
 export interface MyOrdersProp { // Megjelenítendő adatok
     location: string;
     orderDate: Date;
@@ -19,8 +18,16 @@ export interface MyOrdersProp { // Megjelenítendő adatok
 
 }
 
+/**
+ *Az oldal komponense, amely megjeleníti a felhasználó korábbi rendeléseit.
+ *@returns {JSX.Element} A JSX elem, amely az oldalt jeleníti meg.
+ */
 const MyOrdersPage = () => {
     const [myOrdersList, setMyOrdersList] = useState<MyOrdersProp[]>([]); // Rendelések tárolására szolgáló lista
+
+    /**
+     *Lekéri a felhasználó rendeléseit a szerverről és frissíti velük a state-et.
+     */
     const fetchData= async ()=>{ // A felhasználóhoz tartozó rendelések lekérése
         try {
             const res = await authFetch("/order/get-orders",{

@@ -4,20 +4,49 @@ import {useNavigate} from "react-router-dom";
 import {Badge} from "@mui/material";
 import {useProduct} from "../Contexts/ProductContextProvider";
 
-const ShoppingCartButton = () => { // Funkcionális komponens, mely egy bevásárlókosár gombot jelenít meg a fejlécben
-    const navigate = useNavigate(); // A React Router useNavigate hookját használjuk, hogy az útvonalak közötti váltást megvalósítsuk
-    const {orderList} = useProduct(); // A termékek összesítő kontextusából kinyerjük a rendelési listát
+/**
+ * Funkcionális komponens, mely egy bevásárlókosár gombot jelenít meg a fejlécben
+ * @function
+ * @returns {JSX.Element} - Egy MUI gombot, ami a kosár oldalra navigál az onClick esemény hatására, egy MUI jelölőt, ami a kosárban található termékek számát mutatja, és egy MUI bevásárlókosár ikont, ami a gombban jelenik meg
+ */
+const ShoppingCartButton = () => {
+    /**
+     * A termékek összesítő kontextusából kinyerjük a rendelési listát
+     * @type {Object}
+     * @property {Object[]} orderList - A rendelési lista objektumai
+     * @property {string} orderList[].id - A termék egyedi azonosítója
+     * @property {string} orderList[].name - A termék neve
+     * @property {number} orderList[].price - A termék ára
+     * @property {number} orderList[].count - A termék darabszáma a kosárban
+     */
 
-    const Click = () => {   // Az alábbi függvény hívódik meg, ha a gombra kattintanak, és a '/order' útvonalra navigálja a felhasználót
+    /**
+     * A termékek összesítő kontextusából kinyerjük a rendelési listát
+     *
+     * @return {Object} Rendelési lista
+     */
+    const { orderList } = useProduct();
+    /**
+     * Oldalak közti navigáció
+     *
+     * @type {function}
+     */
+    const navigate = useNavigate();
+
+    /**
+     * Az alábbi függvény hívódik meg, ha a gombra kattintanak, és a '/order' útvonalra navigálja a felhasználót
+     * @function
+     * @constructor
+     */
+    const Click = () => {
         navigate("/order");
     };
 
+    /**
+     * Az összesítő listából kiszámoljuk a kosárban található termékek számát
+     * @type {number}
+     */
     const sum = orderList.reduce((total, item) => total + item.count, 0); // Az összesítő listából kiszámoljuk a kosárban található termékek számát
-
-    // A következőt adja vissza:
-    // egy MUI gombot, ami a kosár oldalra navigál az onClick esemény hatására,
-    // egy MUI jelölőt, ami a kosárban található termékek számát mutatja,
-    // és egy MUI bevásárlókosár ikont, ami a gombban jelenik meg
 
     return (
         <Button onClick={Click} style={{color: "#dc6b29"}}>

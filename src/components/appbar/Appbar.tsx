@@ -10,15 +10,46 @@ import PersonButton from "./ProfileButton";
 import {authFetch} from "../../Util";
 import {toast} from "react-toastify";
 
-export default function Appbar() { // Az Appbar komponens a navigációs sávot jeleníti meg az alkalmazásban
+/**
+ * Az Appbar komponens a navigációs sávot jeleníti meg az alkalmazásban
+ *
+ * @component
+ * @return {JSX.Element}
+ */
 
-    const [expanded, setExpanded] = useState(false); // Állapot változó, ami azt jelzi, hogy az elmenük nyitva vagy összezárva van
-    const navigate = useNavigate(); // Oldalak közti navigáció
-    const closeMenu = () => setExpanded(false); // Összecsukott állapotban bezárja a menüt
+export default function Appbar() {
 
-    const OrderOnClick = async () => { // A Rendeléseim gombra kattintás eseménykezelője
+    /**
+     * Állapot változó, ami azt jelzi, hogy az elmenük nyitva vagy összezárva van
+     *
+     * @type {[boolean, function]}
+     */
+    const [expanded, setExpanded] = useState(false);
+
+    /**
+     * Oldalak közti navigáció
+     *
+     * @type {function}
+     */
+    const navigate = useNavigate();
+
+    /**
+     *  Összecsukott állapotban bezárja a menüt
+     *
+     *  @type {function}
+     */
+    const closeMenu = () => setExpanded(false);
+
+
+    /**
+     * A Rendeléseim gombra kattintás eseménykezelője
+     * Authentikált kérést küldünk a szervernek, hogy megnézzük, hogy a felhasználó be van-e jelentkezve
+     *
+     * @type {function}
+     */
+    const OrderOnClick = async () => {
         closeMenu();
-        try { // Authentikált kérést küldünk a szervernek, hogy megnézzük, hogy a felhasználó be van-e jelentkezve
+        try { //
             const res = await authFetch("/user/data", {
                 method: "GET",
             });
@@ -32,7 +63,12 @@ export default function Appbar() { // Az Appbar komponens a navigációs sávot 
             navigate("/login");
         }
     }
-    return ( // A navigációs sáv megjelenítése
+    /**
+     * Navigációs sáv megjelenítése
+     *
+     * @return {JSX.Element}
+     */
+    return (
         <>
             <Navbar
                 fixed="top"

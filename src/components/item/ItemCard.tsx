@@ -5,14 +5,23 @@ import {useProduct, ProductProps} from "../Contexts/ProductContextProvider";
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const ProductCard = ({id, picture, name, description, price, available}: ProductProps) => { // Termékkártya
-    const {orderList, setOrderList} = useProduct(); // productContextProvider-ből lekérjük a rendelési listát és a beállító függvényt
+/**
+ * Megjeleníti a termékinformációkat és egy gombot a termék hozzáadásához a kosárhoz
+ * @param {ProductProps} props - A termékinformációkat tartalmazó objektum
+ * @returns {JSX.Element} A termékkártya komponens
+ */
+const ProductCard = ({id, picture, name, description, price, available}: ProductProps) => {
+    const {orderList, setOrderList} = useProduct();
 
-    const handleBuy: React.MouseEventHandler<HTMLButtonElement> = () => { // Kosárhoz adás függvénye
+    /**
+     * A termék hozzáadása a kosárhoz, ha még nincs a kosárban
+     * @param {React.MouseEvent<HTMLButtonElement>} event - Kattintás esemény
+     */
+    const handleBuy: React.MouseEventHandler<HTMLButtonElement> = () => {
 
-        if (orderList.some((obj) => obj.id === id)) { // Vizsgálat, ha a termék szerepel már a kosárban figyelmeztetjük a felhasználót
+        if (orderList.some((obj) => obj.id === id)) {
             toast.error('Az elem már megtalálható a kosaradban!')
-        } else { // Ha nem szerepel a listában, hozzáadjuk
+        } else {
             setOrderList([
                 ...orderList,
                 {
@@ -30,7 +39,7 @@ const ProductCard = ({id, picture, name, description, price, available}: Product
         }
     };
 
-    return ( /*Kártya megjelenítése*/
+    return (
         <div className="card">
             <img src={picture} alt={name}/>
             <div>

@@ -9,6 +9,10 @@ import DataForm from "./DataForm";
 import FlatButton from "@mui/material/Button";
 import * as React from "react";
 
+/**
+ * Komponens a rendelési űrlap megjelenítéséhez.
+ * @component
+ */
 const OrderForm = () => {
     const {zipCode, address, phoneNumber} = useUser(); // Adatok lekérése a UserContext-ből
     const {orderList, setOrderList} = useProduct(); // Kosár tartalmának lekérése a ProductContext-ből
@@ -19,8 +23,19 @@ const OrderForm = () => {
     const addressRegex = /^[a-zA-ZáéíóöőúüűÁÉÍÓÖŐÚÜŰ0-9\s,'-]+$/;
     const phoneRegex = /^\+[0-9]{2}[0-9]{9,10}$/;
 
+    /**
+     *Asynchronous function for sending the order to the backend.
+     *@async
+     *@function
+     */
     const OrderFetch = async () => { // Rendelés elküldése a backend-nek
-        const pizzaIdsConverter = () => { // A rendelt pizzák azonosítóinak konvertálása tömbbé
+
+        /**
+         *Ez a függvény a rendelt pizzák azonosítóit konvertálja tömbbé.
+         *@function
+         *@returns {Array} A pizzák azonosítóinak tömbje.
+         */
+        const pizzaIdsConverter = () => {
             let pizzaIds = [];
 
             for (let i = 0; i < orderList.length; i++) {

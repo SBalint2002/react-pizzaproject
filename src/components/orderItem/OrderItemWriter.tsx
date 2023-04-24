@@ -3,7 +3,11 @@ import {SetCountButton} from "./SetCountButton";
 import "./OrderItem.css";
 import Container from "react-bootstrap/Container";
 
-// A kosárban lévő tételek kártyáját megjelenítő komponens
+/**
+ *Komponens az elemek megjelenítéséhez a rendelési listában.
+ *@function
+ *@returns {JSX.Element} A rendelt komponens.
+ */
 const OrderItemWriter = () => {
     const {orderList} = useProduct();  // Kosár tartalmának lekérése a ProductContext-ből
 

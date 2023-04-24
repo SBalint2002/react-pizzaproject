@@ -7,7 +7,12 @@ import GoogleIcon from '@mui/icons-material/Google';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import logo from './feketelogo.png';
 
-const Footer = () => <footer className="footer">   {/* Lábléc komponens létrehozása */}
+/**
+ * Footer component.
+ *
+ * @return {JSX.Element} Lábléc komponens létrehozása.
+ */
+const Footer = () => <footer className="footer">
     <div className="footer-left col-md-4 col-sm-12">   {/* Bal oldali rész */}
         <p className="about">
             <span> Rólunk </span> A belváros közepén mesés enteriőr kialakítással nagy {/* Étterem leírása */}
