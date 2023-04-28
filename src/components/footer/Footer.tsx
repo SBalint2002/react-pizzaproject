@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import {Link} from "react-router-dom"
 import './Footer.css'
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -7,16 +7,21 @@ import GoogleIcon from '@mui/icons-material/Google';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import logo from './feketelogo.png';
 
+/**
+ * Footer component.
+ *
+ * @return {JSX.Element} Lábléc komponens létrehozása.
+ */
 const Footer = () => <footer className="footer">
-    <div className="footer-left col-md-4 col-sm-12">
+    <div className="footer-left col-md-4 col-sm-12">   {/* Bal oldali rész */}
         <p className="about">
-            <span> Rólunk </span> A belváros közepén mesés enteriőr kialakítással nagy
+            <span> Rólunk </span> A belváros közepén mesés enteriőr kialakítással nagy {/* Étterem leírása */}
             választékkal várjuk vendégeinket. Minőségi konyhatechnikai felszereléssel
             ellátott olasz étterem, igényes környezet. Ételeinket 100% itáliai alapanyagokból készítjük.
             All You Can Eat & Drink.
         </p>
 
-        <div className="icons">
+        <div className="icons">   {/* Közösségi platformok */}
             <Link to="#"><i className="fa fa-facebook"> <FacebookIcon/></i></Link>
             <Link to="#"><i className="fa fa-twitter"> <TwitterIcon/></i></Link>
             <Link to="#"><i className="fa fa-linkedin"> <LinkedInIcon/></i></Link>
@@ -25,9 +30,9 @@ const Footer = () => <footer className="footer">
         </div>
     </div>
 
-    <div className="footer-center col-md-4 col-sm-12">
+    <div className="footer-center col-md-4 col-sm-12">   {/* Középső rész */}
         <div>
-            <span>Elérhetőségek</span>
+            <span>Elérhetőségek</span> {/* Étterem elérhetőségei */}
 
             <p>Soroksári út 32-34 Budapest, 1095</p>
         </div>
@@ -41,17 +46,16 @@ const Footer = () => <footer className="footer">
         </div>
     </div>
 
-    <div className="footer-right col-md-4 col-sm-12">
-        <img style={{width:"120px"}} src={logo} alt="logo"/>
-        <p className="menu">
+    <div className="footer-right col-md-4 col-sm-12">   {/* Jobb oldali rész */}
+        <img style={{width: "120px"}} src={logo} alt="logo"/> {/* Logo */}
+        <p className="menu">   {/* Hasznos linkek */}
             <Link to="#"> Home</Link> |
             <Link to="#"> About</Link> |
             <Link to="#"> Services</Link> |
-            <Link to="#"> Portfolio</Link> |
             <Link to="#"> News</Link> |
             <Link to="#"> Contact</Link>
         </p>
     </div>
 </footer>
 
-export default Footer
+export default Footer;

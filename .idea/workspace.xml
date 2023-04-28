@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="609a43a9-f3e9-4c4c-81ae-ede89fa3b8ca" name="Changes" comment="Appbar link changes, MyOrdersPage">
-      <change afterPath="$PROJECT_DIR$/src/components/myordercard/MyOrderCard.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/myorderspage/logoszoveg.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/profilepage/keszprofil.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/profilepage/profilePageBackground2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/myordercard/MyOrderCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/myordercard/MyOrderCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/myorderspage/MyOrdersPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/myorderspage/MyOrdersPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/orderpage/Orderpage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/orderpage/Orderpage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/profilepage/ProfilePage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profilepage/ProfilePage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/profilepage/ProfilePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profilepage/ProfilePage.tsx" afterDir="false" />
-    </list>
+    <list default="true" id="609a43a9-f3e9-4c4c-81ae-ede89fa3b8ca" name="Changes" comment="fixed comments generated doc" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,24 +29,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "js.last.introduce.type": "CONST",
-    "last_opened_file_path": "D:/Norbert/prjectuj/PizzaProject-React",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "D:\\Norbert\\Project\\Új mappa\\PizzaProject-React\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;js.last.introduce.type&quot;: &quot;CONST&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Norbert/Projekt/PizzaProject-spring&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\Norbert\\Projekt\\PizzaProject-React\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Norbert\Project\Új mappa\PizzaProject-React\src\pages\profilepage" />
@@ -123,6 +111,8 @@
       <workItem from="1681367075449" duration="10658000" />
       <workItem from="1681456894668" duration="4239000" />
       <workItem from="1682006492610" duration="834000" />
+      <workItem from="1682060853711" duration="19318000" />
+      <workItem from="1682334034794" duration="10342000" />
     </task>
     <task id="LOCAL-00001" summary="Base">
       <created>1676448445905</created>
@@ -355,7 +345,42 @@
       <option name="project" value="LOCAL" />
       <updated>1681306291219</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="MyOrdersPage Cards design fix">
+      <created>1682064501856</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1682064501856</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Developer comments">
+      <created>1682074516200</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1682074516200</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Util.ts commentek">
+      <created>1682075980626</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1682075980626</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Bug fix">
+      <created>1682089612232</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1682089612232</updated>
+    </task>
+    <task id="LOCAL-00038" summary="fixed comments generated doc">
+      <created>1682344415574</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1682344415574</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -373,11 +398,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="MenuPage&#10;&#10;&#10;&#10;Termékek lekérése, kiírása" />
-    <MESSAGE value="ProfileButton&#10;&#10;&#10;&#10;Ha be van jelentkezve =&gt; /profilepage &#10;Ha nincs =&gt; /login" />
-    <MESSAGE value="Profil módosítása" />
-    <MESSAGE value="OrderList darabszámmal, globálisan" />
-    <MESSAGE value="Elem hozzáadása az orderList-hez; Első valamiért kimarad" />
     <MESSAGE value="Elem hozzáadása az orderList-hez probléma nélkül;&#10;OrderPage elemekkel, darabszám módosítása, összérték;" />
     <MESSAGE value="Popup notifications" />
     <MESSAGE value="UserContext with LogOut(); data from the user needed to order." />
@@ -398,6 +418,11 @@
     <MESSAGE value="If order ok, clear cart, navigate to homepage" />
     <MESSAGE value="Profilepage media fix" />
     <MESSAGE value="Appbar link changes, MyOrdersPage" />
-    <option name="LAST_COMMIT_MESSAGE" value="Appbar link changes, MyOrdersPage" />
+    <MESSAGE value="MyOrdersPage Cards design fix" />
+    <MESSAGE value="Developer comments" />
+    <MESSAGE value="Util.ts commentek" />
+    <MESSAGE value="Bug fix" />
+    <MESSAGE value="fixed comments generated doc" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed comments generated doc" />
   </component>
 </project>

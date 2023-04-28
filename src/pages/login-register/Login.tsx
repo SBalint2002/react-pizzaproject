@@ -11,6 +11,11 @@ import {toast} from "react-toastify";
 import "./LogReg.css";
 import Container from "react-bootstrap/Container";
 
+/**
+ *Komponens a Pizza Váltó weboldal bejelentkező felületének megjelenítésére.
+ *@function
+ *@returns {JSX.Element} A megjelenített komponens.
+ */
 interface User {
     email: string;
     password: string;
@@ -24,6 +29,11 @@ export default function Login() {
     // Gomb megnyomása után POST és redirect
     let navigate = useNavigate();
 
+    /**
+     *A gombra kattintva beküldi a felhasználói adatokat POST kéréssel, majd átirányítja a felhasználót a főoldalra.
+     *@function
+     *@param {React.FormEvent<HTMLFormElement>} event - A form eseménye.
+     */
     const handleClick = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const data: User = {email, password};
@@ -41,7 +51,7 @@ export default function Login() {
                 const accesstoken = json["accessToken"];
                 const refreshtoken = json["refreshToken"];
 
-                localStorage.setItem("Accesstoken", accesstoken);
+                localStorage.setItem("Accesstoken", accesstoken);  // Backend-től kapott tokenek tárolása
                 localStorage.setItem("Refreshtoken", refreshtoken);
                 toast.success("Sikeres bejelentkezés!")
                 navigate("/");

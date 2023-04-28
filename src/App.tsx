@@ -17,35 +17,40 @@ import MyOrdersPage from "./pages/myorderspage/MyOrdersPage";
 
 function App() {
   return (
-    <Router>
-      <ProductProvider>
-        <UserProvider>
-          <div className="App">
-            <Appbar />
-            <Routes>
-              <Route path="/" element={<Homepage />} />
-              <Route path="/profile" element={<ProfilePage />} />
-              <Route path="/login" element={<Loginform />} />
-              <Route path="/register" element={<Registerform />} />
-              <Route path="/menu" element={<MenuPage />} />
-              <Route path="/order" element={<Orderpage />} />
-              <Route path="/myorders" element={<MyOrdersPage />} />
-            </Routes>
-            <ToastContainer
-              style={{ marginTop: "50px" }}
-              position="top-right"
-              autoClose={2000}
-              hideProgressBar
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              pauseOnHover
-            />
-          </div>
-        </UserProvider>
-      </ProductProvider>
-    </Router>
+      <Router>
+        {/* Globális kosár adatokat tartalmazó kontextus provider */}
+        <ProductProvider>
+          {/* Globális felhasználói adatokat tartalmazó kontextus provider */}
+          <UserProvider>
+            <div className="App">
+              {/* Az alkalmazás fejléce */}
+              <Appbar />
+              {/* A Route elemekkel definiált oldalak */}
+              <Routes>
+                <Route path="/" element={<Homepage />} />
+                <Route path="/profile" element={<ProfilePage />} />
+                <Route path="/login" element={<Loginform />} />
+                <Route path="/register" element={<Registerform />} />
+                <Route path="/menu" element={<MenuPage />} />
+                <Route path="/order" element={<Orderpage />} />
+                <Route path="/myorders" element={<MyOrdersPage />} />
+              </Routes>
+              {/* A toast-üzenetek megjelenítésére szolgáló konténer */}
+              <ToastContainer
+                  style={{ marginTop: "50px" }}
+                  position="top-right"
+                  autoClose={2000}
+                  hideProgressBar
+                  newestOnTop={false}
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss
+                  pauseOnHover
+              />
+            </div>
+          </UserProvider>
+        </ProductProvider>
+      </Router>
   );
 }
 

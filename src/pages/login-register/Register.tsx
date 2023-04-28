@@ -12,6 +12,11 @@ import Container from "react-bootstrap/Container";
 import "./LogReg.css";
 import {toast} from "react-toastify";
 
+/**
+ *Egy React funkcionális komponens, amely egy regisztrációs űrlapot jelenít meg a felhasználó keresztnevét, vezetéknevét, e-mail címét, jelszavát és jelszó megerősítését tartalmazó beviteli mezőkkel.
+ *Ellenőrzi a felhasználói bemenetet a regex minták szerint, és ha minden beviteli mező érvényes, akkor POST kérést küld a szervernek.
+ *Sikeres regisztráció után átirányítja a felhasználót a bejelentkező oldalra.
+ */
 interface User {
     first_name: string;
     last_name: string;
@@ -19,6 +24,10 @@ interface User {
     password: string;
 }
 
+/**
+ *Visszaad egy JSX elemet, ami egy regisztrációs űrlapot jelenít meg a felhasználó keresztnevét, vezetéknevét, email címét, jelszavát és jelszó megerősítését tartalmazó beviteli mezőkkel.
+ *@returns {JSX.Element}
+ */
 export default function Register() {
     // Adatok
     const [last_name, setLastName] = React.useState("");
@@ -27,7 +36,7 @@ export default function Register() {
     const [password, setPassword] = React.useState("");
     const [password2, setPassword2] = React.useState("");
 
-    //Regex validation patterns
+    //Regex szabályok
     const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
     const emailRegex =
         /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
@@ -36,10 +45,16 @@ export default function Register() {
     // Gomb megnyomása után POST és redirect
     let navigate = useNavigate();
 
+    /**
+     *Egy függvény, amely kezeli az űrlap beküldését, amikor a felhasználó az elküld gombot megnyomja.
+     *Ellenőrzi a felhasználói bemenetet a regex minták alapján, hibaüzenetet jelenít meg, ha a bemenet érvénytelen, és POST-kérést küld a szervernek, ha minden bemeneti mező érvényes.
+     *Sikeres regisztráció után átirányítja a felhasználót a bejelentkező oldalra.
+     *@param {React.FormEvent<HTMLFormElement>} event - Az űrlap beküldési eseménye.
+     */
     const handleClick = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
-        // Validate inputs
+        // Bevitelimezők ellenőrzése
         if (!nameRegex.test(last_name)) {
             toast.error("Vezetéknév legalább 2 betű és csak betűket tartalmazhat")
         } else if (!nameRegex.test(first_name)) {
@@ -51,7 +66,7 @@ export default function Register() {
         } else if (password !== password2) {
             toast.error("A két jelszó nem egyezik!")
         } else {
-            // POST the user data
+            // Vizsgált adatok küldése
             const data: User = {first_name, last_name, email, password};
             try {
                 const res = await fetch("/auth/register", {
@@ -62,12 +77,7 @@ export default function Register() {
                     body: JSON.stringify(data),
                 });
                 if (res.ok) {
-                    const json = await res.json();
-                    const accesstoken = json["accessToken"];
-                    const refreshtoken = json["refreshToken"];
-                    console.log(refreshtoken);
-                    localStorage.setItem("Accesstoken", accesstoken);
-                    localStorage.setItem("Refreshtoken", refreshtoken);
+                    toast.success("Sikeres regisztráció!")
                     navigate("/login");
                 }
             } catch (error) {

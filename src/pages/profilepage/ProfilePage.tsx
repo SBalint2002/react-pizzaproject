@@ -14,24 +14,42 @@ import EmailIcon from "@mui/icons-material/Email";
 import FlatButton from "@mui/material/Button";
 import logo from "./keszprofil.png";
 
+/**
+ *
+ *Komponens a felhasználói profil információk megjelenítéséhez és szerkesztéséhez
+ *
+ *@return {JSX.Element}
+ */
 export default function ProfilePage() {
+
+    // Adatok tárolására alkalmas hook-ok
     const [id, setId] = useState(0);
     const [lastName, setLastName] = useState("");
     const [firstName, setFirstName] = useState("");
     const [displayLastName, setDisplayLastName] = useState("");
     const [displayFirstName, setDisplayFirstName] = useState("");
     const [email, setEmail] = useState("");
-    const {logOut} = useUser();
+    const {logOut} = useUser(); // Kijelentkezés függvény lekérése a ProductContext-ből
 
-    const handleLogout = () => {
+    /**
+     *
+     *Kijelentkezés kezelése
+     *@return {void}
+     */
+    const handleLogout = () => { // Kijelentkezés kattintásra
         logOut();
     };
 
+    // Regex szabályok
     const emailRegex =
         /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
     const nameRegex = /^[A-Za-zÁÉÍÓÖŐÚÜŰáéíóöőúüű ]{2,50}$/;
 
-    const fetchData = async () => {
+    /**
+     *Adatok lekérése
+     *@return {void}
+     */
+    const fetchData = async () => { // Felhasználó adatinak lekérése
         try {
             const res = await authFetch("/user/data", {
                 method: "GET",
@@ -58,9 +76,15 @@ export default function ProfilePage() {
         fetchData();
     }, []);
 
+    /**
+     *Függvény a felhasználói adatok módosítására szolgáló űrlap elküldésének kezeléséhez
+     *@param {React.FormEvent<HTMLFormElement>} e - Űrlap elküldési esemény
+     *@return {void}
+     */
     const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        fetchData();
+
+        // Adatok ellenőrzése Regex-ek alapján
         if (!nameRegex.test(firstName)) {
             toast.error("Hibás keresztnév formátum");
             return;
@@ -74,7 +98,7 @@ export default function ProfilePage() {
             return;
         }
 
-        try {
+        try { // Módosított adatok elküldése
             const res = await authFetch(`/user/${id}`, {
                 method: "PUT",
                 headers: {
@@ -96,9 +120,11 @@ export default function ProfilePage() {
             toast.error("Hiba!");
             console.log(error);
         }
+
+        fetchData();
     };
 
-    return (
+    return ( // Form megjelenítése
         <div className="profilebody">
             <Container>
                 <Box className="box"

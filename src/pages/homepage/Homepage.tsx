@@ -2,6 +2,12 @@ import Footer from "../../components/footer/Footer";
 import {Link} from "react-router-dom";
 import BannerImage from '../homepage/pizzaBackground.jpeg';
 import './Homepage.css';
+
+/**
+ *Komponens a Pizza Váltó weboldal főoldalának megjelenítéséhez.
+ *@function
+ *@returns {JSX.Element} A megjelenített komponens.
+ */
 export default function Homepage() {
   return (
       <>
@@ -13,7 +19,7 @@ export default function Homepage() {
           </Link>
       </div>
     </div>
-          <Footer />
+          <Footer /> {/*Lábléc meghívása*/}
       </>
   );
 }
